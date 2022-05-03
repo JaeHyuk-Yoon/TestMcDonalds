@@ -39,6 +39,7 @@ public class ManagerMainPage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel3.setFont(new java.awt.Font("맑은 고딕", 1, 48)); // NOI18N
         jLabel3.setText("Manager ");
