@@ -16,24 +16,11 @@ import java.io.InputStreamReader;
 public class Login {
     String id;
     String passwd;
-    int confirm;
+    
     
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     
     public Login() {
-        confirm = 0;
-    }
-    public void LoginInput() throws IOException {
-        System.out.print("ID : ");
-        id = br.readLine();
-        System.out.print("PASSWORD : ");
-        passwd = br.readLine();
-        
-        confirm = LoginConfirm(id, passwd);
-         
-        if(confirm == 1) {
-            System.out.println("ㅎㅎ");
-        }
     }
     
     public int LoginConfirm(String id, String ps) {
@@ -44,7 +31,6 @@ public class Login {
         }
         else {
             num = 0;
-            System.out.println("ㄲㅈ");
         }
         
         return num;
