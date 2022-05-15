@@ -24,6 +24,7 @@ public class psConfirmDialog extends javax.swing.JDialog {
         initComponents();
         this.id = id;
         this.ps = ps;
+        setLocationRelativeTo(null);
         confirm = 0;
         
     }
