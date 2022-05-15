@@ -128,6 +128,8 @@ public class LoginPage extends javax.swing.JFrame {
         else {
             JFrame jFrame = new JFrame();
             JOptionPane.showMessageDialog(jFrame, "로그인 실패");
+            jTextField1.setText("");
+            jPasswordField1.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

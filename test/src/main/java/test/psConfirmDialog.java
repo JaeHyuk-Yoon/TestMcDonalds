@@ -125,7 +125,7 @@ public class psConfirmDialog extends javax.swing.JDialog {
         }
         else {
             JFrame jFrame = new JFrame();
-            JOptionPane.showMessageDialog(jFrame, "로그인 실패");
+            JOptionPane.showMessageDialog(jFrame, "패스워드 확인 실패");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
