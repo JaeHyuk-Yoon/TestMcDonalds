@@ -12,6 +12,5 @@ package test;
 public class SpicyChickenBbqSauce implements SelectSauce {
     public String getSauce() {
         return "매운 치킨 바베큐 소스";
-    }
-    
+    }    
 }
