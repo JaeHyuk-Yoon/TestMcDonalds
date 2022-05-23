@@ -9,7 +9,7 @@ package test;
  *
  * @author JaeHyuk
  */
-public abstract class Burger {
+public abstract class Burger extends Menu{
     
     protected Bun bun;
     protected CheeseWheather cheeseWheather;
@@ -21,16 +21,13 @@ public abstract class Burger {
     protected String patty;
     protected String vegetable;
     
-    public String description = "제목없음";
-    
     public Burger() {
-    
+        
     }
     
-    public String getDescription() {
-        return description;
-    }
     public abstract int cost();
+    
+    //public abstract String getDescription();
     
     public void setCheeseWheather(CheeseWheather scw) {
         cheeseWheather = scw;

@@ -9,8 +9,12 @@ package test;
  *
  * @author JaeHyuk
  */
-public class SpicyChickenBbqSauce implements SelectSauce {
-    public String getSauce() {
-        return "매운 치킨 바베큐 소스";
-    }    
+public abstract class Menu {
+    public String description = "제목없음";
+    
+    public String getDescription() {
+        return description;
+    }
+    public abstract int cost();
+    
 }
