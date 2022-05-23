@@ -5,6 +5,8 @@
  */
 package test;
 
+import java.util.ArrayList;
+
 
 /**
  *
@@ -17,8 +19,32 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        CheeseBurger b = new CheeseBurger();
-        System.out.print(b.testDisplay());
+        //CheeseBurger burger = new CheeseBurger();
+        //System.out.print(burger.testDisplay());   // 스트레티지 패턴 테스트
+        
+        Burger burger2 = new CheeseBurger();
+        //System.out.println(burger2.getDescription() + " 금액 : " + burger2.cost() +" 원");      //데코레이터 패턴 테스트
+        
+        Burger burger3 = new CheeseBurger();
+        burger3 = new ToppingCheese(burger3);
+        burger3 = new ToppingLettuce(burger3);
+        burger3 = new ChangeSet(burger3);
+        //System.out.println(burger3.getDescription() + " 금액 : " + burger3.cost() +"원");      //데코레이터 패턴 테스트
+        
+        Burger burger4 = new BeefBurger();
+        burger4 = new ToppingCheese(burger4);
+        burger4 = new ToppingLettuce(burger4);
+        burger4 = new ChangeSet(burger4);
+        //System.out.println(burger4.getDescription() + " 금액 : " + burger4.cost() +"원");      //데코레이터 패턴 테스트
+        
+        ArrayList<Menu> arrayMenu = new ArrayList<>();
+        arrayMenu.add(burger2);
+        arrayMenu.add(burger3);
+        arrayMenu.add(burger4);
+        
+        for(Menu menu : arrayMenu) {
+            System.out.println(menu.getDescription() + " 금액 : " + menu.cost() +"원");
+        }
     }
     
 }
