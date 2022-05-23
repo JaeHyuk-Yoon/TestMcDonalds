@@ -38,7 +38,7 @@ public class CheeseBurger extends Burger {
     }
     
     public String testDisplay() {
-        return description + patty + sauce + vegetable + cheeseWheather.getCheeseWheather();
+        return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
     }
 
 }
