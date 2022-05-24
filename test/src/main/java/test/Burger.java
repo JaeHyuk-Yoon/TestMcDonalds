@@ -29,6 +29,8 @@ public abstract class Burger extends Menu{
     
     //public abstract String getDescription();
     
+    public abstract String testDisplay();
+    
     public void setCheeseWheather(CheeseWheather scw) {
         cheeseWheather = scw;
     }

@@ -17,4 +17,8 @@ public class ChickenBurger extends Burger {
     public int cost() {
         return 4000;
     }
+    
+    public String testDisplay() {
+        return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
+    }
 }
