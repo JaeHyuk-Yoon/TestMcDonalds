@@ -11,4 +11,8 @@ package test;
  */
 public abstract class BurgerToppingdecorator extends Burger{
     public abstract String getDescription();
+    
+    public String testDisplay() {
+        return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
+    }
 }

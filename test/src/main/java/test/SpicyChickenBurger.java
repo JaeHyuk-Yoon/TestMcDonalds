@@ -17,4 +17,8 @@ public class SpicyChickenBurger extends Burger {
     public int cost() {
         return 4500;
     }
+    
+    public String testDisplay() {
+        return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
+    }
 }
