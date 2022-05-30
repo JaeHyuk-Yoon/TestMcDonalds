@@ -14,6 +14,22 @@ public class ChickenBurger extends Burger {
         description = "치킨 버거";
     }
     
+    private BurgerStoreIngredientFactory ingregientFactory;
+
+    public ChickenBurger(BurgerStoreIngredientFactory ingregientFactory) {
+        this.ingregientFactory = ingregientFactory;
+        
+        // 이부분 수정해야할듯
+        description = "매운 치킨 버거";        
+        selectPatty = new ChickenPatty();
+        selectSauce = new ChickenBbqSauce();
+        selectVegetable = new LettuceTomato();
+        patty = selectPatty.getPatty();
+        sauce = selectSauce.getSauce();
+        vegetable = selectVegetable.getVegetable();
+
+    }
+    
     public int cost() {
         return 4000;
     }
