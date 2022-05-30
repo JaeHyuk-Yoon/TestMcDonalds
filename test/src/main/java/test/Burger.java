@@ -11,7 +11,11 @@ package test;
  */
 public abstract class Burger extends Menu{
     
-    protected Bun bun;
+    // 팩토리 원재료
+    protected Bun indBun;
+    protected Cheese indCheese;
+    
+    // 스트레티지
     protected CheeseWheather cheeseWheather;
     protected SelectSauce selectSauce;
     protected SelectPatty selectPatty;

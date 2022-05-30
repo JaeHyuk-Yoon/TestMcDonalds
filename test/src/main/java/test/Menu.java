@@ -16,5 +16,9 @@ public abstract class Menu {
         return description;
     }
     public abstract int cost();
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     
 }
