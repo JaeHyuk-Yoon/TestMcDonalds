@@ -10,10 +10,10 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public abstract class BurgerStore extends Menu{
-    public abstract Burger createBurger(String item);
+    public abstract Menu createBurger(String item);
     
-    public Burger orderPizza(String type) {
-    Burger burger = null;
+    public Menu orderPizza(String type) {
+    Menu burger = null;
 
     burger = createBurger(type);
 
