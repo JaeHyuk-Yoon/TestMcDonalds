@@ -13,15 +13,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-<<<<<<< HEAD
-<<<<<<< HEAD:test/src/main/java/test/LoginPage.java
         setTitle("SnG");
-=======
-        setTitle("햄버거스토어");
->>>>>>> a714688671ee34d034f0ce852703ea46f1c334fa:test/src/main/java/UI/LoginPage.java
-=======
-        setTitle("햄버거스토어");
->>>>>>> fb3505005bd109c68888309f00531e24c69830c0
         setSize(600, 500);
         setLocationRelativeTo(null);
     }
