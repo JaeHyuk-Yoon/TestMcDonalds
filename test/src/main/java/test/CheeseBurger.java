@@ -24,6 +24,24 @@ public class CheeseBurger extends Burger {
 
         
     }
+    
+    private BurgerStoreIngredientFactory ingregientFactory;
+
+    public CheeseBurger(BurgerStoreIngredientFactory ingregientFactory) {
+        this.ingregientFactory = ingregientFactory;
+        
+        // 이부분 수정해야할듯
+        description = "치즈 버거";
+        cheeseWheather = new AddCheese();
+        selectPatty = new BeefPatty();
+        selectSauce = new BeefBbqSauce();
+        selectVegetable = new NoVegetable();
+        patty = selectPatty.getPatty();
+        sauce = selectSauce.getSauce();
+        vegetable = selectVegetable.getVegetable();
+        cheese = cheeseCheck();
+
+    }
 
     public int cost() {
         return 5000;
