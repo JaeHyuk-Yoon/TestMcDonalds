@@ -12,7 +12,7 @@ package test;
 public class CheddarCheese implements Cheese{
     @Override
     public String getCheese() {
-        return "Cheddar Cheese";
+        return "치즈 : 체다치즈 사용";
     }
     public CheddarCheese() {
         //System.out.println("Cheddar Cheese");

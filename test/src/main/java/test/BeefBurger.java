@@ -28,12 +28,12 @@ public class BeefBurger extends Burger {
         sauce = selectSauce.getSauce();
         vegetable = selectVegetable.getVegetable();
         
-        this.indBun = ingregientFactory.createBun();
-        this.indCheese = ingregientFactory.createCheese();
-        this.indVegetable = ingregientFactory.createVegetable();
-        this.indPotato = ingregientFactory.createPotato();
-        this.indCola = ingregientFactory.createCola();
-        this.indBeefPatty = ingregientFactory.createBeefPatty();
+        //this.indBun = ingregientFactory.createBun();
+        //this.indCheese = ingregientFactory.createCheese();
+        //this.indVegetable = ingregientFactory.createVegetable();
+        //this.indPotato = ingregientFactory.createPotato();
+        //this.indCola = ingregientFactory.createCola();
+        //this.indBeefPatty = ingregientFactory.createBeefPatty();
 
     }
     

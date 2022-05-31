@@ -12,6 +12,6 @@ package test;
 public class MediumRare implements IndBeefPatty{
     @Override
     public String getIndBeefPatty() {
-        return "MediumRare Beef Patty";
+        return "소고기 패티 : 미디움레어 굽기 ";
     }
 }
