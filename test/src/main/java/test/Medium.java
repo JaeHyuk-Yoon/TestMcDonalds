@@ -10,6 +10,7 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class Medium implements IndBeefPatty{
+    @Override
     public String getIndBeefPatty() {
         return "Medium Beef Patty";
     }
