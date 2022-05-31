@@ -12,7 +12,7 @@ package test;
 public abstract class BurgerStore extends Menu{
     public abstract Menu createBurger(String item);
     
-    public Menu orderPizza(String type) {
+    public Menu orderBurger(String type) {
     Menu burger = null;
 
     burger = createBurger(type);

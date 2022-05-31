@@ -45,6 +45,16 @@ public class Test {
         for(Menu menu : arrayMenu) {
             System.out.println(menu.getDescription() + " 금액 : " + menu.cost() +"원");
         }
+        
+        // 팩토리 패턴 테스트
+        Menu burger = null;
+        BurgerStore sngBurgerStore = new SnGBurgerStore();
+        BurgerStore guilguBurgerStore = new GuilguBurgerStore();
+        
+        burger = sngBurgerStore.orderBurger("치즈 버거");
+        System.out.println("--------------------------");
+        burger = guilguBurgerStore.orderBurger("비프 버거");
+        
     }
     
 }
