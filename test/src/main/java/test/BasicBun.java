@@ -12,9 +12,9 @@ package test;
 public class BasicBun implements Bun{
     @Override
     public String getBun() {
-        return "Basic Bun";
+        return "빵 : 클래식 번 사용";
     }
     public BasicBun() {
-        System.out.println("Basic Bun");
+        //System.out.println("Basic Bun");
     }
 }

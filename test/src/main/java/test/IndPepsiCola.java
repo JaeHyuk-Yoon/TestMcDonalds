@@ -12,9 +12,9 @@ package test;
 public class IndPepsiCola implements IndCola{
     @Override
     public String getIndCola() {
-        return "Ind Pepsi Cola";
+        return "콜라 : 펩시콜라 사용";
     }
     public IndPepsiCola() {
-        System.out.println("Ind Pepsi Cola");
+        //System.out.println("Ind Pepsi Cola");
     }
 }

@@ -12,22 +12,22 @@ package test;
 public class SnGBurgerStore extends BurgerStore {
     
     @Override
-    public Menu createBurger(String item) {
-        Menu burger = null;
+    public Burger createBurger(String item) {
+        Burger burger = null;
         BurgerStoreIngredientFactory factory = new SnGBurgerIngredientFactory();
         
         if(item.equals("치즈 버거")) {
             burger = new CheeseBurger(factory);
-            burger.setDescription("SnG Style Cheese Burger");
+            burger.setDescription("(SnG 매장) : 치즈 버거");
         } else if(item.equals("비프 버거")) {
             burger = new BeefBurger(factory);
-            burger.setDescription("SnG Style Beef Burger");
+            burger.setDescription("(SnG 매장) : 비프 버거");
         } else if(item.equals("치킨 버거")) {
             burger = new ChickenBurger(factory);
-            burger.setDescription("SnG Style Chiken Burger");
+            burger.setDescription("(SnG 매장) : 치킨 버거");
         } else if(item.equals("매운 치킨 버거")) {
             burger = new SpicyChickenBurger(factory);
-            burger.setDescription("SnG Style Spicy Chiken Burger");
+            burger.setDescription("(SnG 매장) : 매운 치킨 버거");
         }
         
         return burger;

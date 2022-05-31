@@ -10,15 +10,15 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public abstract class BurgerStore{
-    public abstract Menu createBurger(String item);
-        
-    public Menu orderBurger(String type) {
-    Menu burger = null;
-
-    burger = createBurger(type);
-    burger.getDescription();
     
-    return burger;
+    public abstract Burger createBurger(String item);
+        
+    public Burger orderBurger(String type) {
+        Burger burger = null;
+
+        burger = createBurger(type);
+
+        return burger;
     
     }    
 }

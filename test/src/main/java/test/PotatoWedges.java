@@ -12,9 +12,9 @@ package test;
 public class PotatoWedges implements Potato{
     @Override
     public String getPotato() {
-        return "Potato Wedges";
+        return "감자튀김 : 웨지 감자";
     }
     public PotatoWedges() {
-        System.out.println("Potato Wedges");
+        //System.out.println("Potato Wedges");
     }
 }

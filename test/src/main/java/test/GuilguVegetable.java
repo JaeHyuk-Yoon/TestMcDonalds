@@ -12,9 +12,9 @@ package test;
 public class GuilguVegetable implements Vegetable{
     @Override
     public String getVegetable() {
-        return "Guilgu Vegetable";
+        return "야채 : 냉동 야채 사용";
     }
     public GuilguVegetable() {
-        System.out.println("Guilgu Vegetable");
+        //System.out.println("Guilgu Vegetable");
     }
 }
