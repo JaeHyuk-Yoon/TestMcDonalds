@@ -9,8 +9,8 @@ package test;
  *
  * @author Minsu <jminsu084@gmail.com>
  */
-public class PepsiCola implements Cola{
-    public PepsiCola() {
-        System.out.println("Pepsi Cola");
+public class IndCocaCola implements IndCola{
+    public IndCocaCola() {
+        System.out.println("Ind Coca Cola");
     }
 }

@@ -16,5 +16,5 @@ public interface BurgerStoreIngredientFactory {
     Cheese createCheese();
     Potato createPotato();
     Vegetable createVegetable();
-    Cola createCola();    
+    IndCola createCola();    
 }

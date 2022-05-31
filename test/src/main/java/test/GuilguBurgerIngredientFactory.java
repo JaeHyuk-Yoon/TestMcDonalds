@@ -32,8 +32,8 @@ public class GuilguBurgerIngredientFactory implements BurgerStoreIngredientFacto
     }
 
     @Override
-    public Cola createCola() {
-        return new PepsiCola();
+    public IndCola createCola() {
+        return new IndPepsiCola();
     }
     
 }
