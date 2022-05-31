@@ -10,6 +10,10 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class HashBrown implements Potato{
+    @Override
+    public String getPotato() {
+        return "Hash Brown";
+    }
     public HashBrown() {
         System.out.println("Hash Brown");
     }

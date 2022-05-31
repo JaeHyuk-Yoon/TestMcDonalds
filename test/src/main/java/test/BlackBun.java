@@ -10,6 +10,10 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class BlackBun implements Bun{
+    @Override
+    public String getBun() {
+        return "Black Bun";
+    }
     public BlackBun() {
         System.out.println("Black Bun");
     }

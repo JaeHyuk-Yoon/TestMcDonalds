@@ -10,5 +10,5 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public interface Cheese {
-    
+    public String getCheese();
 }

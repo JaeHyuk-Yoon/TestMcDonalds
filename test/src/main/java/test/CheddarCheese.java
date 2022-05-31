@@ -10,7 +10,10 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class CheddarCheese implements Cheese{
+    public String getCheese() {
+        return "Cheddar Cheese";
+    }
     public CheddarCheese() {
-        System.out.println("Cheddar Cheese");
+        //System.out.println("Cheddar Cheese");
     }
 }
