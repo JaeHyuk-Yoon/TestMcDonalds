@@ -41,7 +41,8 @@ public class BeefBurger extends Burger {
         this.indCheese = ingregientFactory.createCheese();
         this.indVegetable = ingregientFactory.createVegetable();
         this.indPotato = ingregientFactory.createPotato();
-        this.indcola = ingregientFactory.createCola();
+        this.indCola = ingregientFactory.createCola();
+        this.indBeefPatty = ingregientFactory.createBeefPatty();
         
         return description;
     }
