@@ -9,12 +9,9 @@ package test;
  *
  * @author Minsu <jminsu084@gmail.com>
  */
-public class CheddarCheese implements Cheese{
+public class MediumRare implements IndBeefPatty{
     @Override
-    public String getCheese() {
-        return "Cheddar Cheese";
-    }
-    public CheddarCheese() {
-        //System.out.println("Cheddar Cheese");
+    public String getIndBeefPatty() {
+        return "MediumRare Beef Patty";
     }
 }

@@ -9,12 +9,6 @@ package test;
  *
  * @author Minsu <jminsu084@gmail.com>
  */
-public class CheddarCheese implements Cheese{
-    @Override
-    public String getCheese() {
-        return "Cheddar Cheese";
-    }
-    public CheddarCheese() {
-        //System.out.println("Cheddar Cheese");
-    }
+public interface IndBeefPatty {
+    public String getIndBeefPatty();
 }

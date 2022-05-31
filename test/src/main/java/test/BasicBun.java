@@ -10,6 +10,10 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class BasicBun implements Bun{
+    @Override
+    public String getBun() {
+        return "Basic Bun";
+    }
     public BasicBun() {
         System.out.println("Basic Bun");
     }

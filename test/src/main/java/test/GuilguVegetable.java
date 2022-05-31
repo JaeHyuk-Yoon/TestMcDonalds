@@ -10,6 +10,10 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class GuilguVegetable implements Vegetable{
+    @Override
+    public String getVegetable() {
+        return "Guilgu Vegetable";
+    }
     public GuilguVegetable() {
         System.out.println("Guilgu Vegetable");
     }

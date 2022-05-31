@@ -10,6 +10,10 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class MozzarellaCheese implements Cheese{
+    @Override
+    public String getCheese() {
+        return "Mozzarella Cheese";
+    }
     public MozzarellaCheese() {
         System.out.println("Mozzarella Cheese");
     }

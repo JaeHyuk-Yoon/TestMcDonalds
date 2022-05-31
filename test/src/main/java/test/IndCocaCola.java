@@ -10,6 +10,10 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class IndCocaCola implements IndCola{
+    @Override
+    public String getIndCola() {
+        return "Ind Coca Cola";
+    }
     public IndCocaCola() {
         System.out.println("Ind Coca Cola");
     }

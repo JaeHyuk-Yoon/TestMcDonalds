@@ -10,6 +10,10 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class PotatoWedges implements Potato{
+    @Override
+    public String getPotato() {
+        return "Potato Wedges";
+    }
     public PotatoWedges() {
         System.out.println("Potato Wedges");
     }

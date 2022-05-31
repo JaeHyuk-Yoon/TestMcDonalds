@@ -36,4 +36,9 @@ public class SnGBurgerIngredientFactory implements BurgerStoreIngredientFactory{
         return new IndCocaCola();
     }
     
+    @Override
+    public IndBeefPatty createBeefPatty() {
+        return new Medium();
+    }
+    
 }

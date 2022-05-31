@@ -10,5 +10,5 @@ package test;
  * @author JaeHyuk
  */
 public interface Bun {
-    
+    public String getBun();
 }

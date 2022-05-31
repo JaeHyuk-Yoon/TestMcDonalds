@@ -34,6 +34,19 @@ public class BeefBurger extends Burger {
         return 4500;
     }
     
+    @Override
+    public String getDescription() {
+        
+        this.indBun = ingregientFactory.createBun();
+        this.indCheese = ingregientFactory.createCheese();
+        this.indVegetable = ingregientFactory.createVegetable();
+        this.indPotato = ingregientFactory.createPotato();
+        this.indCola = ingregientFactory.createCola();
+        this.indBeefPatty = ingregientFactory.createBeefPatty();
+        
+        return description;
+    }
+    
     public String testDisplay() {
         return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
     }

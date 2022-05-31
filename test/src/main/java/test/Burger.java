@@ -14,6 +14,10 @@ public abstract class Burger extends Menu{
     // 팩토리 원재료
     protected Bun indBun;
     protected Cheese indCheese;
+    protected Vegetable indVegetable;
+    protected Potato indPotato;
+    protected IndCola indCola;
+    protected IndBeefPatty indBeefPatty;
     
     // 스트레티지
     protected CheeseWheather cheeseWheather;
