@@ -18,7 +18,7 @@ public class GuilguBurgerStore extends BurgerStore{
     @Override
     public Menu createBurger(String item) {
         Menu burger = null;
-        BurgerStoreIngredientFactory factory = new SnGBurgerIngredientFactory();
+        BurgerStoreIngredientFactory factory = new GuilguBurgerIngredientFactory();
         
         if(item.equals("치즈 버거")) {
             burger = new CheeseBurger(factory);
