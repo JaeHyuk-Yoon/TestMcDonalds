@@ -9,9 +9,11 @@ package test;
  *
  * @author Minsu <jminsu084@gmail.com>
  */
-public abstract class SnGBurgerStore extends BurgerStore {
+public class SnGBurgerStore extends BurgerStore {
     @Override
-    public abstract int cost();
+    public int cost() {
+        return 0;
+    }
     
     @Override
     public Menu createBurger(String item) {
