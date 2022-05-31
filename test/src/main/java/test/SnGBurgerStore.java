@@ -10,10 +10,6 @@ package test;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class SnGBurgerStore extends BurgerStore {
-    @Override
-    public int cost() {
-        return 0;
-    }
     
     @Override
     public Menu createBurger(String item) {

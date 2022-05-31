@@ -15,6 +15,6 @@ public class BlackBun implements Bun{
         return "Black Bun";
     }
     public BlackBun() {
-        System.out.println("Black Bun");
+        
     }
 }
