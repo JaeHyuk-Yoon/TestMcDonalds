@@ -9,17 +9,15 @@ package test;
  *
  * @author Minsu <jminsu084@gmail.com>
  */
-public abstract class BurgerStore extends Menu{
+public abstract class BurgerStore{
     public abstract Menu createBurger(String item);
-    
+        
     public Menu orderBurger(String type) {
     Menu burger = null;
 
     burger = createBurger(type);
-
     burger.getDescription();
-    burger.cost();
-
+    
     return burger;
     
     }    
