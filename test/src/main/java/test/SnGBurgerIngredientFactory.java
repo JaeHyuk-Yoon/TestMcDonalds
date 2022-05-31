@@ -32,8 +32,8 @@ public class SnGBurgerIngredientFactory implements BurgerStoreIngredientFactory{
     }
     
     @Override
-    public Cola createCola() {
-        return new CocaCola();
+    public IndCola createCola() {
+        return new IndCocaCola();
     }
     
 }
