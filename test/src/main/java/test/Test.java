@@ -47,17 +47,32 @@ public class Test {
         //}
         
         // 팩토리 패턴 테스트
-        Burger burger5 = null;
+//        Burger burger5 = null;
+//        
+//        BurgerStore sngBurgerStore = new SnGBurgerStore();
+//        BurgerStore guilguBurgerStore = new GuilguBurgerStore();
+//        
+//        System.out.println("----------------------------------------------( 주문 )--------------------------------------------------");
+//        burger5 = guilguBurgerStore.orderBurger("비프 버거");
+//        burger5 = new ToppingCheese(burger5);
+//        burger5= new ToppingLettuce(burger5);
+//        burger5 = new ChangeSet(burger5);
+ //      System.out.println(burger5.getDescription() + " - 금액 : " + burger5.cost() +"원");
+       
+        //옵저버
+        OrderData orderData = new OrderData();
+        StockDisplay stockDisplay = new StockDisplay(orderData);
+        SalesDisplay salesDisplay = new SalesDisplay(orderData);
+        OrderListDisplay orderListDisplay = new OrderListDisplay(orderData);
         
-        BurgerStore sngBurgerStore = new SnGBurgerStore();
-        BurgerStore guilguBurgerStore = new GuilguBurgerStore();
-        
-        System.out.println("----------------------------------------------( 주문 )--------------------------------------------------");
-        burger5 = guilguBurgerStore.orderBurger("비프 버거");
-        burger5 = new ToppingCheese(burger5);
-        burger5= new ToppingLettuce(burger5);
-        burger5 = new ChangeSet(burger5);
-        System.out.println(burger5.getDescription() + " - 금액 : " + burger5.cost() +"원");
+        orderData.setOrder("치즈버거세트", 6700);
+        System.out.println("========================");
+        orderData.setOrder("치즈스틱", 2000);
+        System.out.println("========================");
+        orderData.setOrder("매운치킨버거",5600);
+        System.out.println("========================");
+
+            
     }
     
 }
