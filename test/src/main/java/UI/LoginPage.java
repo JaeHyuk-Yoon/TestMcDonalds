@@ -125,7 +125,9 @@ public class LoginPage extends javax.swing.JFrame {
             confirm = userDAO.login(jTextField1.getText(), jPasswordField1.getText());
             
             if (confirm == 1) {//관리자 로그인
-                
+                StockPage sp = new StockPage();
+                sp.setVisible(true);
+                this.dispose();
                 
             }
             else if(confirm ==2){//키오스크로그인
