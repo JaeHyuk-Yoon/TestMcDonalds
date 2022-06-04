@@ -17,7 +17,7 @@ public class UserDAO {
     private PreparedStatement pstmt= null;
     private ResultSet rs= null;
     
-    User user = new User();
+    public User user = new User();
     
     public UserDAO(){//mysql접속
         try{

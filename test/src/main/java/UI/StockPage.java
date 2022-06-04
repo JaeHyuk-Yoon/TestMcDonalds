@@ -21,14 +21,21 @@ import javax.swing.table.DefaultTableModel;
 public class StockPage extends javax.swing.JFrame {
     
     private ArrayList<Stock> stockList = new ArrayList<>();
-
+    String branch;
     /**
      * Creates new form StockPage
      */
     public StockPage() {
         
         initComponents();
-        setTitle("재고관리");
+        setTitle(branch+ " 재고관리");
+        setSize(600, 500);
+        setLocationRelativeTo(null);
+    }
+    public StockPage(String branch) {
+        this.branch = branch;
+        initComponents();
+        setTitle(branch+ " 재고관리");
         setSize(600, 500);
         setLocationRelativeTo(null);
     }
@@ -105,7 +112,7 @@ public class StockPage extends javax.swing.JFrame {
             DefaultTableModel sTable = (DefaultTableModel)stockTable.getModel();
             sTable.setNumRows(0);
             
-            stockList = (new StockDAO()).getList("919");
+            stockList = (new StockDAO()).getList(branch);
             for(int i=0; i<stockList.size();i++){
                 sTable.insertRow(sTable.getRowCount(), new Object[]{
                     stockList.get(i).getName(),

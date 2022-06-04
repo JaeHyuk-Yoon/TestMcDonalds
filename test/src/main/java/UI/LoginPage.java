@@ -121,19 +121,22 @@ public class LoginPage extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             int confirm=0;
+            String branch = null;
             UserDAO userDAO = new UserDAO();
             confirm = userDAO.login(jTextField1.getText(), jPasswordField1.getText());
-            
-            if (confirm == 1) {//관리자 로그인
-                StockPage sp = new StockPage();
-                sp.setVisible(true);
-                this.dispose();
-                
-            }
-            else if(confirm ==2){//키오스크로그인
-                UserMainPage ump = new UserMainPage(jTextField1.getText(), jPasswordField1.getText());
-                ump.setVisible(true);
-                this.dispose();
+            if(confirm>0){
+                    branch = userDAO.user.getBranch();
+                if (confirm == 1) {//관리자 로그인
+                    StockPage sp = new StockPage(branch);
+                    sp.setVisible(true);
+                    this.dispose();
+
+                }
+                else if(confirm ==2){//키오스크로그인
+                    UserMainPage ump = new UserMainPage(jTextField1.getText(), jPasswordField1.getText(),branch);
+                    ump.setVisible(true);
+                    this.dispose();
+                }
             }
             else {
                 JFrame jFrame = new JFrame();

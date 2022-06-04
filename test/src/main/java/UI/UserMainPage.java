@@ -24,6 +24,7 @@ public class UserMainPage extends javax.swing.JFrame {
      */
     String id;
     String ps;
+    String branch;
     int confirm;
         
     public UserMainPage() {
@@ -33,11 +34,12 @@ public class UserMainPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         confirm=0;
     }
-    public UserMainPage(String id, String ps) {
+    public UserMainPage(String id, String ps, String branch) {
         initComponents();
         this.id = id;
         this.ps = ps;
-        setTitle("맥도랏나 유저");
+        this.branch = branch;
+        setTitle(branch+" store");
         setSize(600, 500);
         setLocationRelativeTo(null);
         confirm=0;
