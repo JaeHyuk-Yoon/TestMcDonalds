@@ -1,5 +1,5 @@
 
-package test;
+package src;
 
 import java.util.Observable;
 /**

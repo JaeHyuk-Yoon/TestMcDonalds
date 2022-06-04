@@ -1,5 +1,5 @@
 
-package test;
+package src;
 /**
  *
  * @author heejin

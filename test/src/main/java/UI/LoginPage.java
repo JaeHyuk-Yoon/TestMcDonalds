@@ -1,7 +1,7 @@
 package UI;
 
 import javax.swing.*;
-import test.Login;
+import src.Login;
 /**
  *
  * @author JaeHyuk

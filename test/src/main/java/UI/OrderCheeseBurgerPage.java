@@ -5,11 +5,11 @@
  */
 package UI;
 
-import test.Burger;
-import test.CheeseBurger;
-import test.ToppingCheese;
-import test.ToppingLettuce;
-import test.ChangeSet;
+import src.Burger;
+import src.CheeseBurger;
+import src.ToppingCheese;
+import src.ToppingLettuce;
+import src.ChangeSet;
 
 /**
  *

@@ -1,5 +1,7 @@
 
-package test;
+package src;
+import src.DisplayElement;
+import src.OrderData;
 import java.util.Observable;
 import java.util.Observer;
 /**
@@ -63,10 +65,7 @@ class StockDisplay implements Observer, DisplayElement {
       System.out.println("토핑");
       System.out.println("치즈 : "+cheeseQty+"  양배추 : "+lettuceQty);
       System.out.println("사이드");
-      System.out.println("치즈스틱 : "+ cheeseStickQty+"  감자 : "+potatoQty+"  콜라 : "+colaQty+"  물 : "+waterQty+"  우유 : "+milkQty);
-      
-  }
-
-  
+      System.out.println("치즈스틱 : "+ cheeseStickQty+"  감자 : "+potatoQty+"  콜라 : "+colaQty+"  물 : "+waterQty+"  우유 : "+milkQty);      
+  } 
 
 }
