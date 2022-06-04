@@ -13,9 +13,9 @@ import java.sql.*;
  */
 
 public class UserDAO {
-    private Connection conn;
-    private PreparedStatement pstmt;
-    private ResultSet rs;
+    private Connection conn = null;
+    private PreparedStatement pstmt= null;
+    private ResultSet rs= null;
     
     User user = new User();
     
@@ -24,7 +24,6 @@ public class UserDAO {
             String dbURL = "jdbc:mysql://localhost:3306/kiosk?serverTimezone=UTC";
             String dbID = "root";
             String dbPW = "1234";             
-          //  Class.forName("com.mysql.jdbc.Driver");
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("연결");
             conn = DriverManager.getConnection(dbURL,dbID,dbPW);
@@ -46,7 +45,7 @@ public class UserDAO {
                     user.setBranch(rs.getString(2));
                     user.setType(rs.getString(3));
                     if(rs.getString(3).equals("manager"))
-                        return 1;//손님로그인 성공
+                        return 1;//관리자 로그인 성공
                     else
                         return 2;//손님로그인 성공
                 }
