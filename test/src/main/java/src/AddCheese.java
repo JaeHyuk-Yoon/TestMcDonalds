@@ -11,7 +11,7 @@ package src;
  */
 public class AddCheese implements CheeseWheather {
     public String getCheeseWheather() {
-        return "치즈 필요";
+        return "치즈";
     }
     
 }

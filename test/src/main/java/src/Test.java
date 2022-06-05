@@ -25,7 +25,8 @@ public class Test {
         //Burger burger2 = new CheeseBurger();
         //System.out.println(burger2.getDescription() + " 금액 : " + burger2.cost() +" 원");      //데코레이터 패턴 테스트
         
-        //Burger burger3 = new CheeseBurger();
+        Burger burger3 = new CheeseBurger();
+        System.out.println(burger3.cost());
         //burger3 = new ToppingCheese(burger3);
         //burger3 = new ToppingLettuce(burger3);
         //burger3 = new ChangeSet(burger3);

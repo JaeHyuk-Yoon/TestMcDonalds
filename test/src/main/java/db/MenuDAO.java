@@ -25,4 +25,24 @@ public class MenuDAO {
             e.printStackTrace();
         }
     }
+    
+    public int menuCost(String name) throws SQLException{
+        String SQL = "SELECT price FROM menu WHERE name = ?";
+         try{
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, name);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                return rs.getInt("price");
+            }
+//            return -1;//아이디 없음
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+             if(rs!=null) rs.close();
+             if(pstmt!= null) pstmt.close();
+             if (conn!=null) conn.close();
+         }
+         return -2;//데이터베이스오류
+    }
 }

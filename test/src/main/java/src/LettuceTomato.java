@@ -10,7 +10,8 @@ package src;
  * @author JaeHyuk
  */
 public class LettuceTomato implements SelectVegetable{
+    //걍 addVegetable이걸로 클래스명 바꾸는게 좋을듯?
     public String getVegetable() {
-        return "양상추, 토마토";
+        return "야채";
     }
 }

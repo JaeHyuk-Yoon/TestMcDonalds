@@ -11,6 +11,6 @@ package src;
  */
 public class BeefPatty implements SelectPatty {
     public String getPatty() {
-        return "비프";
+        return "비프 패티";
     }
 }
