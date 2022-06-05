@@ -10,12 +10,24 @@ package UI;
  * @author heejin
  */
 public class OrderListPage extends javax.swing.JFrame {
+    
+    String branch;
 
     /**
      * Creates new form OrderListPage
      */
     public OrderListPage() {
         initComponents();
+        setTitle(branch+ " 주문조회");
+        setSize(600, 500);
+        setLocationRelativeTo(null);
+    }
+    public OrderListPage(String branch) {
+        this.branch=branch;
+        initComponents();
+        setTitle(branch+ " 주문조회");
+        setSize(600, 500);
+        setLocationRelativeTo(null);
     }
 
     /**

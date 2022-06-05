@@ -29,7 +29,7 @@ public class UserMainPage extends javax.swing.JFrame {
         
     public UserMainPage() {
         initComponents();
-        setTitle("맥도랏나 유저");
+        setTitle(branch+" store");
         setSize(600, 500);
         setLocationRelativeTo(null);
         confirm=0;
@@ -190,12 +190,12 @@ public class UserMainPage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        psConfirmDialog pc = new psConfirmDialog(this, true, id, ps);
+        psConfirmDialog pc = new psConfirmDialog(this, true, id, ps,branch);
         pc.setVisible(true);
         confirm = pc.getConfirm();
         if(confirm == 1)
         {
-            ManagerMainPage mmp = new ManagerMainPage(id, ps);
+            ManagerMainPage mmp = new ManagerMainPage(branch);
             mmp.setVisible(true);
             this.dispose();
         }

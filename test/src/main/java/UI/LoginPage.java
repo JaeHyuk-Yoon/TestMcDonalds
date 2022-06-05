@@ -127,8 +127,8 @@ public class LoginPage extends javax.swing.JFrame {
             if(confirm>0){
                     branch = userDAO.user.getBranch();
                 if (confirm == 1) {//관리자 로그인
-                    StockPage sp = new StockPage(branch);
-                    sp.setVisible(true);
+                    ManagerMainPage mmg = new ManagerMainPage(branch);
+                    mmg.setVisible(true);
                     this.dispose();
 
                 }

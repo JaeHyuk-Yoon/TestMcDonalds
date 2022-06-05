@@ -28,14 +28,14 @@ public class StockPage extends javax.swing.JFrame {
     public StockPage() {
         
         initComponents();
-        setTitle(branch+ " 재고관리");
+        setTitle(branch+ " 재고조회");
         setSize(600, 500);
         setLocationRelativeTo(null);
     }
     public StockPage(String branch) {
         this.branch = branch;
         initComponents();
-        setTitle(branch+ " 재고관리");
+        setTitle(branch+ " 재고조회");
         setSize(600, 500);
         setLocationRelativeTo(null);
     }

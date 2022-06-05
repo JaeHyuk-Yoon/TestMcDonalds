@@ -10,14 +10,24 @@ package UI;
  * @author heejin
  */
 public class SalesPage extends javax.swing.JFrame {
+    String branch;
 
     /**
      * Creates new form SalesPage
      */
     public SalesPage() {
         initComponents();
+        setTitle(branch+ " 매출조회");
+        setSize(600, 500);
+        setLocationRelativeTo(null);
     }
-
+    public SalesPage(String branch) {
+        this.branch=branch;
+        initComponents();
+        setTitle(branch+ " 매출조회");
+        setSize(600, 500);
+        setLocationRelativeTo(null);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
