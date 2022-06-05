@@ -5,15 +5,29 @@
  */
 package src;
 
+import db.MenuDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author JaeHyuk
  */
 public class ChangeSet extends BurgerToppingdecorator {
+    MenuDAO menuDAO = new MenuDAO();
+    int cost = 0;
     Burger burger;
     public ChangeSet(Burger burger) { this.burger = burger;}
     public String getDescription() {
         return burger.getDescription() + ", Change Set";
     }
-    public int cost() { return 1500 + burger.cost();}
+    public int cost() { 
+        try {
+            cost = menuDAO.menuCost("set");
+        } catch (SQLException ex) {
+            Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cost + burger.cost();
+    }
 }

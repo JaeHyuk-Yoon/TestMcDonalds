@@ -5,11 +5,19 @@
  */
 package src;
 
+import db.MenuDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author JaeHyuk
  */
 public class BeefBurger extends Burger {
+    
+    MenuDAO menuDAO = new MenuDAO();
+    int cost = 0;
     public BeefBurger() {
         description = "비프 버거";
     }
@@ -38,7 +46,12 @@ public class BeefBurger extends Burger {
     }
     
     public int cost() {
-        return 4500;
+        try {
+            cost = menuDAO.menuCost("beefBurger");
+        } catch (SQLException ex) {
+            Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cost;
     }
     
     @Override
