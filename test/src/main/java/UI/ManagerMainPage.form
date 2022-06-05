@@ -9,11 +9,6 @@
             <Property name="text" type="java.lang.String" value="menu"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#xc774;&#xc804;"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#xb85c;&#xadf8;&#xc544;&#xc6c3;"/>

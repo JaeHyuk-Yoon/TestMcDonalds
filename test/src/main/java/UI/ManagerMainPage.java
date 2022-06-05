@@ -46,7 +46,6 @@ public class ManagerMainPage extends javax.swing.JFrame {
         stockB = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
 
@@ -81,9 +80,6 @@ public class ManagerMainPage extends javax.swing.JFrame {
         });
 
         jMenu1.setText("menu");
-
-        jMenuItem1.setText("이전");
-        jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("로그아웃");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +204,6 @@ public class ManagerMainPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JButton orderlistB;
