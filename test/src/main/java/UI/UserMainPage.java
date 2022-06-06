@@ -132,7 +132,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         orderTable = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        deleteB = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -902,7 +902,12 @@ public class UserMainPage extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("삭제");
+        deleteB.setText("삭제");
+        deleteB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -910,7 +915,7 @@ public class UserMainPage extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(deleteB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
                 .addContainerGap())
@@ -922,7 +927,7 @@ public class UserMainPage extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(158, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
+                    .addComponent(deleteB)
                     .addComponent(jButton5))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1143,17 +1148,6 @@ public class UserMainPage extends javax.swing.JFrame {
         arrayMenu.add(burger);
         //테이블 출력
         showTable();
-//        DefaultTableModel order = (DefaultTableModel)orderTable.getModel();
-//        order.setNumRows(0);
-//        no=0;
-//        for(int i=0;i<arrayMenu.size();i++){
-//            no++;
-//            order.insertRow(order.getRowCount(), new Object[]{
-//                no,
-//                arrayMenu.get(i).getDescription(),
-//                arrayMenu.get(i).cost()
-//            });
-//        }
         //토핑창 닫고 메뉴창으로 돌아감
         this.setVisible(true);
         toppingFrame.dispose();
@@ -1203,6 +1197,38 @@ public class UserMainPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void deleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel order = (DefaultTableModel)orderTable.getModel();
+        int nRow = -1;
+        int nCol = -1;
+        nRow = orderTable.getSelectedRow();
+        nCol = orderTable.getSelectedColumn();
+
+        int cnt = -1;
+        if(nRow>=0&&nCol>=0){
+            cnt = (int)order.getValueAt(nRow, 0);
+           // cnt = (Integer)n;
+            cnt--;
+            arrayMenu.remove(cnt);
+          //  nRow = -1; nCol = -1; cnt = -1;
+            showTable();
+        }else{
+            JOptionPane.showMessageDialog(null, "선택된 값이 없습니다.");
+        }
+//        if (nRow == -1 && nCol == -1) {
+//            JOptionPane.showMessageDialog(null, "선택된 값이 없습니다.");
+//        } else {
+//           // Object n = order.getValueAt(nRow,0);
+//            cnt = (int)order.getValueAt(nRow, 0);
+//           // cnt = (Integer)n;
+//            cnt--;
+//            arrayMenu.remove(cnt);
+//          //  nRow = -1; nCol = -1; cnt = -1;
+//            showTable();
+//            }
+    }//GEN-LAST:event_deleteBActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1246,12 +1272,12 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JButton cheesestickB;
     private javax.swing.JButton chickenburgerB;
     private javax.swing.JButton colaB;
+    private javax.swing.JButton deleteB;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
