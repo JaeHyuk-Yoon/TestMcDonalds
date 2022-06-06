@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import src.*;
 /**
  *
@@ -31,6 +32,7 @@ public class UserMainPage extends javax.swing.JFrame {
     int setc =0;//세트변경
     int confirm;
     Burger burger;
+    int no = 0;
     private ArrayList<Menu> arrayMenu = new ArrayList<Menu>();
     
     
@@ -128,7 +130,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        orderTable = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -867,18 +869,23 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No.", "품명", "가격"
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(orderTable);
 
         jButton5.setText("주문하기");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -1111,6 +1118,17 @@ public class UserMainPage extends javax.swing.JFrame {
             burger = new ChangeSet(burger);
         }
         arrayMenu.add(burger);
+        DefaultTableModel order = (DefaultTableModel)orderTable.getModel();
+        order.setNumRows(0);
+        no=0;
+        for(int i=0;i<arrayMenu.size();i++){
+            no++;
+            order.insertRow(order.getRowCount(), new Object[]{
+                no,
+                arrayMenu.get(i).getDescription(),
+                arrayMenu.get(i).cost()
+            });
+        }
         this.setVisible(true);
         toppingFrame.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -1259,8 +1277,8 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JButton milkB;
+    private javax.swing.JTable orderTable;
     private javax.swing.JButton potatoB;
     private javax.swing.JSpinner set;
     private javax.swing.JButton setAddB;
