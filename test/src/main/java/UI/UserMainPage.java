@@ -8,11 +8,12 @@ package UI;
 import UI.ManagerMainPage;
 import UI.LoginPage;
 import UI.UserBurgerMenuPage;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JPanel;
-
+import src.*;
 /**
  *
  * @author JaeHyuk
@@ -25,8 +26,10 @@ public class UserMainPage extends javax.swing.JFrame {
     String id;
     String ps;
     String branch;
+    int cn =0;
     int confirm;
-        
+    private ArrayList<Menu> arrayMenu = new ArrayList<Menu>();
+    
     public UserMainPage() {
         initComponents();
         setTitle(branch+" store");
@@ -54,22 +57,22 @@ public class UserMainPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrame1 = new javax.swing.JFrame();
+        toppingFrame = new javax.swing.JFrame();
         jPanel17 = new javax.swing.JPanel();
         cheeseburgerB9 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        vegetableNum = new javax.swing.JSpinner();
         jPanel18 = new javax.swing.JPanel();
-        cheeseburgerB10 = new javax.swing.JButton();
+        cheeseAddB = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        cheeseNum = new javax.swing.JSpinner();
         jPanel19 = new javax.swing.JPanel();
         cheeseburgerB11 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jSpinner3 = new javax.swing.JSpinner();
+        set = new javax.swing.JSpinner();
         jLabel26 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -90,7 +93,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        cheeseburgerB2 = new javax.swing.JButton();
+        cheeseburgerB = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -129,6 +132,8 @@ public class UserMainPage extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
 
+        toppingFrame.setMinimumSize(new java.awt.Dimension(755, 430));
+
         cheeseburgerB9.setText("jButton8");
 
         jLabel20.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
@@ -136,6 +141,8 @@ public class UserMainPage extends javax.swing.JFrame {
 
         jLabel21.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel21.setText("\\4500");
+
+        vegetableNum.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3, 1));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -153,7 +160,7 @@ public class UserMainPage extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jLabel20)
                         .addGap(18, 18, 18)
-                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(vegetableNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
@@ -164,18 +171,30 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(vegetableNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel21))
         );
 
-        cheeseburgerB10.setText("jButton8");
+        cheeseAddB.setText("jButton8");
+        cheeseAddB.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                catchValueFromButt(evt);
+            }
+        });
+        cheeseAddB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cheeseAddBActionPerformed(evt);
+            }
+        });
 
         jLabel22.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel22.setText("치즈 추가");
 
         jLabel23.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel23.setText("\\4000");
+
+        cheeseNum.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3, 1));
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -185,7 +204,7 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(cheeseburgerB10, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cheeseAddB, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jLabel23))
@@ -193,18 +212,18 @@ public class UserMainPage extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cheeseNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cheeseburgerB10, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cheeseAddB, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cheeseNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel23))
         );
@@ -216,6 +235,8 @@ public class UserMainPage extends javax.swing.JFrame {
 
         jLabel25.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel25.setText("\\5000");
+
+        set.setModel(new javax.swing.SpinnerNumberModel(0, 0, 1, 1));
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -235,7 +256,7 @@ public class UserMainPage extends javax.swing.JFrame {
                                 .addGap(38, 38, 38)
                                 .addComponent(jLabel24)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(set, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 26, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -248,7 +269,7 @@ public class UserMainPage extends javax.swing.JFrame {
                         .addComponent(cheeseburgerB11, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel24))
-                    .addComponent(jSpinner3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(set, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel25))
         );
@@ -257,34 +278,34 @@ public class UserMainPage extends javax.swing.JFrame {
 
         jButton7.setText("추가");
 
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame1Layout.createSequentialGroup()
+        javax.swing.GroupLayout toppingFrameLayout = new javax.swing.GroupLayout(toppingFrame.getContentPane());
+        toppingFrame.getContentPane().setLayout(toppingFrameLayout);
+        toppingFrameLayout.setHorizontalGroup(
+            toppingFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(toppingFrameLayout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
-            .addGroup(jFrame1Layout.createSequentialGroup()
+            .addGroup(toppingFrameLayout.createSequentialGroup()
                 .addGap(351, 351, 351)
                 .addComponent(jLabel26)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toppingFrameLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton7)
                 .addGap(347, 347, 347))
         );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame1Layout.createSequentialGroup()
+        toppingFrameLayout.setVerticalGroup(
+            toppingFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(toppingFrameLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel26)
                 .addGap(28, 28, 28)
-                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(toppingFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -294,7 +315,7 @@ public class UserMainPage extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1000, 500));
+        setMinimumSize(new java.awt.Dimension(780, 600));
 
         jLabel3.setFont(new java.awt.Font("맑은 고딕", 1, 24)); // NOI18N
         jLabel3.setText("Menu");
@@ -361,6 +382,12 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        beefburgerB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                beefburgerBActionPerformed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel1.setText("비프버거");
 
@@ -396,6 +423,11 @@ public class UserMainPage extends javax.swing.JFrame {
         );
 
         chickenburgerB.setText("jButton8");
+        chickenburgerB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chickenburgerBActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel4.setText("치킨버거");
@@ -432,10 +464,10 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        cheeseburgerB2.setIcon(new javax.swing.ImageIcon("C:\\Users\\heejin\\Desktop\\designPattern\\TestMcDonalds\\test\\src\\main\\java\\Image\\cheeseburger.png")); // NOI18N
-        cheeseburgerB2.addActionListener(new java.awt.event.ActionListener() {
+        cheeseburgerB.setIcon(new javax.swing.ImageIcon("C:\\Users\\heejin\\Desktop\\designPattern\\TestMcDonalds\\test\\src\\main\\java\\Image\\cheeseburger.png")); // NOI18N
+        cheeseburgerB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cheeseburgerB2ActionPerformed(evt);
+                cheeseburgerBActionPerformed(evt);
             }
         });
 
@@ -458,14 +490,14 @@ public class UserMainPage extends javax.swing.JFrame {
                             .addComponent(jLabel6)))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(cheeseburgerB2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cheeseburgerB, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cheeseburgerB2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cheeseburgerB, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -474,6 +506,11 @@ public class UserMainPage extends javax.swing.JFrame {
         );
 
         spicychickenburgerB.setText("jButton8");
+        spicychickenburgerB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spicychickenburgerBActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel8.setText("매운치킨버거");
@@ -883,6 +920,8 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleDescription("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -939,14 +978,64 @@ public class UserMainPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void cheeseburgerB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheeseburgerB2ActionPerformed
-        // TODO add your handling code here:
-        jFrame1.setVisible(true);
-    }//GEN-LAST:event_cheeseburgerB2ActionPerformed
+    private void cheeseburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheeseburgerBActionPerformed
+        // 치즈버거 버튼누를때
+        Burger burger = new CheeseBurger();
+        toppingFrame.setTitle("CheeseBurger");
+        toppingFrame.setLocationRelativeTo(null);
+        toppingFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cheeseburgerBActionPerformed
 
     private void milkBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_milkBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_milkBActionPerformed
+
+    private void beefburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beefburgerBActionPerformed
+        // 비프버거 누르면
+        Burger burger = new BeefBurger();
+        
+        toppingFrame.setTitle("beefBurger");
+        toppingFrame.setLocationRelativeTo(null);
+        toppingFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_beefburgerBActionPerformed
+
+    private void chickenburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chickenburgerBActionPerformed
+        // 치킨버거 누르면
+        Burger burger = new ChickenBurger();
+        toppingFrame.setTitle("ChickenBurger");
+        toppingFrame.setLocationRelativeTo(null);
+        toppingFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_chickenburgerBActionPerformed
+
+    private void spicychickenburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spicychickenburgerBActionPerformed
+        // 매운 치킨버거 버튼 누르면
+        Burger burger = new SpicyChickenBurger();
+       toppingFrame.setTitle("SpicyChickenBurger");
+        toppingFrame.setLocationRelativeTo(null);
+        toppingFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_spicychickenburgerBActionPerformed
+
+    private void cheeseAddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheeseAddBActionPerformed
+        // 치즈추가버튼
+        cn=(int)cheeseNum.getValue();
+        cn++;
+//        cheeseNum.setValue(cn++);
+//        cheeseNum.setVisible(true);
+    }//GEN-LAST:event_cheeseAddBActionPerformed
+
+    private void catchValueFromButt(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_catchValueFromButt
+        // TODO add your handling code here:
+//         int cn=(int)cheeseNum.getValue();
+//         cn++;
+// 지금 버튼누르면 값바뀜 그럼 걍 이걸 text로 만들어서 버튼하면 동작하는 방시으로 바꾸면 될듯하다!
+         System.out.println(cn);
+        cheeseNum.setValue(cn);
+        cheeseNum.setVisible(true);
+    }//GEN-LAST:event_catchValueFromButt
 
     /**
      * @param args the command line arguments
@@ -985,9 +1074,10 @@ public class UserMainPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton beefburgerB;
-    private javax.swing.JButton cheeseburgerB10;
+    private javax.swing.JButton cheeseAddB;
+    private javax.swing.JSpinner cheeseNum;
+    private javax.swing.JButton cheeseburgerB;
     private javax.swing.JButton cheeseburgerB11;
-    private javax.swing.JButton cheeseburgerB2;
     private javax.swing.JButton cheeseburgerB9;
     private javax.swing.JButton cheesestickB;
     private javax.swing.JButton chickenburgerB;
@@ -999,7 +1089,6 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1049,14 +1138,14 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;
     private javax.swing.JButton milkB;
     private javax.swing.JButton potatoB;
+    private javax.swing.JSpinner set;
     private javax.swing.JButton spicychickenburgerB;
+    private javax.swing.JFrame toppingFrame;
+    private javax.swing.JSpinner vegetableNum;
     private javax.swing.JButton waterB;
     // End of variables declaration//GEN-END:variables
 }
