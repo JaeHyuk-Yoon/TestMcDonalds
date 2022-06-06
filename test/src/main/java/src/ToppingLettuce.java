@@ -20,7 +20,7 @@ public class ToppingLettuce extends BurgerToppingdecorator {
     Burger burger;
     public ToppingLettuce(Burger burger) { this.burger = burger;}
     public String getDescription() {
-        return burger.getDescription() + ", add ToppingLettuce";
+        return burger.getDescription() + "+야채";
     }
     public int cost() { 
          try {

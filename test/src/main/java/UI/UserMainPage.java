@@ -885,7 +885,15 @@ public class UserMainPage extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        orderTable.setMinimumSize(new java.awt.Dimension(10, 0));
+        orderTable.setShowGrid(false);
         jScrollPane2.setViewportView(orderTable);
+        if (orderTable.getColumnModel().getColumnCount() > 0) {
+            orderTable.getColumnModel().getColumn(0).setMinWidth(45);
+            orderTable.getColumnModel().getColumn(0).setMaxWidth(45);
+            orderTable.getColumnModel().getColumn(2).setMinWidth(150);
+            orderTable.getColumnModel().getColumn(2).setMaxWidth(150);
+        }
 
         jButton5.setText("주문하기");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -911,17 +919,17 @@ public class UserMainPage extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(158, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
-                .addGap(25, 25, 25))
+                    .addComponent(jButton6)
+                    .addComponent(jButton5))
+                .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(65, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(41, Short.MAX_VALUE)))
         );
 
         jMenu1.setText("menu");
@@ -1027,7 +1035,21 @@ public class UserMainPage extends javax.swing.JFrame {
         ubevmp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    
+    private void showTable(){
+        DefaultTableModel order = (DefaultTableModel)orderTable.getModel();
+        order.setNumRows(0);
+        no=0;
+        for(int i=0;i<arrayMenu.size();i++){
+            no++;
+            order.insertRow(order.getRowCount(), new Object[]{
+                no,
+                arrayMenu.get(i).getDescription(),
+                arrayMenu.get(i).cost()
+            });
+        }
+    }
+    
     private void cheeseburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheeseburgerBActionPerformed
         // 치즈버거 버튼누를때
         burger = new CheeseBurger();
@@ -1117,18 +1139,22 @@ public class UserMainPage extends javax.swing.JFrame {
         if(setc == 1){
             burger = new ChangeSet(burger);
         }
+        //메뉴 리스트에 추가
         arrayMenu.add(burger);
-        DefaultTableModel order = (DefaultTableModel)orderTable.getModel();
-        order.setNumRows(0);
-        no=0;
-        for(int i=0;i<arrayMenu.size();i++){
-            no++;
-            order.insertRow(order.getRowCount(), new Object[]{
-                no,
-                arrayMenu.get(i).getDescription(),
-                arrayMenu.get(i).cost()
-            });
-        }
+        //테이블 출력
+        showTable();
+//        DefaultTableModel order = (DefaultTableModel)orderTable.getModel();
+//        order.setNumRows(0);
+//        no=0;
+//        for(int i=0;i<arrayMenu.size();i++){
+//            no++;
+//            order.insertRow(order.getRowCount(), new Object[]{
+//                no,
+//                arrayMenu.get(i).getDescription(),
+//                arrayMenu.get(i).cost()
+//            });
+//        }
+        //토핑창 닫고 메뉴창으로 돌아감
         this.setVisible(true);
         toppingFrame.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed

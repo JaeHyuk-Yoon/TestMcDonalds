@@ -59,7 +59,7 @@ public class CheeseBurger extends Burger {
     }
 
     public boolean cheeseCheck() {
-        if (cheeseWheather.getCheeseWheather() == "치즈 필요") {
+        if (cheeseWheather.getCheeseWheather() == "치즈") {
             return true;
         } else {
             return false;

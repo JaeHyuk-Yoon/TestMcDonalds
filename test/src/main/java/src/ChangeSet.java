@@ -20,7 +20,7 @@ public class ChangeSet extends BurgerToppingdecorator {
     Burger burger;
     public ChangeSet(Burger burger) { this.burger = burger;}
     public String getDescription() {
-        return burger.getDescription() + ", Change Set";
+        return burger.getDescription() + "+세트";
     }
     public int cost() { 
         try {
