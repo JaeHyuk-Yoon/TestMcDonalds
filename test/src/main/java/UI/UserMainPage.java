@@ -33,6 +33,7 @@ public class UserMainPage extends javax.swing.JFrame {
     Burger burger;
     private ArrayList<Menu> arrayMenu = new ArrayList<Menu>();
     
+    
     public UserMainPage() {
         initComponents();
         setTitle(branch+" store");
@@ -353,7 +354,7 @@ public class UserMainPage extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(790, 600));
+        setMinimumSize(new java.awt.Dimension(790, 650));
 
         jLabel3.setFont(new java.awt.Font("맑은 고딕", 1, 24)); // NOI18N
         jLabel3.setText("Menu");
@@ -502,7 +503,6 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        cheeseburgerB.setIcon(new javax.swing.ImageIcon("C:\\Users\\heejin\\Desktop\\designPattern\\TestMcDonalds\\test\\src\\main\\java\\Image\\cheeseburger.png")); // NOI18N
         cheeseburgerB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cheeseburgerBActionPerformed(evt);
@@ -1026,6 +1026,10 @@ public class UserMainPage extends javax.swing.JFrame {
         burger = new CheeseBurger();
         toppingFrame.setTitle("CheeseBurger");
         toppingFrame.setLocationRelativeTo(null);
+        cn = 0; vn = 0; setc = 0;
+        vegetableNum.setValue(vn);
+        cheeseNum.setValue(cn);
+        set.setValue(setc);
         toppingFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cheeseburgerBActionPerformed
@@ -1037,9 +1041,12 @@ public class UserMainPage extends javax.swing.JFrame {
     private void beefburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beefburgerBActionPerformed
         // 비프버거 누르면
        burger = new BeefBurger();
-        
+        cn = 0; vn = 0; setc= 0;
         toppingFrame.setTitle("beefBurger");
         toppingFrame.setLocationRelativeTo(null);
+        vegetableNum.setValue(vn);
+        cheeseNum.setValue(cn);
+        set.setValue(setc);
         toppingFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_beefburgerBActionPerformed
@@ -1047,8 +1054,12 @@ public class UserMainPage extends javax.swing.JFrame {
     private void chickenburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chickenburgerBActionPerformed
         // 치킨버거 누르면
       burger = new ChickenBurger();
+        cn = 0; vn = 0; setc= 0;
         toppingFrame.setTitle("ChickenBurger");
         toppingFrame.setLocationRelativeTo(null);
+        vegetableNum.setValue(vn);
+        cheeseNum.setValue(cn);
+        set.setValue(setc);
         toppingFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_chickenburgerBActionPerformed
@@ -1056,8 +1067,12 @@ public class UserMainPage extends javax.swing.JFrame {
     private void spicychickenburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spicychickenburgerBActionPerformed
         // 매운 치킨버거 버튼 누르면
        burger = new SpicyChickenBurger();
+        cn = 0; vn = 0; setc= 0;
        toppingFrame.setTitle("SpicyChickenBurger");
         toppingFrame.setLocationRelativeTo(null);
+        vegetableNum.setValue(vn);
+        cheeseNum.setValue(cn);
+        set.setValue(setc);
         toppingFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_spicychickenburgerBActionPerformed
@@ -1138,6 +1153,7 @@ public class UserMainPage extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        //금액부분 오류 db문제인듯!
         for(Menu menu : arrayMenu) {
             System.out.println(menu.getDescription() + " - 금액 : " + menu.cost() +"원");
         }

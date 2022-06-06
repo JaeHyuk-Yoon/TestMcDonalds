@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class BeefBurger extends Burger {
     
-    MenuDAO menuDAO = new MenuDAO();
+    public MenuDAO menuDAO = new MenuDAO();
     int cost = 0;
     public BeefBurger() {
         description = "비프 버거";

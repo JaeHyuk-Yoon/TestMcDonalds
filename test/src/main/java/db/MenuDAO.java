@@ -6,6 +6,8 @@
 package db;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author heejin
@@ -38,11 +40,17 @@ public class MenuDAO {
 //            return -1;//아이디 없음
         }catch(Exception e){
             e.printStackTrace();
-        }finally{
-             if(rs!=null) rs.close();
-             if(pstmt!= null) pstmt.close();
-             if (conn!=null) conn.close();
-         }
+        }
          return -2;//데이터베이스오류
+    }
+    
+    public void menuDaoClose(){
+        try {
+            if(rs!=null) rs.close();
+            if(pstmt!= null) pstmt.close();
+            if (conn!=null) conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
