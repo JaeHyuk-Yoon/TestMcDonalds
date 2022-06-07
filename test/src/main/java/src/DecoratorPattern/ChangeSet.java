@@ -27,7 +27,7 @@ public class ChangeSet extends BurgerToppingdecorator {
     }
     public int cost() { 
         try {
-            cost = menuDAO.menuCost("set");
+            cost = menuDAO.menuCost("세트");
         } catch (SQLException ex) {
             Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
         }
