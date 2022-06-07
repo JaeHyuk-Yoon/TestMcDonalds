@@ -1,7 +1,11 @@
 package UI;
 
+import db.UserDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
-import test.Login;
+import src.Login;
 /**
  *
  * @author JaeHyuk
@@ -13,7 +17,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        setTitle("햄버거스토어");
+        setTitle("SnG");
         setSize(600, 500);
         setLocationRelativeTo(null);
     }
@@ -114,22 +118,34 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        int confirm=0;
-        Login test = new Login();
-        confirm = test.LoginConfirm(jTextField1.getText(), jPasswordField1.getText());
-        
-        if (confirm == 1) {
-            UserMainPage ump = new UserMainPage(jTextField1.getText(), jPasswordField1.getText());
-            ump.setVisible(true);
-            this.dispose();
-            
-        }
-        else {
-            JFrame jFrame = new JFrame();
-            JOptionPane.showMessageDialog(jFrame, "로그인 실패");
-            jTextField1.setText("");
-            jPasswordField1.setText("");
+        try {
+            // TODO add your handling code here:
+            int confirm=0;
+            String branch = null;
+            UserDAO userDAO = new UserDAO();
+            confirm = userDAO.login(jTextField1.getText(), jPasswordField1.getText());
+            if(confirm>0){
+                    branch = userDAO.user.getBranch();
+                if (confirm == 1) {//관리자 로그인
+                    ManagerMainPage mmg = new ManagerMainPage(branch);
+                    mmg.setVisible(true);
+                    this.dispose();
+
+                }
+                else if(confirm ==2){//키오스크로그인
+                    UserMainPage ump = new UserMainPage(jTextField1.getText(), jPasswordField1.getText(),branch);
+                    ump.setVisible(true);
+                    this.dispose();
+                }
+            }
+            else {
+                JFrame jFrame = new JFrame();
+                JOptionPane.showMessageDialog(jFrame, "로그인 실패");
+                jTextField1.setText("");
+                jPasswordField1.setText("");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

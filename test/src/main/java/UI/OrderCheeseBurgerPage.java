@@ -5,11 +5,11 @@
  */
 package UI;
 
-import test.Burger;
-import test.CheeseBurger;
-import test.ToppingCheese;
-import test.ToppingLettuce;
-import test.ChangeSet;
+import src.Burger;
+import src.CheeseBurger;
+import src.ToppingCheese;
+import src.ToppingLettuce;
+import src.ChangeSet;
 
 /**
  *
@@ -93,6 +93,11 @@ public class OrderCheeseBurgerPage extends javax.swing.JFrame {
         jTextField1.setEditable(false);
 
         jTextField2.setEditable(false);
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("원");
 
@@ -220,6 +225,10 @@ public class OrderCheeseBurgerPage extends javax.swing.JFrame {
         String money = Integer.toString(cb.cost());
         jTextField1.setText(money);
     }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments

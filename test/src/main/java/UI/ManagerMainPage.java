@@ -12,19 +12,21 @@ import UI.LoginPage;
  * @author JaeHyuk
  */
 public class ManagerMainPage extends javax.swing.JFrame {
-
+    String branch;
     /**
      * Creates new form ManagerMainPage
      */
     public ManagerMainPage() {
         initComponents();
-        setTitle("맥도랏나 사용자");
+        setTitle(branch+ " 관리자");
         setSize(600, 500);
         setLocationRelativeTo(null);
     }
-    public ManagerMainPage(String id, String ps) {
+    public ManagerMainPage(String branch) {
+        
+        this.branch = branch;
         initComponents();
-        setTitle("맥도랏나 사용자");
+        setTitle(branch+ " 관리자");
         setSize(600, 500);
         setLocationRelativeTo(null);
     }
@@ -39,9 +41,11 @@ public class ManagerMainPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
+        orderlistB = new javax.swing.JButton();
+        salesB = new javax.swing.JButton();
+        stockB = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
 
@@ -49,12 +53,33 @@ public class ManagerMainPage extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel3.setFont(new java.awt.Font("맑은 고딕", 1, 48)); // NOI18N
-        jLabel3.setText("Manager ");
+        jLabel3.setText("Manager");
+
+        orderlistB.setFont(new java.awt.Font("맑은 고딕", 1, 16)); // NOI18N
+        orderlistB.setText("주문 조회");
+        orderlistB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderlistBActionPerformed(evt);
+            }
+        });
+
+        salesB.setFont(new java.awt.Font("맑은 고딕", 1, 16)); // NOI18N
+        salesB.setText("매출 조회");
+        salesB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salesBActionPerformed(evt);
+            }
+        });
+
+        stockB.setFont(new java.awt.Font("맑은 고딕", 1, 16)); // NOI18N
+        stockB.setText("재고 조회");
+        stockB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stockBActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("menu");
-
-        jMenuItem1.setText("이전");
-        jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("로그아웃");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -80,17 +105,28 @@ public class ManagerMainPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(188, 188, 188))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(salesB, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(orderlistB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(stockB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel3)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addComponent(orderlistB, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(salesB, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(stockB, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         pack();
@@ -106,6 +142,27 @@ public class ManagerMainPage extends javax.swing.JFrame {
         new LoginPage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void salesBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salesBActionPerformed
+        // TODO add your handling code here:
+        SalesPage sap = new SalesPage(branch);
+        sap.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_salesBActionPerformed
+
+    private void orderlistBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderlistBActionPerformed
+        // TODO add your handling code here:
+        OrderListPage olp = new OrderListPage(branch);
+        olp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_orderlistBActionPerformed
+
+    private void stockBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockBActionPerformed
+        // TODO add your handling code here:
+        StockPage stp = new StockPage(branch);
+        stp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_stockBActionPerformed
 
     
     /**
@@ -147,8 +204,10 @@ public class ManagerMainPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JButton orderlistB;
+    private javax.swing.JButton salesB;
+    private javax.swing.JButton stockB;
     // End of variables declaration//GEN-END:variables
 }

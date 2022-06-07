@@ -17,13 +17,15 @@ public class psConfirmDialog extends javax.swing.JDialog {
     String id;
     String ps;
     String inputps;
+    String branch;
     int confirm;
     
-    public psConfirmDialog(java.awt.Frame parent, boolean modal, String id, String ps) {
+    public psConfirmDialog(java.awt.Frame parent, boolean modal, String id, String ps, String branch) {
         super(parent, modal);
         initComponents();
         this.id = id;
         this.ps = ps;
+        this.branch=branch;
         setLocationRelativeTo(null);
         confirm = 0;
         
@@ -169,7 +171,7 @@ public class psConfirmDialog extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                psConfirmDialog dialog = new psConfirmDialog(new javax.swing.JFrame(), true, "aaaa", "1111");
+                psConfirmDialog dialog = new psConfirmDialog(new javax.swing.JFrame(), true, "aaaa", "1111","SnG");
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
