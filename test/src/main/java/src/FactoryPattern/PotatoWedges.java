@@ -12,11 +12,16 @@ import src.FactoryPattern.Potato;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class PotatoWedges implements Potato{
-    @Override
-    public String getPotato() {
-        return "감자튀김 : 웨지 감자";
-    }
+    
+    String indname;
+    
     public PotatoWedges() {
         //System.out.println("Potato Wedges");
+        indname = "웨지 감자";
+    }
+    
+    @Override
+    public String getPotato() {
+        return indname;
     }
 }

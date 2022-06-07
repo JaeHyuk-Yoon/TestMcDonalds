@@ -9,11 +9,15 @@ import src.DecoratorPattern.Menu;
 import src.DecoratorPattern.ChangeSet;
 import src.DecoratorPattern.ToppingLettuce;
 import src.DecoratorPattern.ToppingCheese;
+import src.DecoratorPattern.CheeseStick;
+import src.DecoratorPattern.SideMenu;
 import src.StrategyPattern.SpicyChickenBurger;
 import src.StrategyPattern.ChickenBurger;
 import src.StrategyPattern.CheeseBurger;
 import src.StrategyPattern.BeefBurger;
 import src.StrategyPattern.Burger;
+
+
 import UI.ManagerMainPage;
 import UI.LoginPage;
 import UI.UserBurgerMenuPage;
@@ -24,6 +28,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import src.*;
+import src.DecoratorPattern.Milk;
+import src.DecoratorPattern.PotatoDish;
+import src.DecoratorPattern.Water;
+import src.DecoratorPattern.cola;
 /**
  *
  * @author JaeHyuk
@@ -38,6 +46,7 @@ public class UserMainPage extends javax.swing.JFrame {
     int setc =0;//세트변경
     int confirm;
     Burger burger;
+    SideMenu sidemenu = new SideMenu();
     int no = 0;
     private ArrayList<Menu> arrayMenu = new ArrayList<Menu>();
     
@@ -624,6 +633,11 @@ public class UserMainPage extends javax.swing.JFrame {
         jTabbedPane1.addTab("버거", jPanel4);
 
         potatoB.setText("jButton8");
+        potatoB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                potatoBActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel10.setText("포테이토");
@@ -659,6 +673,11 @@ public class UserMainPage extends javax.swing.JFrame {
         );
 
         cheesestickB.setText("jButton8");
+        cheesestickB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cheesestickBActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel12.setText("치즈스틱");
@@ -760,6 +779,11 @@ public class UserMainPage extends javax.swing.JFrame {
         );
 
         colaB.setText("jButton8");
+        colaB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                colaBActionPerformed(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel16.setText("콜라");
@@ -795,6 +819,11 @@ public class UserMainPage extends javax.swing.JFrame {
         );
 
         waterB.setText("jButton8");
+        waterB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                waterBActionPerformed(evt);
+            }
+        });
 
         jLabel18.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         jLabel18.setText("물");
@@ -1074,8 +1103,14 @@ public class UserMainPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cheeseburgerBActionPerformed
 
+    //우유 버튼
     private void milkBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_milkBActionPerformed
         // TODO add your handling code here:
+        sidemenu = new Milk(sidemenu);
+        //메뉴 리스트에 추가
+        arrayMenu.add(sidemenu);
+        //테이블 출력
+        showTable();
     }//GEN-LAST:event_milkBActionPerformed
 
     private void beefburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beefburgerBActionPerformed
@@ -1220,6 +1255,42 @@ public class UserMainPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "선택된 값이 없습니다.");
         }
     }//GEN-LAST:event_deleteBActionPerformed
+    //치즈스틱 버튼
+    private void cheesestickBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheesestickBActionPerformed
+        // TODO add your handling code here:
+        sidemenu = new CheeseStick(sidemenu);
+        //메뉴 리스트에 추가
+        arrayMenu.add(sidemenu);
+        //테이블 출력
+        showTable();
+    }//GEN-LAST:event_cheesestickBActionPerformed
+    //포테이토 버튼
+    private void potatoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potatoBActionPerformed
+        // TODO add your handling code here:
+        sidemenu = new PotatoDish(sidemenu);
+        //메뉴 리스트에 추가
+        arrayMenu.add(sidemenu);
+        //테이블 출력
+        showTable();
+    }//GEN-LAST:event_potatoBActionPerformed
+    //콜라 버튼
+    private void colaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colaBActionPerformed
+        // TODO add your handling code here:
+        sidemenu = new cola(sidemenu);
+        //메뉴 리스트에 추가
+        arrayMenu.add(sidemenu);
+        //테이블 출력
+        showTable();
+    }//GEN-LAST:event_colaBActionPerformed
+    //물 버튼
+    private void waterBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterBActionPerformed
+        // TODO add your handling code here:
+        sidemenu = new Water(sidemenu);
+        //메뉴 리스트에 추가
+        arrayMenu.add(sidemenu);
+        //테이블 출력
+        showTable();
+    }//GEN-LAST:event_waterBActionPerformed
 
     /**
      * @param args the command line arguments

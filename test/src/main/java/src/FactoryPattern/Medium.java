@@ -12,8 +12,15 @@ import src.FactoryPattern.IndBeefPatty;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class Medium implements IndBeefPatty{
+    
+    String indname;
+    
+    public Medium() {
+        indname = "소고기 패티 굽기 : 미디움";
+    }
+    
     @Override
     public String getIndBeefPatty() {
-        return "Medium Beef Patty";
+        return indname;
     }
 }

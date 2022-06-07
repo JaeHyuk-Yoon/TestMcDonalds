@@ -10,11 +10,16 @@ package src.FactoryPattern;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class CheddarCheese implements Cheese{
-    @Override
-    public String getCheese() {
-        return "치즈 : 체다치즈 사용";
-    }
+    
+    String indname;
+    
     public CheddarCheese() {
         //System.out.println("Cheddar Cheese");
+        indname = "클래식 번";
+    }
+    
+    @Override
+    public String getCheese() {
+        return indname;
     }
 }

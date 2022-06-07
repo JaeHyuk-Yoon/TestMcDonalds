@@ -12,8 +12,14 @@ import src.FactoryPattern.IndBeefPatty;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class MediumRare implements IndBeefPatty{
+    String indname;
+    
+    public MediumRare() {
+        indname = "소고기 패티 굽기 : 미디움 레어";
+    }
+    
     @Override
     public String getIndBeefPatty() {
-        return "소고기 패티 : 미디움레어 굽기 ";
+        return indname;
     }
 }

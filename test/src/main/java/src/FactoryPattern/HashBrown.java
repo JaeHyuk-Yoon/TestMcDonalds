@@ -10,11 +10,14 @@ package src.FactoryPattern;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class HashBrown implements Potato{
+    String indname;
+    
+    public HashBrown() {
+        indname = "해시 브라운";
+    }
+    
     @Override
     public String getPotato() {
-        return "Hash Brown";
-    }
-    public HashBrown() {
-        System.out.println("Hash Brown");
+        return indname;
     }
 }

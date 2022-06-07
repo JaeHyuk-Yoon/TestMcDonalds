@@ -10,11 +10,15 @@ package src.FactoryPattern;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class IndCocaCola implements IndCola{
+    String indname;
+        
+    public IndCocaCola() {
+        //System.out.println("Ind Coca Cola");
+        indname = "코카콜라";
+    }
+    
     @Override
     public String getIndCola() {
-        return "Ind Coca Cola";
-    }
-    public IndCocaCola() {
-        System.out.println("Ind Coca Cola");
+        return indname;
     }
 }

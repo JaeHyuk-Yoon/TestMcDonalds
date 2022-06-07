@@ -5,6 +5,7 @@
  */
 package src.StrategyPattern;
 
+import java.util.ArrayList;
 import src.DecoratorPattern.Menu;
 import src.StrategyPattern.SelectVegetable;
 import src.StrategyPattern.SelectSauce;
@@ -43,7 +44,9 @@ public abstract class Burger extends Menu{
     
     //public abstract String getDescription();
     
-    public abstract String testDisplay();
+    //public abstract String testDisplay();
+    
+    //public abstract ArrayList<String> getBeefBurgerInd();
     
     public void setCheeseWheather(CheeseWheather scw) {
         cheeseWheather = scw;

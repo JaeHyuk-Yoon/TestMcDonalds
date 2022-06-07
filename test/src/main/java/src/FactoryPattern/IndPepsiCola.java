@@ -12,11 +12,16 @@ import src.FactoryPattern.IndCola;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class IndPepsiCola implements IndCola{
-    @Override
-    public String getIndCola() {
-        return "콜라 : 펩시콜라 사용";
-    }
+    
+    String indname;
+    
     public IndPepsiCola() {
         //System.out.println("Ind Pepsi Cola");
+        indname = "펩시 콜라";
+    }
+    
+    @Override
+     public String getIndCola() {
+        return indname;
     }
 }

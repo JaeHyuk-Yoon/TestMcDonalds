@@ -5,6 +5,7 @@
  */
 package src.FactoryPattern;
 
+import java.util.ArrayList;
 import src.FactoryPattern.SnGBurgerIngredientFactory;
 import src.FactoryPattern.BurgerStoreIngredientFactory;
 import src.FactoryPattern.BurgerStore;
@@ -19,6 +20,39 @@ import src.StrategyPattern.Burger;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class SnGBurgerStore extends BurgerStore {
+    // 팩토리 원재료군
+    protected Bun indBun;
+    protected Cheese indCheese;
+    protected Vegetable indVegetable;
+    protected Potato indPotato;
+    protected IndCola indCola;
+    protected IndBeefPatty indBeefPatty;
+    
+    public ArrayList<String> ind = new ArrayList<String>();
+    
+    Burger burger;
+    BurgerStoreIngredientFactory factory;
+    
+     public SnGBurgerStore() {
+        BurgerStoreIngredientFactory factory = new GuilguBurgerIngredientFactory();
+        this.indBun = factory.createBun();
+        ind.add(indBun.getBun());
+        
+        this.indCheese = factory.createCheese();
+        ind.add(indCheese.getCheese());
+        
+        this.indVegetable = factory.createVegetable();
+        ind.add(indVegetable.getVegetable());
+        
+        this.indPotato = factory.createPotato();
+        ind.add(indPotato.getPotato());
+        
+        this.indCola = factory.createCola();
+        ind.add(indCola.getIndCola());
+        
+        this.indBeefPatty = factory.createBeefPatty();
+        ind.add(indBeefPatty.getIndBeefPatty());
+    }
     
     @Override
     public Burger createBurger(String item) {
@@ -40,5 +74,9 @@ public class SnGBurgerStore extends BurgerStore {
         }
         
         return burger;
+    }
+    
+    public ArrayList<String> getTotalStoreInd() {
+        return (ind);
     }
 }
