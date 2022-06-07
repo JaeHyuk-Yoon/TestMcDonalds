@@ -5,11 +5,11 @@
  */
 package UI;
 
-import src.Burger;
-import src.CheeseBurger;
-import src.ToppingCheese;
-import src.ToppingLettuce;
-import src.ChangeSet;
+import src.StrategyPattern.Burger;
+import src.StrategyPattern.CheeseBurger;
+import src.DecoratorPattern.ToppingCheese;
+import src.DecoratorPattern.ToppingLettuce;
+import src.DecoratorPattern.ChangeSet;
 
 /**
  *

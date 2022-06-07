@@ -5,6 +5,15 @@
  */
 package UI;
 
+import src.DecoratorPattern.Menu;
+import src.DecoratorPattern.ChangeSet;
+import src.DecoratorPattern.ToppingLettuce;
+import src.DecoratorPattern.ToppingCheese;
+import src.StrategyPattern.SpicyChickenBurger;
+import src.StrategyPattern.ChickenBurger;
+import src.StrategyPattern.CheeseBurger;
+import src.StrategyPattern.BeefBurger;
+import src.StrategyPattern.Burger;
 import UI.ManagerMainPage;
 import UI.LoginPage;
 import UI.UserBurgerMenuPage;
