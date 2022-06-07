@@ -91,6 +91,11 @@ public class OrderCheeseBurgerPage extends javax.swing.JFrame {
         jButton2.setText("이전");
 
         jTextField1.setEditable(false);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -229,6 +234,10 @@ public class OrderCheeseBurgerPage extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

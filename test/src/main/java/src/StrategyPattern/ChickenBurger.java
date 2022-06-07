@@ -80,7 +80,7 @@ public class ChickenBurger extends Burger {
     
     public int cost() {
         try {
-            cost = menuDAO.menuCost("chickenBurger");
+            cost = menuDAO.menuCost("치킨버거");
         } catch (SQLException ex) {
             Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
         }

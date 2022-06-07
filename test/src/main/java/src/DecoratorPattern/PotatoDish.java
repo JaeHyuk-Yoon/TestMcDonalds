@@ -27,7 +27,7 @@ public class PotatoDish extends SideMenudecorator{
     
     public int cost() { 
         try {
-            cost = menuDAO.menuCost("potato");
+            cost = menuDAO.menuCost("포테이토");
         } catch (SQLException ex) {
             Logger.getLogger(SideMenu.class.getName()).log(Level.SEVERE, null, ex);
         }

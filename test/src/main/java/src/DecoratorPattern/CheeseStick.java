@@ -28,7 +28,7 @@ public class CheeseStick extends SideMenudecorator {
     
     public int cost() {
         try {
-            cost = menuDAO.menuCost("cheeseStick");
+            cost = menuDAO.menuCost("치즈스틱");
         } catch (SQLException ex) {
             Logger.getLogger(SideMenu.class.getName()).log(Level.SEVERE, null, ex);
         }

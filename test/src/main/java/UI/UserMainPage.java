@@ -41,6 +41,7 @@ public class UserMainPage extends javax.swing.JFrame {
     String id;
     String ps;
     String branch;
+    int totalcost;
     int cn =0;//치즈토핑
     int vn =0;//야채토핑
     int setc =0;//세트변경
@@ -96,6 +97,13 @@ public class UserMainPage extends javax.swing.JFrame {
         set = new javax.swing.JSpinner();
         jLabel26 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        orderFrame = new javax.swing.JFrame();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        orderTable1 = new javax.swing.JTable();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        totalcostLabel = new javax.swing.JLabel();
+        completeOrderButt = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -370,6 +378,90 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addGap(48, 48, 48))
         );
 
+        orderFrame.setMinimumSize(new java.awt.Dimension(790, 650));
+        orderFrame.setPreferredSize(new java.awt.Dimension(772, 575));
+
+        orderTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "No.", "품명", "가격"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        orderTable1.setMinimumSize(new java.awt.Dimension(10, 0));
+        orderTable1.setShowGrid(false);
+        jScrollPane3.setViewportView(orderTable1);
+        if (orderTable1.getColumnModel().getColumnCount() > 0) {
+            orderTable1.getColumnModel().getColumn(0).setMinWidth(45);
+            orderTable1.getColumnModel().getColumn(0).setMaxWidth(45);
+            orderTable1.getColumnModel().getColumn(2).setMinWidth(150);
+            orderTable1.getColumnModel().getColumn(2).setMaxWidth(150);
+        }
+
+        jLabel27.setFont(new java.awt.Font("맑은 고딕", 1, 24)); // NOI18N
+        jLabel27.setText("Order");
+
+        jLabel28.setFont(new java.awt.Font("맑은 고딕", 0, 18)); // NOI18N
+        jLabel28.setText("총 금액 : ");
+
+        totalcostLabel.setFont(new java.awt.Font("맑은 고딕", 0, 18)); // NOI18N
+
+        completeOrderButt.setText("주문완료");
+        completeOrderButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                completeOrderButtActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout orderFrameLayout = new javax.swing.GroupLayout(orderFrame.getContentPane());
+        orderFrame.getContentPane().setLayout(orderFrameLayout);
+        orderFrameLayout.setHorizontalGroup(
+            orderFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orderFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(orderFrameLayout.createSequentialGroup()
+                .addGroup(orderFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(orderFrameLayout.createSequentialGroup()
+                        .addGap(348, 348, 348)
+                        .addComponent(jLabel27))
+                    .addGroup(orderFrameLayout.createSequentialGroup()
+                        .addGap(312, 312, 312)
+                        .addComponent(completeOrderButt, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orderFrameLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(totalcostLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(248, 248, 248))
+        );
+        orderFrameLayout.setVerticalGroup(
+            orderFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orderFrameLayout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jLabel27)
+                .addGap(86, 86, 86)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addGroup(orderFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(totalcostLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(completeOrderButt, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(790, 650));
 
@@ -616,7 +708,7 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -721,7 +813,7 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(388, Short.MAX_VALUE))
+                .addContainerGap(400, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1090,6 +1182,20 @@ public class UserMainPage extends javax.swing.JFrame {
         }
     }
     
+    private void showOrderTable(){
+        DefaultTableModel order = (DefaultTableModel)orderTable1.getModel();
+        order.setNumRows(0);
+        no=0;
+        for(int i=0;i<arrayMenu.size();i++){
+            no++;
+            order.insertRow(order.getRowCount(), new Object[]{
+                no,
+                arrayMenu.get(i).getDescription(),
+                arrayMenu.get(i).cost()
+            });
+        }
+    }
+    
     private void cheeseburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheeseburgerBActionPerformed
         // 치즈버거 버튼누를때
         burger = new CheeseBurger();
@@ -1230,11 +1336,27 @@ public class UserMainPage extends javax.swing.JFrame {
         setc=(int)set.getValue();
     }//GEN-LAST:event_setStateChanged
 
+    
+    //토탈금액 계산
+    private int totalCost() {
+        for(int i=0;i<arrayMenu.size();i++) {
+            
+                totalcost += arrayMenu.get(i).cost();
+            }
+        return totalcost;
+    }
+    
+    //주문하기 버튼
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        for(Menu menu : arrayMenu) {
-            System.out.println(menu.getDescription() + " - 금액 : " + menu.cost() +"원");
-        }
+        orderFrame.setTitle("OrderPage");
+        orderFrame.setLocationRelativeTo(null);
+        showOrderTable();
+        totalcost = 0;
+        totalCost();
+        totalcostLabel.setText(Integer.toString(totalcost));
+        orderFrame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void deleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBActionPerformed
@@ -1292,6 +1414,17 @@ public class UserMainPage extends javax.swing.JFrame {
         showTable();
     }//GEN-LAST:event_waterBActionPerformed
 
+    //orderFrame 주문완료 버튼
+    private void completeOrderButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeOrderButtActionPerformed
+        // TODO add your handling code here:
+        //테이블 초기화
+        arrayMenu.clear();
+        showTable();
+        //토핑창 닫고 메뉴창으로 돌아감
+        this.setVisible(true);
+        orderFrame.dispose();
+    }//GEN-LAST:event_completeOrderButtActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1335,6 +1468,7 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JButton cheesestickB;
     private javax.swing.JButton chickenburgerB;
     private javax.swing.JButton colaB;
+    private javax.swing.JButton completeOrderButt;
     private javax.swing.JButton deleteB;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1361,6 +1495,8 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1391,14 +1527,18 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton milkB;
+    private javax.swing.JFrame orderFrame;
     private javax.swing.JTable orderTable;
+    private javax.swing.JTable orderTable1;
     private javax.swing.JButton potatoB;
     private javax.swing.JSpinner set;
     private javax.swing.JButton setAddB;
     private javax.swing.JButton spicychickenburgerB;
     private javax.swing.JFrame toppingFrame;
+    private javax.swing.JLabel totalcostLabel;
     private javax.swing.JButton vegetableAddB;
     private javax.swing.JSpinner vegetableNum;
     private javax.swing.JButton waterB;

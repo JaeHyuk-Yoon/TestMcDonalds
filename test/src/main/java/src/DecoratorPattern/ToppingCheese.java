@@ -26,7 +26,7 @@ public class ToppingCheese extends BurgerToppingdecorator {
     }
     public int cost() { 
         try {
-            cost = menuDAO.menuCost("cheese");
+            cost = menuDAO.menuCost("치즈");
         } catch (SQLException ex) {
             Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
         }

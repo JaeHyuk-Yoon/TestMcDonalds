@@ -27,7 +27,7 @@ public class cola extends SideMenudecorator{
     
     public int cost() { 
         try {
-            cost = menuDAO.menuCost("cola");
+            cost = menuDAO.menuCost("콜라");
         } catch (SQLException ex) {
             Logger.getLogger(SideMenu.class.getName()).log(Level.SEVERE, null, ex);
         }

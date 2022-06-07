@@ -45,6 +45,7 @@ public class CheeseBurger extends Burger {
         selectPatty = new BeefPatty();
         selectSauce = new BeefBbqSauce();
         selectVegetable = new NoVegetable();
+        
         patty = selectPatty.getPatty();
         sauce = selectSauce.getSauce();
         vegetable = selectVegetable.getVegetable();
@@ -95,7 +96,7 @@ public class CheeseBurger extends Burger {
 
     public int cost() {
         try {
-            cost = menuDAO.menuCost("cheeseBurger");
+            cost = menuDAO.menuCost("치즈버거");
         } catch (SQLException ex) {
             Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
         }
