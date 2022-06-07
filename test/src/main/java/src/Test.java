@@ -5,6 +5,12 @@
  */
 package src;
 
+import src.ObserverPattern.StockDisplay;
+import src.ObserverPattern.OrderListDisplay;
+import src.ObserverPattern.OrderData;
+import src.ObserverPattern.SalesDisplay;
+import src.StrategyPattern.CheeseBurger;
+import src.StrategyPattern.Burger;
 import java.util.ArrayList;
 
 
