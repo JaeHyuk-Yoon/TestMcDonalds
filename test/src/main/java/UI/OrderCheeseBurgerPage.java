@@ -31,7 +31,7 @@ public class OrderCheeseBurgerPage extends javax.swing.JFrame {
         
         String money = Integer.toString(cb.cost());
         jTextField1.setText(money);
-        jTextField2.setText(cb.testDisplay());
+        //jTextField2.setText(cb.testDisplay());
        
     }
 

@@ -37,7 +37,7 @@ public class MenuDAO {
             if(rs.next()){
                 return rs.getInt("price");
             }
-//            return -1;//아이디 없음
+        //return -1;//아이디 없음
         }catch(Exception e){
             e.printStackTrace();
         }

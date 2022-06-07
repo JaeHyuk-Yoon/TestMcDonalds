@@ -5,16 +5,10 @@
  */
 package src.DecoratorPattern;
 
-import src.StrategyPattern.Burger;
-
 /**
  *
  * @author JaeHyuk
  */
-public abstract class BurgerToppingdecorator extends Burger{
+public abstract class SideMenudecorator extends SideMenu {
     public abstract String getDescription();
-    
-    //public String testDisplay() {
-      //  return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
-    //}
 }
