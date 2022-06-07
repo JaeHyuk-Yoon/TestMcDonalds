@@ -17,7 +17,7 @@ public class IndPepsiCola implements IndCola{
     
     public IndPepsiCola() {
         //System.out.println("Ind Pepsi Cola");
-        indname = "펩시 콜라"
+        indname = "펩시 콜라";
     }
     
     @Override
