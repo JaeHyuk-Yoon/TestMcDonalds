@@ -21,9 +21,6 @@ import src.*;
  */
 public class UserMainPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UserMainPage
-     */
     String id;
     String ps;
     String branch;
@@ -1191,7 +1188,6 @@ public class UserMainPage extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        //금액부분 오류 db문제인듯!
         for(Menu menu : arrayMenu) {
             System.out.println(menu.getDescription() + " - 금액 : " + menu.cost() +"원");
         }
@@ -1208,25 +1204,12 @@ public class UserMainPage extends javax.swing.JFrame {
         int cnt = -1;
         if(nRow>=0&&nCol>=0){
             cnt = (int)order.getValueAt(nRow, 0);
-           // cnt = (Integer)n;
             cnt--;
             arrayMenu.remove(cnt);
-          //  nRow = -1; nCol = -1; cnt = -1;
             showTable();
         }else{
             JOptionPane.showMessageDialog(null, "선택된 값이 없습니다.");
         }
-//        if (nRow == -1 && nCol == -1) {
-//            JOptionPane.showMessageDialog(null, "선택된 값이 없습니다.");
-//        } else {
-//           // Object n = order.getValueAt(nRow,0);
-//            cnt = (int)order.getValueAt(nRow, 0);
-//           // cnt = (Integer)n;
-//            cnt--;
-//            arrayMenu.remove(cnt);
-//          //  nRow = -1; nCol = -1; cnt = -1;
-//            showTable();
-//            }
     }//GEN-LAST:event_deleteBActionPerformed
 
     /**

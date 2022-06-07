@@ -47,6 +47,28 @@ public class StockDAO {
          if(pstmt!=null) pstmt.close();
          if(conn!=null) conn.close();
         }	
-  }
+    }
+    
+    public ArrayList<Stock> getZeroList(String branch) throws NamingException, SQLException{
+        String SQL = "SELECT name FROM stock WHERE branch = ? AND qty = 0";
+        ArrayList<Stock> zeroList = new ArrayList<Stock>();
+        try{
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, branch);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+			Stock stock = new Stock();
+			stock.setName(rs.getString(1));
+			stock.setQty(0);
+			stock.setBranch(branch);
+			zeroList.add(stock);
+		}	
+            return zeroList;	
+	} finally{
+         if(rs!=null) rs.close();
+         if(pstmt!=null) pstmt.close();
+         if(conn!=null) conn.close();
+        }	
+    }
 }
 
