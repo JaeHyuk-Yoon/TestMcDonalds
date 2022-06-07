@@ -27,7 +27,7 @@ public class Milk extends SideMenudecorator{
     
     public int cost() { 
         try {
-            cost = menuDAO.menuCost("milk");
+            cost = menuDAO.menuCost("우유");
         } catch (SQLException ex) {
             Logger.getLogger(SideMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
