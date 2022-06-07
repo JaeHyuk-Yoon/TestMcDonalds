@@ -10,11 +10,16 @@ package src.FactoryPattern;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class BasicBun implements Bun{
+    
+    String indname;
+    
+    public BasicBun() {
+        indname = "클래식 번";
+        //System.out.println("Basic Bun");
+    }
+    
     @Override
     public String getBun() {
-        return "빵 : 클래식 번 사용";
-    }
-    public BasicBun() {
-        //System.out.println("Basic Bun");
+        return indname;
     }
 }

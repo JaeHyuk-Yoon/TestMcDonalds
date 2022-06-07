@@ -10,11 +10,15 @@ package src.FactoryPattern;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class BlackBun implements Bun{
+    
+    String indname;
+    
+    public BlackBun() {
+        indname = "블랙 번";
+    }
+    
     @Override
     public String getBun() {
-        return "Black Bun";
-    }
-    public BlackBun() {
-        
+        return indname; 
     }
 }

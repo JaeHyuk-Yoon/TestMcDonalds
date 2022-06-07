@@ -5,6 +5,7 @@
  */
 package src.FactoryPattern;
 
+import java.util.ArrayList;
 import src.StrategyPattern.Burger;
 
 /**
@@ -14,6 +15,7 @@ import src.StrategyPattern.Burger;
 public abstract class BurgerStore{
     
     public abstract Burger createBurger(String item);
+    public abstract ArrayList<String> getTotalStoreInd();
         
     public Burger orderBurger(String type) {
         Burger burger = null;

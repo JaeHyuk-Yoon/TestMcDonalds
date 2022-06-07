@@ -12,11 +12,15 @@ import src.FactoryPattern.Cheese;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class MozzarellaCheese implements Cheese{
+    String indname;
+    
+    public MozzarellaCheese() {
+        indname = "모짜렐라 치즈";
+        //System.out.println("Mozzarella Cheese");
+    }
+    
     @Override
     public String getCheese() {
-        return "Mozzarella Cheese";
-    }
-    public MozzarellaCheese() {
-        System.out.println("Mozzarella Cheese");
+        return indname;
     }
 }
