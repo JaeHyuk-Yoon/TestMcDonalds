@@ -252,6 +252,9 @@ public class OrderListPage extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        ManagerMainPage mmg = new ManagerMainPage(branch);
+                    mmg.setVisible(true);
+                    this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
