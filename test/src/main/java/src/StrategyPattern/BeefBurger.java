@@ -52,7 +52,11 @@ public class BeefBurger extends Burger {
         description = "비프 버거"; // 각각 사용하는 요소들만 + 추가하기       ex) 스토어 이름 + 원재료 나열 + 버거 종류
         selectPatty = new BeefPatty();
         selectSauce = new BeefBbqSauce();
+<<<<<<< HEAD
+        selectVegetable = new LettuceTomato();
+=======
         selectVegetable = new NoVegetable();
+>>>>>>> cc852c554f50bc8f179cca41d00156c8a2edf034
         
         patty = selectPatty.getPatty();
         sauce = selectSauce.getSauce();
@@ -81,7 +85,7 @@ public class BeefBurger extends Burger {
     
     public int cost() {
         try {
-            cost = menuDAO.menuCost("beefBurger");
+            cost = menuDAO.menuCost("비프버거");
         } catch (SQLException ex) {
             Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
         }
