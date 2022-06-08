@@ -184,7 +184,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jLabel20.setText("야채 추가");
 
         jLabel21.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
-        jLabel21.setText("\\4500");
+        jLabel21.setText("\\500");
 
         vegetableNum.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3, 1));
         vegetableNum.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -241,7 +241,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jLabel22.setText("치즈 추가");
 
         jLabel23.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
-        jLabel23.setText("\\4000");
+        jLabel23.setText("\\500");
 
         cheeseNum.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3, 1));
         cheeseNum.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -298,7 +298,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jLabel24.setText("세트 변경");
 
         jLabel25.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
-        jLabel25.setText("\\5000");
+        jLabel25.setText("\\1500");
 
         set.setModel(new javax.swing.SpinnerNumberModel(0, 0, 1, 1));
         set.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -337,6 +337,7 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addComponent(jLabel25))
         );
 
+        jLabel26.setFont(new java.awt.Font("맑은 고딕", 1, 24)); // NOI18N
         jLabel26.setText("토핑 선택");
 
         jButton7.setText("추가");
@@ -378,7 +379,7 @@ public class UserMainPage extends javax.swing.JFrame {
                     .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(jButton7)
                 .addGap(48, 48, 48))
         );
@@ -740,7 +741,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jLabel10.setText("포테이토");
 
         jLabel11.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
-        jLabel11.setText("\\5000");
+        jLabel11.setText("\\1000");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -780,7 +781,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jLabel12.setText("치즈스틱");
 
         jLabel13.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
-        jLabel13.setText("\\5000");
+        jLabel13.setText("\\2000");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1437,6 +1438,7 @@ public class UserMainPage extends javax.swing.JFrame {
         // 생성된 음식으로 디비값 바꾸는 메소드
         for(Menu menu : arrayMenu) {
             menu.completeOrder(branch);
+            
         }
         //테이블 초기화
         arrayMenu.clear();

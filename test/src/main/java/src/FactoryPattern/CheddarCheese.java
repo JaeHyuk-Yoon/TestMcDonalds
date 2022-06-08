@@ -14,7 +14,6 @@ public class CheddarCheese implements Cheese{
     String indname;
     
     public CheddarCheese() {
-        //System.out.println("Cheddar Cheese");
         indname = "체다 치즈";
     }
     

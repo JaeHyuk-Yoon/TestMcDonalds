@@ -13,7 +13,6 @@ public class IndCocaCola implements IndCola{
     String indname;
         
     public IndCocaCola() {
-        //System.out.println("Ind Coca Cola");
         indname = "코카콜라";
     }
     

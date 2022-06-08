@@ -16,7 +16,6 @@ public class PotatoWedges implements Potato{
     String indname;
     
     public PotatoWedges() {
-        //System.out.println("Potato Wedges");
         indname = "웨지 감자";
     }
     

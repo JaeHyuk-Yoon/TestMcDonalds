@@ -10,11 +10,13 @@ package src.FactoryPattern;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class GuilguVegetable implements Vegetable{
+    
+    String indname;
+    public GuilguVegetable() {
+        indname = "양상추";
+    }
     @Override
     public String getVegetable() {
-        return "양상추";
-    }
-    public GuilguVegetable() {
-        //System.out.println("Guilgu Vegetable");
+        return indname;
     }
 }

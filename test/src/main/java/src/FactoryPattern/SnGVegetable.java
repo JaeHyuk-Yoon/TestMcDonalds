@@ -10,11 +10,15 @@ package src.FactoryPattern;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class SnGVegetable implements Vegetable{
-    @Override
-    public String getVegetable() {
-        return "양배추";
-    }
+   
+    String indname;
+    
     public SnGVegetable() {
-        System.out.println("SnG Vegetable");
+        indname = "양배추";
+    }
+    
+     @Override
+    public String getVegetable() {
+        return indname;
     }
 }
