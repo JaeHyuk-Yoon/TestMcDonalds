@@ -52,7 +52,7 @@ public class ChickenBurger extends Burger {
         this.ingregientFactory = ingregientFactory;
         
         // 스트레티지 구현 부분
-        description = "매운 치킨 버거";        
+        description = "치킨 버거";        
         selectPatty = new ChickenPatty();
         selectSauce = new ChickenBbqSauce();
         selectVegetable = new LettuceTomato();

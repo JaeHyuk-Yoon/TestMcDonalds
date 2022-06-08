@@ -31,10 +31,10 @@ public class SnGBurgerStore extends BurgerStore {
     public ArrayList<String> ind = new ArrayList<String>();
     
     Burger burger;
-    BurgerStoreIngredientFactory factory;
+    public BurgerStoreIngredientFactory factory;
     
      public SnGBurgerStore() {
-        BurgerStoreIngredientFactory factory = new GuilguBurgerIngredientFactory();
+        factory = new SnGBurgerIngredientFactory();
         this.indBun = factory.createBun();
         ind.add(indBun.getBun());
         
@@ -52,25 +52,29 @@ public class SnGBurgerStore extends BurgerStore {
         
         this.indBeefPatty = factory.createBeefPatty();
         ind.add(indBeefPatty.getIndBeefPatty());
+        
+        // (커맨드 창 확인용) 인터페이스 사용하여 get 하나로 묶고 타입도 묶어서 for문으로 출력하도록 바꾸기
+        System.out.println("//팩토리 패턴 구현 부분");
+        System.out.println("'"+indBun.getBun()+"' '"+indCheese.getCheese()+"' '"+indVegetable.getVegetable()
+          +"' '"+ indPotato.getPotato() +"' '"+ indCola.getIndCola()+"' '"+ indBeefPatty.getIndBeefPatty()+"'");
+        System.out.println("");
     }
     
     @Override
     public Burger createBurger(String item) {
-        Burger burger = null;
-        BurgerStoreIngredientFactory factory = new SnGBurgerIngredientFactory();
         
         if(item.equals("치즈 버거")) {
             burger = new CheeseBurger(factory);
-            burger.setDescription("(SnG 매장) : 치즈 버거");
+            //burger.setDescription("(SnG 매장) : 치즈 버거");
         } else if(item.equals("비프 버거")) {
             burger = new BeefBurger(factory);
-            burger.setDescription("(SnG 매장) : 비프 버거");
+            //burger.setDescription("(SnG 매장) : 비프 버거");
         } else if(item.equals("치킨 버거")) {
             burger = new ChickenBurger(factory);
-            burger.setDescription("(SnG 매장) : 치킨 버거");
+            //burger.setDescription("(SnG 매장) : 치킨 버거");
         } else if(item.equals("매운 치킨 버거")) {
             burger = new SpicyChickenBurger(factory);
-            burger.setDescription("(SnG 매장) : 매운 치킨 버거");
+            //burger.setDescription("(SnG 매장) : 매운 치킨 버거");
         }
         
         return burger;

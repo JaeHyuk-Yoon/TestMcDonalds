@@ -47,7 +47,7 @@
                       <Component id="jPanel17" alignment="1" max="32767" attributes="0"/>
                       <Component id="jPanel19" alignment="1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                  <EmptySpace pref="37" max="32767" attributes="0"/>
                   <Component id="jButton7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
@@ -120,7 +120,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="&#xb9d1;&#xc740; &#xace0;&#xb515;" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="\u005c4500" containsInvalidXMLChars="true"/>
+                <Property name="text" type="java.lang.String" value="\u005c500" containsInvalidXMLChars="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="vegetableNum">
@@ -200,7 +200,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="&#xb9d1;&#xc740; &#xace0;&#xb515;" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="\u005c4000" containsInvalidXMLChars="true"/>
+                <Property name="text" type="java.lang.String" value="\u005c500" containsInvalidXMLChars="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="cheeseNum">
@@ -277,7 +277,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="&#xb9d1;&#xc740; &#xace0;&#xb515;" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="\u005c5000" containsInvalidXMLChars="true"/>
+                <Property name="text" type="java.lang.String" value="\u005c1500" containsInvalidXMLChars="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="set">
@@ -294,6 +294,9 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel26">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="&#xb9d1;&#xc740; &#xace0;&#xb515;" size="24" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#xd1a0;&#xd551; &#xc120;&#xd0dd;"/>
           </Properties>
         </Component>
@@ -1031,7 +1034,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="&#xb9d1;&#xc740; &#xace0;&#xb515;" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="\u005c5000" containsInvalidXMLChars="true"/>
+                        <Property name="text" type="java.lang.String" value="\u005c1000" containsInvalidXMLChars="true"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1092,7 +1095,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="&#xb9d1;&#xc740; &#xace0;&#xb515;" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="\u005c5000" containsInvalidXMLChars="true"/>
+                        <Property name="text" type="java.lang.String" value="\u005c2000" containsInvalidXMLChars="true"/>
                       </Properties>
                     </Component>
                   </SubComponents>

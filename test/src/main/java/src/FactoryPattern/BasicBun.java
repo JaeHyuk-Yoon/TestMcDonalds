@@ -15,7 +15,6 @@ public class BasicBun implements Bun{
     
     public BasicBun() {
         indname = "클래식 번";
-        //System.out.println("Basic Bun");
     }
     
     @Override

@@ -22,7 +22,13 @@ import src.FactoryPattern.BlackBun;
  * @author Minsu <jminsu084@gmail.com>
  */
 public class SnGBurgerIngredientFactory implements BurgerStoreIngredientFactory{
-
+    
+    public SnGBurgerIngredientFactory() {
+        System.out.println(" SnG 매장 입장 !");
+        System.out.println("------------------------------( 919 매장내 사용되는 식자재 종류, 메뉴형식, 출력되지 않는것들은 다른 매장과 동일 )-------------------------------");
+        System.out.println("");
+    }
+    
     @Override
     public Bun createBun() {
         return new BlackBun();
