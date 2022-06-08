@@ -92,11 +92,11 @@ public class Test {
         SalesDisplay salesDisplay = new SalesDisplay(orderData);
         OrderListDisplay orderListDisplay = new OrderListDisplay(orderData);
         
-        orderData.setOrders(6700,"SnG");
-        System.out.println("========================");
-        orderData.setOrders(2000,"치즈스틱");
-        System.out.println("========================");
-        orderData.setOrders(5600,"919");
+//        orderData.setOrders(6700,"SnG");
+//        System.out.println("========================");
+//        orderData.setOrders(2000,"치즈스틱");
+//        System.out.println("========================");
+//        orderData.setOrders(5600,"919");
         System.out.println("========================");
         System.out.println("========================================");
         Date date = new Date();

@@ -1,6 +1,7 @@
 
 package src.ObserverPattern;
 
+import UI.ManagerMainPage;
 import java.util.ArrayList;
 /**
  *
@@ -11,6 +12,7 @@ public class OrderData implements Subject {
   private int orderNum;
   private String branch;
   private ArrayList observers;
+  ManagerMainPage mmp;
   
     public OrderData() {
         observers = new ArrayList();           
@@ -29,7 +31,7 @@ public class OrderData implements Subject {
     public void notifyObservers(){
         for(int i =0;i<observers.size();i++){
             Observer observer = (Observer) observers.get(i);
-            observer.update(orderNum, branch);
+            observer.update(orderNum, branch, mmp);
         }
     }
     
@@ -37,9 +39,10 @@ public class OrderData implements Subject {
         notifyObservers();
     }
     
-    public void setOrders(int orderNum, String branch){
+    public void setOrders(int orderNum, String branch, ManagerMainPage mmp){
         this.orderNum = orderNum;
         this.branch = branch;
+        this.mmp = mmp;
         orderChanged();
     }
  

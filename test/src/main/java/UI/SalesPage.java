@@ -50,7 +50,7 @@ public class SalesPage extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        dayPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         daySalesTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -84,26 +84,31 @@ public class SalesPage extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        daySalesTable.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                daySalesTableMouseWheelMoved(evt);
+            }
+        });
         jScrollPane1.setViewportView(daySalesTable);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout dayPanelLayout = new javax.swing.GroupLayout(dayPanel);
+        dayPanel.setLayout(dayPanelLayout);
+        dayPanelLayout.setHorizontalGroup(
+            dayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dayPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        dayPanelLayout.setVerticalGroup(
+            dayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dayPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
 
-        jTabbedPane1.addTab("일 매출", jPanel1);
+        jTabbedPane1.addTab("일 매출", dayPanel);
 
         monthSalesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -222,6 +227,13 @@ public class SalesPage extends javax.swing.JFrame {
                     salesList.get(i).getTotal()
                 });
             }
+            
+            //daySalesTable.setModel(saTable);
+    /**
+    * additional code.
+    **/
+    saTable.fireTableDataChanged();
+       dayPanel.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(SalesPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -261,6 +273,11 @@ public class SalesPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void daySalesTableMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_daySalesTableMouseWheelMoved
+        // TODO add your handling code here:
+        showDayTable();
+    }//GEN-LAST:event_daySalesTableMouseWheelMoved
+
     /**
      * @param args the command line arguments
      */
@@ -297,6 +314,7 @@ public class SalesPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JPanel dayPanel;
     private javax.swing.JTable daySalesTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -305,7 +323,6 @@ public class SalesPage extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

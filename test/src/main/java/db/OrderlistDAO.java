@@ -110,23 +110,23 @@ public class OrderlistDAO {
             
             
         } catch (SQLException ex) {
-             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
-         } finally{
-         if(rs!=null) try {
-             rs.close();
-         } catch (SQLException ex) {
-             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         if(pstmt!=null) try {
-             pstmt.close();
-         } catch (SQLException ex) {
-             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         if(conn!=null) try {
-             conn.close();
-         } catch (SQLException ex) {
-             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
-         }
-        }
+             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);}
+//         } finally{
+//         if(rs!=null) try {
+//             rs.close();
+//         } catch (SQLException ex) {
+//             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
+//         }
+//         if(pstmt!=null) try {
+//             pstmt.close();
+//         } catch (SQLException ex) {
+//             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
+//         }
+//         if(conn!=null) try {
+//             conn.close();
+//         } catch (SQLException ex) {
+//             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
+//         }
+//        }
     }
 }

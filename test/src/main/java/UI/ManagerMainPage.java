@@ -142,10 +142,11 @@ public class ManagerMainPage extends javax.swing.JFrame {
         new LoginPage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
+public SalesPage sap;
     private void salesBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salesBActionPerformed
         // TODO add your handling code here:
-        SalesPage sap = new SalesPage(branch);
+        //public SalesPage sap = new SalesPage(branch);
+        sap = new SalesPage(branch);
         sap.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_salesBActionPerformed

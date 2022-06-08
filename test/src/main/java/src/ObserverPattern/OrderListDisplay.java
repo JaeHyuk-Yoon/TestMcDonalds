@@ -1,5 +1,6 @@
 
 package src.ObserverPattern;
+import UI.ManagerMainPage;
 import src.ObserverPattern.DisplayElement;
 import src.ObserverPattern.OrderData;
 /**
@@ -9,6 +10,7 @@ import src.ObserverPattern.OrderData;
 public class OrderListDisplay implements Observer, DisplayElement {
   private int orderNum;
   private String branch;
+  ManagerMainPage mmp;
   private OrderData orderData;
   
   //private int numReadings = 0;
@@ -18,7 +20,7 @@ public class OrderListDisplay implements Observer, DisplayElement {
       orderData.registerObserver(this);
   }
 
-  public void update(int orderNum, String branch) {
+  public void update(int orderNum, String branch, ManagerMainPage mmp) {
       
       //변수값 이용해서 DAO에서 값가져옴
           display();

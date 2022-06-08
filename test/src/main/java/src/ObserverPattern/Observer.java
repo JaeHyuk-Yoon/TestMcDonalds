@@ -5,12 +5,14 @@ Observer.java
 
 package src.ObserverPattern;
 
+import UI.ManagerMainPage;
+
 /**
  *
  * @author heejin
  */
 
 public interface Observer {
-  void update(int orderNum, String branch) ;
+  void update(int orderNum, String branch, ManagerMainPage mmp) ;
 
 }

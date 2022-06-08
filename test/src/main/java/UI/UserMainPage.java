@@ -35,6 +35,7 @@ import src.DecoratorPattern.cola;
 import src.FactoryPattern.BurgerStore;
 import src.FactoryPattern.GuilguBurgerStore;
 import src.FactoryPattern.SnGBurgerStore;
+import src.ObserverPattern.*;
 /**
  *
  * @author JaeHyuk
@@ -385,7 +386,6 @@ public class UserMainPage extends javax.swing.JFrame {
         );
 
         orderFrame.setMinimumSize(new java.awt.Dimension(790, 650));
-        orderFrame.setPreferredSize(new java.awt.Dimension(772, 575));
 
         orderTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1133,6 +1133,12 @@ public class UserMainPage extends javax.swing.JFrame {
         }
     }
     
+    //옵저버
+    OrderData orderData = new OrderData();
+    SalesDisplay salesDisplay = new SalesDisplay(orderData);
+    OrderListDisplay orderListDisplay = new OrderListDisplay(orderData);
+    StockDisplay stockDisplay = new StockDisplay(orderData);
+    public ManagerMainPage mmp = new ManagerMainPage();
     // 관리자 모드 버튼
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -1142,7 +1148,7 @@ public class UserMainPage extends javax.swing.JFrame {
         confirm = pc.getConfirm();
         if(confirm == 1)
         {
-            ManagerMainPage mmp = new ManagerMainPage(branch);
+            mmp = new ManagerMainPage(branch);
             mmp.setVisible(true);
             //this.dispose();
         }
@@ -1455,6 +1461,9 @@ public class UserMainPage extends javax.swing.JFrame {
         //테이블 초기화
         arrayMenu.clear();
         showTable();
+        //옵저버
+        int num = orderlist.getOrderNum()-1;
+        orderData.setOrders(num, branch, mmp);
         //토핑창 닫고 메뉴창으로 돌아감
         this.setVisible(true);
         orderFrame.dispose();
@@ -1505,7 +1514,7 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JButton colaB;
     private javax.swing.JButton completeOrderButt;
     private javax.swing.JButton deleteB;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

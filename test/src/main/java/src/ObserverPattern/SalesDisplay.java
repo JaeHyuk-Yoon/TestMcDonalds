@@ -1,5 +1,6 @@
 
 package src.ObserverPattern;
+import UI.ManagerMainPage;
 import UI.SalesPage;
 import db.Orderlist;
 import db.OrderlistDAO;
@@ -21,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class SalesDisplay implements Observer, DisplayElement {
   private int orderNum;
   private String branch;
+  ManagerMainPage mmp;
   private OrderData orderData;
   
   public Orderlist order = new Orderlist();
@@ -31,12 +33,12 @@ public class SalesDisplay implements Observer, DisplayElement {
       orderData.registerObserver(this);
   }
 
-  public void update(int orderNum, String branch) {
+  public void update(int orderNum, String branch,ManagerMainPage mmp) {
       //orderNum과 branch이용해서 해당 주문의 가격조회
       //String sc = "500";
       this.orderNum = orderNum;
       this.branch = branch;
-      
+      this.mmp = mmp;
       order=(new OrderlistDAO()).orderOn(orderNum,branch);
       
       String cost = Integer.toString(order.getPrice());
@@ -57,9 +59,12 @@ public class SalesDisplay implements Observer, DisplayElement {
 
   public void display() {
           //매출테이블보여주기
-          SalesPage sg = new SalesPage(branch);
-          sg.showDayTable();
-          sg.showMonthTable();
+          mmp.sap.showDayTable();
+//          SalesPage sg = new SalesPage(branch);
+//          sg.dayPanel.setVisible(false);
+//          sg.showDayTable();
+//          sg.showMonthTable();
+//          sg.setVisible(true);
   }
 
 
