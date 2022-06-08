@@ -5,12 +5,22 @@
  */
 package UI;
 
+import db.Sales;
+import db.SalesDAO;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author heejin
  */
 public class SalesPage extends javax.swing.JFrame {
     String branch;
+    private ArrayList<Sales> salesList = new ArrayList<>();
+    private ArrayList<Sales> msalesList = new ArrayList<>();
 
     /**
      * Creates new form SalesPage
@@ -41,10 +51,11 @@ public class SalesPage extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        daySalesTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        monthSalesTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -55,18 +66,24 @@ public class SalesPage extends javax.swing.JFrame {
 
         jLabel1.setText("매출 조회");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        daySalesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "날짜", "매출"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        daySalesTable.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                daySalesTableAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(daySalesTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,18 +104,24 @@ public class SalesPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("일 매출", jPanel1);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        monthSalesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "월", "매출"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        monthSalesTable.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                monthSalesTableAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane2.setViewportView(monthSalesTable);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -118,6 +141,13 @@ public class SalesPage extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("월 매출", jPanel2);
+
+        jButton1.setText("확인");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("menu");
 
@@ -151,6 +181,10 @@ public class SalesPage extends javax.swing.JFrame {
                 .addGap(246, 246, 246)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(245, 245, 245))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +193,9 @@ public class SalesPage extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -171,6 +207,51 @@ public class SalesPage extends javax.swing.JFrame {
         mmg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void daySalesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_daySalesTableAncestorAdded
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            DefaultTableModel saTable = (DefaultTableModel)daySalesTable.getModel();
+            saTable.setNumRows(0);
+            
+            salesList = (new SalesDAO()).getList(branch);
+            for(int i = 0;i<salesList.size();i++){
+                saTable.insertRow(saTable.getRowCount(), new Object[]{
+                    salesList.get(i).getDate(),
+                    salesList.get(i).getTotal()
+                });
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SalesPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_daySalesTableAncestorAdded
+
+    private void monthSalesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_monthSalesTableAncestorAdded
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            DefaultTableModel msTable = (DefaultTableModel)monthSalesTable.getModel();
+            msTable.setNumRows(0);
+            
+            msalesList = (new SalesDAO()).getMonthList(branch);
+            for(int i = 0;i<msalesList.size();i++){
+                msTable.insertRow(msTable.getRowCount(), new Object[]{
+                    msalesList.get(i).getDate(),
+                    msalesList.get(i).getTotal()
+                });
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SalesPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_monthSalesTableAncestorAdded
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         ManagerMainPage mmg = new ManagerMainPage(branch);
+        mmg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,6 +289,8 @@ public class SalesPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable daySalesTable;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
@@ -219,7 +302,6 @@ public class SalesPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable monthSalesTable;
     // End of variables declaration//GEN-END:variables
 }

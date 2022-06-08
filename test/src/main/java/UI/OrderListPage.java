@@ -167,6 +167,11 @@ public class OrderListPage extends javax.swing.JFrame {
         jLabel1.setText("주문내역");
 
         jButton1.setText("확인");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("자세히");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -256,6 +261,13 @@ public class OrderListPage extends javax.swing.JFrame {
                     mmg.setVisible(true);
                     this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         ManagerMainPage mmg = new ManagerMainPage(branch);
+        mmg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

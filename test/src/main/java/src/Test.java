@@ -5,6 +5,7 @@
  */
 package src;
 
+import java.text.SimpleDateFormat;
 import src.ObserverPattern.StockDisplay;
 import src.ObserverPattern.OrderListDisplay;
 import src.ObserverPattern.OrderData;
@@ -12,6 +13,7 @@ import src.ObserverPattern.SalesDisplay;
 import src.StrategyPattern.CheeseBurger;
 import src.StrategyPattern.Burger;
 import java.util.ArrayList;
+import java.util.Date;
 import src.DecoratorPattern.ChangeSet;
 import src.DecoratorPattern.Menu;
 import src.DecoratorPattern.ToppingCheese;
@@ -90,12 +92,21 @@ public class Test {
         SalesDisplay salesDisplay = new SalesDisplay(orderData);
         OrderListDisplay orderListDisplay = new OrderListDisplay(orderData);
         
-        orderData.setOrder("치즈버거세트", 6700);
+        orderData.setOrders(6700,"SnG");
         System.out.println("========================");
-        orderData.setOrder("치즈스틱", 2000);
+        orderData.setOrders(2000,"치즈스틱");
         System.out.println("========================");
-        orderData.setOrder("매운치킨버거",5600);
+        orderData.setOrders(5600,"919");
         System.out.println("========================");
+        System.out.println("========================================");
+        Date date = new Date();
+         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+          String orderDate = sdf.format(date);
+//          int costs = 5000;
+//          String sc = "500";
+//          System.out.println(orderDate);
+//          new SalesDAO().isFirst(orderDate, sc, "SnG");
+            System.out.println("dd");
 
             
     }
