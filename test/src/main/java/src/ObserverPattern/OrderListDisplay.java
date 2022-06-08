@@ -2,34 +2,29 @@
 package src.ObserverPattern;
 import src.ObserverPattern.DisplayElement;
 import src.ObserverPattern.OrderData;
-import java.util.Observable;
-import java.util.Observer;
 /**
  *
  * @author heejin
  */
 public class OrderListDisplay implements Observer, DisplayElement {
-  private String menu;
-  private int cost;
-  private int numReadings = 0;
-  public OrderListDisplay(Observable observable) {
-      observable.addObserver(this);
+  private int orderNum;
+  private String branch;
+  private OrderData orderData;
+  
+  //private int numReadings = 0;
+  
+  public OrderListDisplay(OrderData orderData) {
+      this.orderData = orderData;
+      orderData.registerObserver(this);
   }
 
-  public void update(Observable o, Object arg) {
-      if(o instanceof OrderData){
-          OrderData orderData = (OrderData)o;
-          this.menu = orderData.getMenu();
-          this.cost = orderData.getCost();
-          numReadings++;
+  public void update(int orderNum, String branch) {
+      
+      //변수값 이용해서 DAO에서 값가져옴
           display();
-      }
   }
-
   public void display() {
-      System.out.println("["+numReadings+"] 주문내역 : "+ menu +"  금액 : " +cost+"원");
+      //orderlistdisplay 테이블 화면 다시 실행하도록
+      System.out.println("OrderListDisplay DISPLAY");
   }
-
- 
-
 }
