@@ -16,7 +16,7 @@ import src.StrategyPattern.ChickenBurger;
 import src.StrategyPattern.CheeseBurger;
 import src.StrategyPattern.BeefBurger;
 import src.StrategyPattern.Burger;
-
+import db.OrderlistDAO;
 
 import UI.ManagerMainPage;
 import UI.LoginPage;
@@ -54,7 +54,7 @@ public class UserMainPage extends javax.swing.JFrame {
     BurgerStore BurgerStore;
     int no = 0;
     private ArrayList<Menu> arrayMenu = new ArrayList<Menu>();
-    
+    OrderlistDAO orderlist;
     
     public UserMainPage() {
         initComponents();
@@ -1432,14 +1432,26 @@ public class UserMainPage extends javax.swing.JFrame {
         showTable();
     }//GEN-LAST:event_waterBActionPerformed
 
+    //orderlist DB에 추가할 주문 총내역 한줄로 만듬
+    private String setString() {
+        String totalMenu=arrayMenu.get(0).getDescription();
+        for(int i=1; i<arrayMenu.size(); i++) {
+            totalMenu = totalMenu + ", " + arrayMenu.get(i).getDescription();
+        }
+        return totalMenu;
+    }
+    
     //orderFrame 주문완료 버튼
     private void completeOrderButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeOrderButtActionPerformed
         // TODO add your handling code here:
-        // 생성된 음식으로 디비값 바꾸는 메소드
+        orderlist = new OrderlistDAO();
+        
         for(Menu menu : arrayMenu) {
+            // 생성된 주문내역으로 DB에 원재료 재고 값 수정
             menu.completeOrder(branch);
-            
         }
+        //주문내역 DB에 레코드 삽입
+        orderlist.AddOrderList(setString(), totalcost, branch);
         //테이블 초기화
         arrayMenu.clear();
         showTable();
