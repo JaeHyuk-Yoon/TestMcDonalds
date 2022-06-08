@@ -1144,7 +1144,7 @@ public class UserMainPage extends javax.swing.JFrame {
         {
             ManagerMainPage mmp = new ManagerMainPage(branch);
             mmp.setVisible(true);
-            this.dispose();
+            //this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
