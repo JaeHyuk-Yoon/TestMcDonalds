@@ -12,20 +12,42 @@ import java.sql.Date;
  * @author heejin
  */
 public class Orderlist {
+    private int ordernum;
     private Date date;
     private String menu;
     private String branch;
     private int price;
+    private String complete;
 
     public Orderlist() {
     }
 
-    public Orderlist(Date date, String menu, String branch, int price) {
+    public Orderlist(int ordernum, Date date, String menu, String branch, int price, String complete) {
+        this.ordernum = ordernum;
         this.date = date;
         this.menu = menu;
         this.branch = branch;
         this.price = price;
+        this.complete = complete;
     }
+
+    public int getOrdernum() {
+        return ordernum;
+    }
+
+    public void setOrdernum(int ordernum) {
+        this.ordernum = ordernum;
+    }
+
+    public String getComplete() {
+        return complete;
+    }
+
+    public void setComplete(String complete) {
+        this.complete = complete;
+    }
+
+    
 
     public Date getDate() {
         return date;

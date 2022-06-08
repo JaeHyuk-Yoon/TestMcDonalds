@@ -5,31 +5,29 @@
  */
 package db;
 
-import java.sql.Date;
-
 /**
  *
  * @author heejin
  */
-public class Sales {
-    private Date date;
+public class MonthSales {
+    private String date;
     private int total;
     private String branch;
 
-    public Sales() {
+    public MonthSales() {
     }
 
-    public Sales(Date date, int total, String branch) {
+    public MonthSales(String date, int total, String branch) {
         this.date = date;
         this.total = total;
         this.branch = branch;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -48,5 +46,7 @@ public class Sales {
     public void setBranch(String branch) {
         this.branch = branch;
     }
-
+    
+    
+    
 }

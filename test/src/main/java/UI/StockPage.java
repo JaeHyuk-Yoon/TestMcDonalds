@@ -63,10 +63,7 @@ public class StockPage extends javax.swing.JFrame {
 
         stockTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "재료", "수량"

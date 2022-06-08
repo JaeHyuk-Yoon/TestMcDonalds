@@ -6,7 +6,6 @@
 package db;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,18 +47,19 @@ public class SalesDAO {
         }
         return list;
     }
-    public ArrayList<Sales> getMonthList(String branch) throws SQLException{
+    
+    public ArrayList<MonthSales> getMonthList(String branch) throws SQLException{
         String SQL = "SELECT DATE_FORMAT(date,'%Y-%m') m, sum(total) s  FROM sales WHERE branch = ? GROUP BY m";
-        ArrayList<Sales> list = new ArrayList<>();
+        ArrayList<MonthSales> list = new ArrayList<>();
         pstmt = conn.prepareStatement(SQL);
         pstmt.setString(1, branch);
         rs = pstmt.executeQuery();
         while (rs.next()) {
-            Sales sales = new Sales();
-            sales.setDate(rs.getDate("m"));
-            sales.setTotal(rs.getInt("s"));
-            sales.setBranch(branch);
-            list.add(sales);
+            MonthSales mSales = new MonthSales();
+            mSales.setDate(rs.getString("m"));
+            mSales.setTotal(Integer.parseInt(rs.getString("s")));
+            mSales.setBranch(branch);
+            list.add(mSales);
         }
         return list;
         

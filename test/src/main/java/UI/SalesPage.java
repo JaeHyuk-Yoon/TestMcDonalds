@@ -5,6 +5,7 @@
  */
 package UI;
 
+import db.MonthSales;
 import db.Sales;
 import db.SalesDAO;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class SalesPage extends javax.swing.JFrame {
     String branch;
     private ArrayList<Sales> salesList = new ArrayList<>();
-    private ArrayList<Sales> msalesList = new ArrayList<>();
+    private ArrayList<MonthSales> msalesList = new ArrayList<>();
 
     /**
      * Creates new form SalesPage
@@ -208,8 +209,7 @@ public class SalesPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void daySalesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_daySalesTableAncestorAdded
-        // TODO add your handling code here:
+    public void showDayTable(){
         try {
             // TODO add your handling code here:
             DefaultTableModel saTable = (DefaultTableModel)daySalesTable.getModel();
@@ -225,10 +225,9 @@ public class SalesPage extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(SalesPage.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_daySalesTableAncestorAdded
-
-    private void monthSalesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_monthSalesTableAncestorAdded
-        // TODO add your handling code here:
+    }
+    
+    public void showMonthTable(){
         try {
             // TODO add your handling code here:
             DefaultTableModel msTable = (DefaultTableModel)monthSalesTable.getModel();
@@ -244,6 +243,15 @@ public class SalesPage extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(SalesPage.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    private void daySalesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_daySalesTableAncestorAdded
+        // TODO add your handling code here:
+        showDayTable();
+    }//GEN-LAST:event_daySalesTableAncestorAdded
+
+    private void monthSalesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_monthSalesTableAncestorAdded
+        // TODO add your handling code here:
+        showMonthTable();
     }//GEN-LAST:event_monthSalesTableAncestorAdded
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
