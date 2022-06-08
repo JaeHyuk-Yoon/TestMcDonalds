@@ -6,6 +6,7 @@
 package src.DecoratorPattern;
 
 import db.MenuDAO;
+import db.StockDAO;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,5 +35,10 @@ public class CheeseStick extends SideMenudecorator {
         }
         //return cost + sidemenu.cost();
         return cost;
+    }
+    
+    public void completeOrder(String branch) {
+        StockDAO stockDAO = new StockDAO();
+        stockDAO.completeOrderQtySet(getDescription(), branch);
     }
 }

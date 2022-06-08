@@ -20,5 +20,6 @@ public abstract class Menu {
     public void setDescription(String description) {
         this.description = description;
     }
+    public abstract void completeOrder(String branch);
     
 }

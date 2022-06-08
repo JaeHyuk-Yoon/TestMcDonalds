@@ -9,10 +9,12 @@ import src.StrategyPattern.Burger;
 import src.StrategyPattern.BeefBbqSauce;
 import src.StrategyPattern.BeefPatty;
 import db.MenuDAO;
+import db.StockDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import src.DecoratorPattern.Menu;
 import src.FactoryPattern.Bun;
 import src.FactoryPattern.BurgerStoreIngredientFactory;
 import src.FactoryPattern.Cheese;
@@ -27,7 +29,8 @@ import src.FactoryPattern.Vegetable;
  */
 public class BeefBurger extends Burger {
     
-    public MenuDAO menuDAO = new MenuDAO();
+    MenuDAO menuDAO = new MenuDAO();
+    
     int cost = 0;
     
     protected Bun indBun;
@@ -36,6 +39,8 @@ public class BeefBurger extends Burger {
     protected Potato indPotato;
     protected IndCola indCola;
     protected IndBeefPatty indBeefPatty;
+    
+    String branch;
     
     public ArrayList<String> BeefBurgerind = new ArrayList<String>();
     
@@ -56,26 +61,30 @@ public class BeefBurger extends Burger {
         
         patty = selectPatty.getPatty();
         sauce = selectSauce.getSauce();
-        vegetable = selectVegetable.getVegetable();
+        //vegetable = selectVegetable.getVegetable();
+        BeefBurgerind.add(sauce);
+        BeefBurgerind.add(patty);
         
-        //팩토리 패턴 구현 부분
-        this.indBun = ingregientFactory.createBun();
+        
+        //팩토리 패턴 구현 부분(현재 문제점)
+        this.indBun = this.ingregientFactory.createBun();
         BeefBurgerind.add(indBun.getBun());
         
-        this.indCheese = ingregientFactory.createCheese();
-        BeefBurgerind.add(indCheese.getCheese());
+        //토핑은 토핑으로 이동해야함
+        //this.indCheese = ingregientFactory.createCheese();
+        //BeefBurgerind.add(indCheese.getCheese());
         
-        this.indVegetable = ingregientFactory.createVegetable();
-        BeefBurgerind.add(indVegetable.getVegetable());
+        //this.indVegetable = ingregientFactory.createVegetable();
+        //BeefBurgerind.add(indVegetable.getVegetable());
         
-        this.indPotato = ingregientFactory.createPotato();
-        BeefBurgerind.add(indPotato.getPotato());
+        //this.indPotato = ingregientFactory.createPotato();
+        //BeefBurgerind.add(indPotato.getPotato());
         
-        this.indCola = ingregientFactory.createCola();
-        BeefBurgerind.add(indCola.getIndCola());
+        //this.indCola = ingregientFactory.createCola();
+        //BeefBurgerind.add(indCola.getIndCola());
         
-        this.indBeefPatty = ingregientFactory.createBeefPatty();
-        BeefBurgerind.add(indBeefPatty.getIndBeefPatty());
+        //this.indBeefPatty = ingregientFactory.createBeefPatty();
+        //BeefBurgerind.add(indBeefPatty.getIndBeefPatty());
         
     }
     
@@ -93,11 +102,20 @@ public class BeefBurger extends Burger {
         return description;
     }
     
-    public String testDisplay() {
-        return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
+    //public String testDisplay() {
+    //    return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
+    //}
+    
+    public ArrayList<String> getBurgerInd() {
+        return (BeefBurgerind);
     }
     
-    public ArrayList<String> getBeefBurgerInd() {
-        return (BeefBurgerind);
+    
+    public void completeOrder(String branch) {
+        for(String ind : BeefBurgerind) {
+            StockDAO stockDAO = new StockDAO();
+            this.branch = branch;
+            stockDAO.completeOrderQtySet(ind, branch);
+        }
     }
 }

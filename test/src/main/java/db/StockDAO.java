@@ -7,15 +7,19 @@ package db;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.naming.NamingException;
 /**
  *
  * @author heejin
  */
 public class StockDAO {
-     private Connection conn = null;
+    private Connection conn = null;
     private PreparedStatement pstmt= null;
     private ResultSet rs= null;
+    String branch;
+    
     public StockDAO(){
         try{
             String dbURL = "jdbc:mysql://localhost:3306/kiosk?serverTimezone=UTC";
@@ -70,5 +74,37 @@ public class StockDAO {
          if(conn!=null) conn.close();
         }	
     }
+    
+    public void completeOrderQtySet(String ind, String branch) {
+        this.branch = branch;
+        String SQL = "UPDATE stock SET qty = qty-1 WHERE name = ? AND branch = ?";
+        try{
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, ind);
+            pstmt.setString(2, branch);
+            pstmt.executeUpdate();
+            
+            
+        } catch (SQLException ex) {
+             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
+         } finally{
+         if(rs!=null) try {
+             rs.close();
+         } catch (SQLException ex) {
+             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         if(pstmt!=null) try {
+             pstmt.close();
+         } catch (SQLException ex) {
+             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         if(conn!=null) try {
+             conn.close();
+         } catch (SQLException ex) {
+             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        }
+    }
+    
 }
 

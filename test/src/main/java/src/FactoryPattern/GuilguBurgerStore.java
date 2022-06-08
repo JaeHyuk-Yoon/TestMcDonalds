@@ -33,10 +33,10 @@ public class GuilguBurgerStore extends BurgerStore{
     public ArrayList<String> ind = new ArrayList<String>();
     
     Burger burger;
-    BurgerStoreIngredientFactory factory;
+    public BurgerStoreIngredientFactory factory;
         
     public GuilguBurgerStore() {
-        BurgerStoreIngredientFactory factory = new GuilguBurgerIngredientFactory();
+        factory = new GuilguBurgerIngredientFactory();
         this.indBun = factory.createBun();
         ind.add(indBun.getBun());
         
@@ -90,5 +90,9 @@ public class GuilguBurgerStore extends BurgerStore{
     
     public ArrayList<String> getTotalStoreInd() {
         return (ind);
+    }
+    
+    public BurgerStoreIngredientFactory getFactory() {
+        return factory;
     }
 }

@@ -16,6 +16,7 @@ public abstract class BurgerStore{
     
     public abstract Burger createBurger(String item);
     public abstract ArrayList<String> getTotalStoreInd();
+    public abstract BurgerStoreIngredientFactory getFactory();
         
     public Burger orderBurger(String type) {
         Burger burger = null;

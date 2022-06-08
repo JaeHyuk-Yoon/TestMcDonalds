@@ -32,6 +32,9 @@ import src.DecoratorPattern.Milk;
 import src.DecoratorPattern.PotatoDish;
 import src.DecoratorPattern.Water;
 import src.DecoratorPattern.cola;
+import src.FactoryPattern.BurgerStore;
+import src.FactoryPattern.GuilguBurgerStore;
+import src.FactoryPattern.SnGBurgerStore;
 /**
  *
  * @author JaeHyuk
@@ -47,7 +50,8 @@ public class UserMainPage extends javax.swing.JFrame {
     int setc =0;//세트변경
     int confirm;
     Burger burger;
-    SideMenu sidemenu = new SideMenu();
+    SideMenu sidemenu;
+    BurgerStore BurgerStore;
     int no = 0;
     private ArrayList<Menu> arrayMenu = new ArrayList<Menu>();
     
@@ -64,12 +68,13 @@ public class UserMainPage extends javax.swing.JFrame {
         this.id = id;
         this.ps = ps;
         this.branch = branch;
+        BurgerStore = selectStore(branch);
         setTitle(branch+" store");
         setSize(600, 600);
         setLocationRelativeTo(null);
         confirm=0;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1115,6 +1120,18 @@ public class UserMainPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public BurgerStore selectStore(String branch) {
+        if(branch.equals("919")) {
+            return new GuilguBurgerStore();
+        } else if(branch.equals("SnG")) {
+            return new SnGBurgerStore();
+        }
+        else {
+        System.out.println("selectStore error");
+            return null;
+        }
+    }
+    
     // 관리자 모드 버튼
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -1198,7 +1215,7 @@ public class UserMainPage extends javax.swing.JFrame {
     
     private void cheeseburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheeseburgerBActionPerformed
         // 치즈버거 버튼누를때
-        burger = new CheeseBurger();
+        burger = BurgerStore.orderBurger("치즈 버거");
         toppingFrame.setTitle("CheeseBurger");
         toppingFrame.setLocationRelativeTo(null);
         cn = 0; vn = 0; setc = 0;
@@ -1221,7 +1238,7 @@ public class UserMainPage extends javax.swing.JFrame {
 
     private void beefburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beefburgerBActionPerformed
         // 비프버거 누르면
-       burger = new BeefBurger();
+        burger = BurgerStore.orderBurger("비프 버거");
         cn = 0; vn = 0; setc= 0;
         toppingFrame.setTitle("beefBurger");
         toppingFrame.setLocationRelativeTo(null);
@@ -1234,7 +1251,7 @@ public class UserMainPage extends javax.swing.JFrame {
 
     private void chickenburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chickenburgerBActionPerformed
         // 치킨버거 누르면
-      burger = new ChickenBurger();
+        burger = BurgerStore.orderBurger("치킨 버거");
         cn = 0; vn = 0; setc= 0;
         toppingFrame.setTitle("ChickenBurger");
         toppingFrame.setLocationRelativeTo(null);
@@ -1247,9 +1264,9 @@ public class UserMainPage extends javax.swing.JFrame {
 
     private void spicychickenburgerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spicychickenburgerBActionPerformed
         // 매운 치킨버거 버튼 누르면
-       burger = new SpicyChickenBurger();
+        burger = BurgerStore.orderBurger("매운 치킨 버거");
         cn = 0; vn = 0; setc= 0;
-       toppingFrame.setTitle("SpicyChickenBurger");
+        toppingFrame.setTitle("SpicyChickenBurger");
         toppingFrame.setLocationRelativeTo(null);
         vegetableNum.setValue(vn);
         cheeseNum.setValue(cn);
@@ -1280,16 +1297,16 @@ public class UserMainPage extends javax.swing.JFrame {
         // 토핑추가버튼 누르면
         if(cn>0){
             for(int i=0 ; i < cn ; i++){
-                burger = new ToppingCheese(burger);
+                burger = new ToppingCheese(burger, BurgerStore.getFactory());
             }
         }
         if(vn>0){
             for(int i=0 ; i < vn ; i++){
-                burger = new ToppingLettuce(burger);
+                burger = new ToppingLettuce(burger, BurgerStore.getFactory());
             }
         }
         if(setc == 1){
-            burger = new ChangeSet(burger);
+            burger = new ChangeSet(burger, BurgerStore.getFactory());
         }
         //메뉴 리스트에 추가
         arrayMenu.add(burger);
@@ -1389,7 +1406,7 @@ public class UserMainPage extends javax.swing.JFrame {
     //포테이토 버튼
     private void potatoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potatoBActionPerformed
         // TODO add your handling code here:
-        sidemenu = new PotatoDish(sidemenu);
+        sidemenu = new PotatoDish(sidemenu, BurgerStore.getFactory());
         //메뉴 리스트에 추가
         arrayMenu.add(sidemenu);
         //테이블 출력
@@ -1398,7 +1415,7 @@ public class UserMainPage extends javax.swing.JFrame {
     //콜라 버튼
     private void colaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colaBActionPerformed
         // TODO add your handling code here:
-        sidemenu = new cola(sidemenu);
+        sidemenu = new cola(sidemenu, BurgerStore.getFactory());
         //메뉴 리스트에 추가
         arrayMenu.add(sidemenu);
         //테이블 출력
@@ -1417,6 +1434,10 @@ public class UserMainPage extends javax.swing.JFrame {
     //orderFrame 주문완료 버튼
     private void completeOrderButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeOrderButtActionPerformed
         // TODO add your handling code here:
+        // 생성된 음식으로 디비값 바꾸는 메소드
+        for(Menu menu : arrayMenu) {
+            menu.completeOrder(branch);
+        }
         //테이블 초기화
         arrayMenu.clear();
         showTable();

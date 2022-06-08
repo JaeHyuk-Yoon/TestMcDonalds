@@ -15,7 +15,7 @@ import src.StrategyPattern.CheeseBurger;
  *
  * @author JaeHyuk
  */
-public class SideMenu extends Menu{
+public abstract class SideMenu extends Menu{
     int cost = 0;
     SideMenu sidemenu;
     public String description = "";
@@ -27,4 +27,7 @@ public class SideMenu extends Menu{
     public int cost() {
         return cost;
     }
+    public abstract void completeOrder(String branch);
+    
+    
 }

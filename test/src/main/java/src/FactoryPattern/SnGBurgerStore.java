@@ -79,4 +79,7 @@ public class SnGBurgerStore extends BurgerStore {
     public ArrayList<String> getTotalStoreInd() {
         return (ind);
     }
+    public BurgerStoreIngredientFactory getFactory() {
+        return factory;
+    }
 }
