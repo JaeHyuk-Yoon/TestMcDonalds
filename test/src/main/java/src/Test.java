@@ -66,13 +66,13 @@ public class Test {
         
         System.out.println("----------------------------------------------( 주문 )--------------------------------------------------");
         burger5 = guilguBurgerStore.orderBurger("비프 버거");
-        burger5 = new ToppingCheese(burger5);
-        burger5= new ToppingLettuce(burger5);
-        burger5 = new ChangeSet(burger5);
+        //burger5 = new ToppingCheese(burger5);
+        //burger5= new ToppingLettuce(burger5);
+        //burger5 = new ChangeSet(burger5);
        System.out.println(burger5.getDescription() + " - 금액 : " + burger5.cost() +"원");
        System.out.println("----------------------------------------------( 주문 )--------------------------------------------------");
        burger6 = new SnGBurgerStore().orderBurger("비프 버거");
-        burger6 = new ChangeSet(burger6);
+        //burger6 = new ChangeSet(burger6);
        System.out.println(burger6.getDescription() + " - 금액 : " + burger6.cost() +"원");
        System.out.println("----------------------------------------------( 주문서 )--------------------------------------------------");
        

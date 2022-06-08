@@ -12,7 +12,7 @@ package src.FactoryPattern;
 public class GuilguVegetable implements Vegetable{
     @Override
     public String getVegetable() {
-        return "야채 : 냉동 야채 사용";
+        return "양상추";
     }
     public GuilguVegetable() {
         //System.out.println("Guilgu Vegetable");

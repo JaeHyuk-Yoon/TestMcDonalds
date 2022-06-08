@@ -178,13 +178,13 @@ public class OrderCheeseBurgerPage extends javax.swing.JFrame {
         check[3] = jCheckBox3.isSelected();
         
         if(check[1] = true) {   
-            cb = new ToppingCheese(cb);
+            //cb = new ToppingCheese(cb);
         }
         if(check[2] = true) {   
-            cb = new ToppingLettuce(cb);
+           // cb = new ToppingLettuce(cb);
         }
         if(check[3] = true) {   
-            cb = new ChangeSet(cb);
+           // cb = new ChangeSet(cb);
         }
         
         String money = Integer.toString(cb.cost());
@@ -198,13 +198,13 @@ public class OrderCheeseBurgerPage extends javax.swing.JFrame {
         check[3] = jCheckBox3.isSelected();
         
         if(check[1] = true) {   
-            cb = new ToppingCheese(cb);
+            //cb = new ToppingCheese(cb);
         }
         if(check[2] = true) {   
-            cb = new ToppingLettuce(cb);
+            //cb = new ToppingLettuce(cb);
         }
         if(check[3] = true) {   
-            cb = new ChangeSet(cb);
+            //cb = new ChangeSet(cb);
         }
         
         String money = Integer.toString(cb.cost());
@@ -218,13 +218,13 @@ public class OrderCheeseBurgerPage extends javax.swing.JFrame {
         check[3] = jCheckBox3.isSelected();
         
         if(check[1] = true) {   
-            cb = new ToppingCheese(cb);
+            //cb = new ToppingCheese(cb);
         }
         if(check[2] = true) {   
-            cb = new ToppingLettuce(cb);
+            //cb = new ToppingLettuce(cb);
         }
         if(check[3] = true) {   
-            cb = new ChangeSet(cb);
+            //cb = new ChangeSet(cb);
         }
         
         String money = Integer.toString(cb.cost());

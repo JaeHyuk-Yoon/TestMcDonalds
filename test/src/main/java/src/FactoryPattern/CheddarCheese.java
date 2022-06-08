@@ -15,7 +15,7 @@ public class CheddarCheese implements Cheese{
     
     public CheddarCheese() {
         //System.out.println("Cheddar Cheese");
-        indname = "클래식 번";
+        indname = "체다 치즈";
     }
     
     @Override

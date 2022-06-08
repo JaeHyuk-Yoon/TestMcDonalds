@@ -11,10 +11,12 @@ import src.StrategyPattern.Burger;
 import src.StrategyPattern.SpicyChickenBbqSauce;
 import src.StrategyPattern.ChickenPatty;
 import db.MenuDAO;
+import db.StockDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import src.DecoratorPattern.Menu;
 import src.FactoryPattern.Bun;
 import src.FactoryPattern.BurgerStoreIngredientFactory;
 import src.FactoryPattern.Cheese;
@@ -28,6 +30,8 @@ import src.FactoryPattern.Vegetable;
  */
 public class SpicyChickenBurger extends Burger {
     MenuDAO menuDAO = new MenuDAO();
+    
+    
     int cost = 0;
     
     protected Bun indBun;
@@ -36,6 +40,8 @@ public class SpicyChickenBurger extends Burger {
     protected Potato indPotato;
     protected IndCola indCola;
     protected IndBeefPatty indBeefPatty;
+    
+    String branch;
     
     public ArrayList<String> SpicyChickenBurgerind = new ArrayList<String>();
     
@@ -53,28 +59,33 @@ public class SpicyChickenBurger extends Burger {
         selectPatty = new ChickenPatty();
         selectSauce = new SpicyChickenBbqSauce();
         selectVegetable = new LettuceTomato();
+        
+        
         patty = selectPatty.getPatty();
         sauce = selectSauce.getSauce();
-        vegetable = selectVegetable.getVegetable();
+        
+        SpicyChickenBurgerind.add(patty);
+        SpicyChickenBurgerind.add(sauce);
+        //vegetable = selectVegetable.getVegetable();
         
         //팩토리 패턴 구현 부분
-        this.indBun = ingregientFactory.createBun();
+        this.indBun = this.ingregientFactory.createBun();
         SpicyChickenBurgerind.add(indBun.getBun());
         
-        this.indCheese = ingregientFactory.createCheese();
-        SpicyChickenBurgerind.add(indCheese.getCheese());
+        //this.indCheese = ingregientFactory.createCheese();
+        //SpicyChickenBurgerind.add(indCheese.getCheese());
         
-        this.indVegetable = ingregientFactory.createVegetable();
+        this.indVegetable = this.ingregientFactory.createVegetable();
         SpicyChickenBurgerind.add(indVegetable.getVegetable());
         
-        this.indPotato = ingregientFactory.createPotato();
-        SpicyChickenBurgerind.add(indPotato.getPotato());
+        //this.indPotato = ingregientFactory.createPotato();
+        //SpicyChickenBurgerind.add(indPotato.getPotato());
         
-        this.indCola = ingregientFactory.createCola();
-        SpicyChickenBurgerind.add(indCola.getIndCola());
+        //this.indCola = ingregientFactory.createCola();
+        //SpicyChickenBurgerind.add(indCola.getIndCola());
         
-        this.indBeefPatty = ingregientFactory.createBeefPatty();
-        SpicyChickenBurgerind.add(indBeefPatty.getIndBeefPatty());
+        //this.indBeefPatty = ingregientFactory.createBeefPatty();
+        //SpicyChickenBurgerind.add(indBeefPatty.getIndBeefPatty());
 
     }
     
@@ -92,7 +103,15 @@ public class SpicyChickenBurger extends Burger {
         return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
     }
     
-    public ArrayList<String> getBeefBurgerInd() {
+    public ArrayList<String> getBurgerInd() {
         return (SpicyChickenBurgerind);
+    }
+    
+    public void completeOrder(String branch) {
+        for(String ind : SpicyChickenBurgerind) {
+            StockDAO stockDAO = new StockDAO();
+            this.branch = branch;
+            stockDAO.completeOrderQtySet(ind, branch);
+        }
     }
 }

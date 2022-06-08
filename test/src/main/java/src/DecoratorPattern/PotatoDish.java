@@ -6,9 +6,12 @@
 package src.DecoratorPattern;
 
 import db.MenuDAO;
+import db.StockDAO;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import src.FactoryPattern.BurgerStoreIngredientFactory;
+import src.FactoryPattern.Potato;
 
 /**
  *
@@ -18,7 +21,14 @@ public class PotatoDish extends SideMenudecorator{
      MenuDAO menuDAO = new MenuDAO();
     int cost = 0;
     SideMenu sidemenu;
-    public PotatoDish(SideMenu sidemenu) { this.sidemenu = sidemenu;}
+    protected Potato indPotato;
+    private BurgerStoreIngredientFactory ingregientFactory;
+    
+    public PotatoDish(SideMenu sidemenu, BurgerStoreIngredientFactory ingregientFactory) {
+        this.sidemenu = sidemenu;
+        this.ingregientFactory = ingregientFactory;
+        this.indPotato = ingregientFactory.createPotato();
+    }
     
     public String getDescription() {
         //return sidemenu.getDescription() + "+포테이토";
@@ -33,5 +43,10 @@ public class PotatoDish extends SideMenudecorator{
         }
         //return cost + sidemenu.cost();
         return cost;
+    }
+    
+    public void completeOrder(String branch) {
+        StockDAO stockDAO = new StockDAO();
+        stockDAO.completeOrderQtySet(indPotato.getPotato(), branch); 
     }
 }
