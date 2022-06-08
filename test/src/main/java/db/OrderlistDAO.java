@@ -8,6 +8,7 @@ package db;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Date;
 /**
  *
  * @author heejin
@@ -16,9 +17,12 @@ public class OrderlistDAO {
     private Connection conn = null;
     private PreparedStatement pstmt= null;
     private ResultSet rs= null;
+    int orderNum;
     String menu;
-    String price;
+    int price;
     String branch;
+    String sDate;
+    
     
     public OrderlistDAO(){
         try{
@@ -32,16 +36,51 @@ public class OrderlistDAO {
         }
     }
     
-    public void AddOrderList(String desc, String cost, String branch) {
-        this.menu = desc;
-        this.price  = cost;
-        this.branch = branch;
-        
-        String SQL = "UPDATE stock SET qty = qty-1 WHERE name = ? AND branch = ?";
+    public int getOrderNum() {
+        int num=0;
+        String SQL = "SELECT MAX(ordernum) FROM orderlist";
         try{
             pstmt = conn.prepareStatement(SQL);
-            pstmt.setString(1, ind);
-            pstmt.setString(2, branch);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                num = rs.getInt(1)+1;
+            }
+            else{
+                num = 1;
+            }
+        } catch (SQLException ex) {
+             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+        return num;
+    }
+    
+    public java.sql.Date getDate() {
+        //String sdate;
+        
+        Date today = new Date();
+        java.sql.Date sqlDate = new java.sql.Date(today.getTime());
+        
+        return sqlDate;
+    }
+    
+    public void AddOrderList(String desc, int totalcost, String branch) {
+        this.menu = desc;
+        this.price  = totalcost;
+        this.branch = branch;
+        
+        orderNum = getOrderNum();
+        //sDate = getDate();
+        Date today = new Date();
+        
+        String SQL = "INSERT INTO orderlist VALUES(?,?,?,?,?,'x')";
+        try{
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setInt(1, orderNum);
+            pstmt.setDate(2, new java.sql.Date(today.getTime()));
+            pstmt.setString(3, menu);
+            pstmt.setString(4, branch);
+            pstmt.setInt(5, price);
             pstmt.executeUpdate();
             
             

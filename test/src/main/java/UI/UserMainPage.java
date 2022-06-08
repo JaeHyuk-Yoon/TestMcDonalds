@@ -1436,25 +1436,22 @@ public class UserMainPage extends javax.swing.JFrame {
     private String setString() {
         String totalMenu=arrayMenu.get(0).getDescription();
         for(int i=1; i<arrayMenu.size(); i++) {
-            totalMenu = totalMenu + " , " + arrayMenu.get(i).getDescription();
+            totalMenu = totalMenu + ", " + arrayMenu.get(i).getDescription();
         }
         return totalMenu;
-    }
-    private String getDate() {
-        
     }
     
     //orderFrame 주문완료 버튼
     private void completeOrderButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeOrderButtActionPerformed
         // TODO add your handling code here:
-        
+        orderlist = new OrderlistDAO();
         
         for(Menu menu : arrayMenu) {
-            // 생성된 주문내역으로 DB에 값 수정,삽입
+            // 생성된 주문내역으로 DB에 원재료 재고 값 수정
             menu.completeOrder(branch);
-            orderlist = new OrderlistDAO();
-            orderlist.AddOrderList(setString(), totalcost, branch);
         }
+        //주문내역 DB에 레코드 삽입
+        orderlist.AddOrderList(setString(), totalcost, branch);
         //테이블 초기화
         arrayMenu.clear();
         showTable();
