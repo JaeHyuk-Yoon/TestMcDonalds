@@ -40,6 +40,7 @@ public class ChickenBurger extends Burger {
     protected IndBeefPatty indBeefPatty;
     
     String branch;
+    //해당 버거에 사용된 기본 원재료들을 담기위한 ArrayList
     public ArrayList<String> ChickenBurgerind = new ArrayList<String>();
     
     public ChickenBurger() {
@@ -51,15 +52,14 @@ public class ChickenBurger extends Burger {
     public ChickenBurger(BurgerStoreIngredientFactory ingregientFactory) {
         this.ingregientFactory = ingregientFactory;
         
-        // 스트레티지 구현 부분
         description = "치킨 버거";        
+        // 스트레티지 구현 부분(버거에서 메뉴에 따라 변하는 부분)
         selectPatty = new ChickenPatty();
         selectSauce = new ChickenBbqSauce();
         selectVegetable = new LettuceTomato();
         
         patty = selectPatty.getPatty();
         sauce = selectSauce.getSauce();
-        //vegetable = selectVegetable.getVegetable();
 
         ChickenBurgerind.add(patty);
         ChickenBurgerind.add(sauce);
@@ -68,20 +68,8 @@ public class ChickenBurger extends Burger {
         this.indBun = this.ingregientFactory.createBun();
         ChickenBurgerind.add(indBun.getBun());
         
-        //this.indCheese = ingregientFactory.createCheese();
-        //ChickenBurgerind.add(indCheese.getCheese());
-        
         this.indVegetable = this.ingregientFactory.createVegetable();
         ChickenBurgerind.add(indVegetable.getVegetable());
-        
-        //this.indPotato = ingregientFactory.createPotato();
-        //ChickenBurgerind.add(indPotato.getPotato());
-        
-        //this.indCola = ingregientFactory.createCola();
-        //ChickenBurgerind.add(indCola.getIndCola());
-        
-        //this.indBeefPatty = ingregientFactory.createBeefPatty();
-        //ChickenBurgerind.add(indBeefPatty.getIndBeefPatty());
         
     }
     
@@ -92,14 +80,6 @@ public class ChickenBurger extends Burger {
             Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cost;
-    }
-    
-    public String testDisplay() {
-        return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
-    }
-    
-    public ArrayList<String> getBurgerInd() {
-        return (ChickenBurgerind);
     }
     
     public void completeOrder(String branch) {

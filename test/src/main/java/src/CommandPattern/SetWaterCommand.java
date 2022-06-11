@@ -12,16 +12,19 @@ import src.FactoryPattern.BurgerStore;
 /**
  *
  * @author JaeHyuk
+ * 클래스 역할 : Command패턴에서 ConcreteCommand 역할
  */
 public class SetWaterCommand implements Command {
     private SideMenuReceiver sideMenuReceiver;
     SideMenu sidemenu;
-    BurgerStore burgerStore;
+    //BurgerStore burgerStore;
     
+    //해당 객체의 생성자로써 리시버를 설정하는 메서드
     public SetWaterCommand(SideMenuReceiver sideMenuReceiver, BurgerStore BurgerStore) {
         this.sideMenuReceiver = sideMenuReceiver;
-        this.burgerStore = BurgerStore;
+        //this.burgerStore = BurgerStore;
     }
+    //치즈스틱 객체 생성하여 리시버로 전달
     public void execute() {
         sidemenu =  new Water();
         sideMenuReceiver.addSide(sidemenu);

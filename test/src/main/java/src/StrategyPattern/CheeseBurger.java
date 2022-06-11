@@ -42,7 +42,7 @@ public class CheeseBurger extends Burger {
     
     
     String branch;
-    
+    //해당 버거에 사용된 기본 원재료들을 담기위한 ArrayList
     public ArrayList<String> CheeseBurgerind = new ArrayList<String>();
     
     public CheeseBurger() {
@@ -54,12 +54,7 @@ public class CheeseBurger extends Burger {
         
         patty = selectPatty.getPatty();
         sauce = selectSauce.getSauce();
-        vegetable = selectVegetable.getVegetable();
-        //cheese = cheeseCheck();
-
-        
-        
-        
+        vegetable = selectVegetable.getVegetable();        
     }
     
     private BurgerStoreIngredientFactory ingregientFactory;
@@ -67,8 +62,8 @@ public class CheeseBurger extends Burger {
     public CheeseBurger(BurgerStoreIngredientFactory ingregientFactory) {
         this.ingregientFactory = ingregientFactory;
         
-        // 스트레티지 구현 부분
         description = "치즈 버거";
+        // 스트레티지 구현 부분(버거에서 메뉴에 따라 변하는 부분)
         cheeseWheather = new AddCheese();
         selectPatty = new BeefPatty();
         selectSauce = new BeefBbqSauce();
@@ -95,22 +90,6 @@ public class CheeseBurger extends Burger {
             Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cost;
-    }
-
-//    public boolean cheeseCheck() {
-//        if (cheeseWheather.getCheeseWheather() == "치즈") {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-    
-//    public String testDisplay() {
-//        return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
-//    }
-    
-    public ArrayList<String> getBurgerInd() {
-        return (CheeseBurgerind);
     }
 
     public void completeOrder(String branch) {

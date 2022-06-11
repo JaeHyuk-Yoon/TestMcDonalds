@@ -10,6 +10,7 @@ import src.DecoratorPattern.Menu;
 /**
  *
  * @author JaeHyuk
+ *  클래스 역할 : Command패턴에서 Command 인터페이스 역할
  */
 public interface Command {
     public void execute();

@@ -305,7 +305,6 @@
         <Component class="javax.swing.JButton" name="jButton7">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xc7a5;&#xbc14;&#xad6c;&#xb2c8; &#xb2f4;&#xae30;"/>
-            <Property name="actionCommand" type="java.lang.String" value="&#xc7a5;&#xbc14;&#xad6c;&#xb2c8; &#xb2f4;&#xae30;"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>

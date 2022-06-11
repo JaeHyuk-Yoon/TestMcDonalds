@@ -14,16 +14,5 @@ import src.StrategyPattern.Burger;
  */
 public abstract class BurgerStore{
     
-    //public abstract Burger createBurger(Burger item);
-    public abstract ArrayList<String> getTotalStoreInd();
     public abstract BurgerStoreIngredientFactory getFactory();
-        
-//    public Burger orderBurger(Burger type) {
-//        Burger burger = null;
-//
-//        burger = createBurger(type);
-//
-//        return burger;
-//    
-//    }    
 }

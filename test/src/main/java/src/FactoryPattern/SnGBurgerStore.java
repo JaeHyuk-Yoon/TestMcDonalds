@@ -9,10 +9,6 @@ import java.util.ArrayList;
 import src.FactoryPattern.SnGBurgerIngredientFactory;
 import src.FactoryPattern.BurgerStoreIngredientFactory;
 import src.FactoryPattern.BurgerStore;
-import src.StrategyPattern.SpicyChickenBurger;
-import src.StrategyPattern.ChickenBurger;
-import src.StrategyPattern.CheeseBurger;
-import src.StrategyPattern.BeefBurger;
 import src.StrategyPattern.Burger;
 
 /**
@@ -28,48 +24,27 @@ public class SnGBurgerStore extends BurgerStore {
     protected IndCola indCola;
     protected IndBeefPatty indBeefPatty;
     
-    public ArrayList<String> ind = new ArrayList<String>();
-    
     Burger burger;
     public BurgerStoreIngredientFactory factory;
     
+    //SnG매장에서 사용되는 총 원재료객체를 생성하여 가지고옴
      public SnGBurgerStore() {
         factory = new SnGBurgerIngredientFactory();
         this.indBun = factory.createBun();
-        ind.add(indBun.getBun());
         
         this.indCheese = factory.createCheese();
-        ind.add(indCheese.getCheese());
         
         this.indVegetable = factory.createVegetable();
-        ind.add(indVegetable.getVegetable());
         
         this.indPotato = factory.createPotato();
-        ind.add(indPotato.getPotato());
         
         this.indCola = factory.createCola();
-        ind.add(indCola.getIndCola());
         
         this.indBeefPatty = factory.createBeefPatty();
-        ind.add(indBeefPatty.getIndBeefPatty());
         
-        // (커맨드 창 확인용) 인터페이스 사용하여 get 하나로 묶고 타입도 묶어서 for문으로 출력하도록 바꾸기
-//        System.out.println("//팩토리 패턴 구현 부분");
-//        System.out.println("'"+indBun.getBun()+"' '"+indCheese.getCheese()+"' '"+indVegetable.getVegetable()
-//          +"' '"+ indPotato.getPotato() +"' '"+ indCola.getIndCola()+"' '"+ indBeefPatty.getIndBeefPatty()+"'");
-//        System.out.println("");
     }
      
-//    @Override
-//    public Burger createBurger(Burger burger) {
-//        this.burger = burger;
-//        
-//        return burger;
-//    }
-    
-    public ArrayList<String> getTotalStoreInd() {
-        return (ind);
-    }
+     //SnG매장의 팩토리를 가져오는 메서드
     public BurgerStoreIngredientFactory getFactory() {
         return factory;
     }

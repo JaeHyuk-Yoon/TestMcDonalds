@@ -14,6 +14,7 @@ import src.StrategyPattern.CheeseBurger;
 /**
  *
  * @author JaeHyuk
+ * 클래스 역할 : 사이드메뉴중 포테이토음식 객체
  */
 public abstract class SideMenu extends Menu{
     int cost = 0;
