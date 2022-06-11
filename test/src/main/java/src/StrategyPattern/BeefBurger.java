@@ -61,31 +61,13 @@ public class BeefBurger extends Burger {
         
         patty = selectPatty.getPatty();
         sauce = selectSauce.getSauce();
-        //vegetable = selectVegetable.getVegetable();
+        
         BeefBurgerind.add(sauce);
         BeefBurgerind.add(patty);
         
-        
-        //팩토리 패턴 구현 부분(현재 문제점)
+        //팩토리 패턴으로 매장에따른 원재료 구분
         this.indBun = this.ingregientFactory.createBun();
         BeefBurgerind.add(indBun.getBun());
-        
-        //토핑은 토핑으로 이동해야함
-        //this.indCheese = ingregientFactory.createCheese();
-        //BeefBurgerind.add(indCheese.getCheese());
-        
-        //this.indVegetable = ingregientFactory.createVegetable();
-        //BeefBurgerind.add(indVegetable.getVegetable());
-        
-        //this.indPotato = ingregientFactory.createPotato();
-        //BeefBurgerind.add(indPotato.getPotato());
-        
-        //this.indCola = ingregientFactory.createCola();
-        //BeefBurgerind.add(indCola.getIndCola());
-        
-        //this.indBeefPatty = ingregientFactory.createBeefPatty();
-        //BeefBurgerind.add(indBeefPatty.getIndBeefPatty());
-        
     }
     
     public int cost() {

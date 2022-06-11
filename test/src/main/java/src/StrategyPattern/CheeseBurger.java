@@ -55,7 +55,7 @@ public class CheeseBurger extends Burger {
         patty = selectPatty.getPatty();
         sauce = selectSauce.getSauce();
         vegetable = selectVegetable.getVegetable();
-        cheese = cheeseCheck();
+        //cheese = cheeseCheck();
 
         
         
@@ -79,8 +79,6 @@ public class CheeseBurger extends Burger {
         
         CheeseBurgerind.add(patty);
         CheeseBurgerind.add(sauce);
-        //vegetable = selectVegetable.getVegetable();
-        //cheese = cheeseCheck();
         
         //팩토리 패턴 구현 부분
         this.indBun = this.ingregientFactory.createBun();
@@ -88,19 +86,6 @@ public class CheeseBurger extends Burger {
         
         this.indCheese = this.ingregientFactory.createCheese();
         CheeseBurgerind.add(indCheese.getCheese());
-        
-        //this.indVegetable = ingregientFactory.createVegetable();
-        //CheeseBurgerind.add(indVegetable.getVegetable());
-        
-        //this.indPotato = ingregientFactory.createPotato();
-        //CheeseBurgerind.add(indPotato.getPotato());
-        
-        //this.indCola = ingregientFactory.createCola();
-        //CheeseBurgerind.add(indCola.getIndCola());
-        
-        //this.indBeefPatty = ingregientFactory.createBeefPatty();
-        //CheeseBurgerind.add(indBeefPatty.getIndBeefPatty());
-        
     }
 
     public int cost() {
@@ -112,17 +97,17 @@ public class CheeseBurger extends Burger {
         return cost;
     }
 
-    public boolean cheeseCheck() {
-        if (cheeseWheather.getCheeseWheather() == "치즈") {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    public boolean cheeseCheck() {
+//        if (cheeseWheather.getCheeseWheather() == "치즈") {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
     
-    public String testDisplay() {
-        return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
-    }
+//    public String testDisplay() {
+//        return " '" + description + "' '" + patty + "' '" + sauce + "' '" + vegetable + "' '" + cheeseWheather.getCheeseWheather()+ "'";
+//    }
     
     public ArrayList<String> getBurgerInd() {
         return (CheeseBurgerind);
