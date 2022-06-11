@@ -18,8 +18,7 @@ import java.util.logging.Logger;
 public class CheeseStick extends SideMenudecorator {
     MenuDAO menuDAO = new MenuDAO();
     int cost = 0;
-    SideMenu sidemenu;
-    public CheeseStick(SideMenu sidemenu) { this.sidemenu = sidemenu;}
+    public CheeseStick() { }
     
     
     public String getDescription() {

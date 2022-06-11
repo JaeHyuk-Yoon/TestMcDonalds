@@ -30,8 +30,13 @@ import src.CommandPattern.BurgerReceiver;
 import src.CommandPattern.MenuButtonControl;
 import src.CommandPattern.SetBeefBurgerCommand;
 import src.CommandPattern.SetCheeseBurgerCommand;
+import src.CommandPattern.SetCheeseStickCommand;
 import src.CommandPattern.SetChickenBurgerCommand;
+import src.CommandPattern.SetColaCommand;
+import src.CommandPattern.SetMilkCommand;
+import src.CommandPattern.SetPotatoDishCommand;
 import src.CommandPattern.SetSpicyChickenBurgerCommand;
+import src.CommandPattern.SetWaterCommand;
 import src.CommandPattern.SideMenuReceiver;
 import src.DecoratorPattern.Milk;
 import src.DecoratorPattern.PotatoDish;
@@ -114,6 +119,7 @@ public class UserMainPage extends javax.swing.JFrame {
         set = new javax.swing.JSpinner();
         jLabel26 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         orderFrame = new javax.swing.JFrame();
         jScrollPane3 = new javax.swing.JScrollPane();
         orderTable1 = new javax.swing.JTable();
@@ -352,10 +358,18 @@ public class UserMainPage extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("맑은 고딕", 1, 24)); // NOI18N
         jLabel26.setText("토핑 선택");
 
-        jButton7.setText("추가");
+        jButton7.setText("장바구니 담기");
+        jButton7.setActionCommand("장바구니 담기");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("선택 취소");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -372,14 +386,14 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
             .addGroup(toppingFrameLayout.createSequentialGroup()
-                .addGroup(toppingFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(254, 254, 254)
+                .addGroup(toppingFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel26)
                     .addGroup(toppingFrameLayout.createSequentialGroup()
-                        .addGap(351, 351, 351)
-                        .addComponent(jLabel26))
-                    .addGroup(toppingFrameLayout.createSequentialGroup()
-                        .addGap(349, 349, 349)
-                        .addComponent(jButton7)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(353, Short.MAX_VALUE))
         );
         toppingFrameLayout.setVerticalGroup(
             toppingFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,8 +405,10 @@ public class UserMainPage extends javax.swing.JFrame {
                     .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(toppingFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48))
         );
 
@@ -569,7 +585,7 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(beefburgerB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1249,7 +1265,11 @@ public class UserMainPage extends javax.swing.JFrame {
     //우유 버튼
     private void milkBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_milkBActionPerformed
         // TODO add your handling code here:
-        sidemenu = new Milk(sidemenu);
+        SetMilkCommand milkCommand = new SetMilkCommand(sidemenuReceiver, BurgerStore);
+        menuButton.setCommand(milkCommand);
+        menuButton.addButtonWasPressed();
+        sidemenu = sidemenuReceiver.getSideMenu();
+        //sidemenu = new Milk(sidemenu);
         //메뉴 리스트에 추가
         arrayMenu.add(sidemenu);
         //테이블 출력
@@ -1327,20 +1347,7 @@ public class UserMainPage extends javax.swing.JFrame {
         burgerReceiver.setBurger(cn, vn, setc);
         burger = burgerReceiver.getBurger();
         
-        //토핑 선택된 갯수만큼 데코레이터로 감싸기
-//        if(cn>0){
-//            for(int i=0 ; i < cn ; i++){
-//                burger = new ToppingCheese(burger, BurgerStore.getFactory());
-//            }
-//        }
-//        if(vn>0){
-//            for(int i=0 ; i < vn ; i++){
-//                burger = new ToppingLettuce(burger, BurgerStore.getFactory());
-//            }
-//        }
-//        if(setc == 1){
-//            burger = new ChangeSet(burger, BurgerStore.getFactory());
-//        }
+        
         //메뉴 리스트에 추가
         arrayMenu.add(burger);
         //테이블 출력
@@ -1430,7 +1437,11 @@ public class UserMainPage extends javax.swing.JFrame {
     //치즈스틱 버튼
     private void cheesestickBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheesestickBActionPerformed
         // TODO add your handling code here:
-        sidemenu = new CheeseStick(sidemenu);
+        SetCheeseStickCommand cheeseStickCommand = new SetCheeseStickCommand(sidemenuReceiver, BurgerStore);
+        menuButton.setCommand(cheeseStickCommand);
+        menuButton.addButtonWasPressed();
+        sidemenu = sidemenuReceiver.getSideMenu();
+        //sidemenu = new CheeseStick(sidemenu);
         //메뉴 리스트에 추가
         arrayMenu.add(sidemenu);
         //테이블 출력
@@ -1439,7 +1450,11 @@ public class UserMainPage extends javax.swing.JFrame {
     //포테이토 버튼
     private void potatoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potatoBActionPerformed
         // TODO add your handling code here:
-        sidemenu = new PotatoDish(sidemenu, BurgerStore.getFactory());
+        SetPotatoDishCommand potatoDishCommand = new SetPotatoDishCommand(sidemenuReceiver, BurgerStore);
+        menuButton.setCommand(potatoDishCommand);
+        menuButton.addButtonWasPressed();
+        sidemenu = sidemenuReceiver.getSideMenu();
+        //sidemenu = new PotatoDish(sidemenu, BurgerStore.getFactory());
         //메뉴 리스트에 추가
         arrayMenu.add(sidemenu);
         //테이블 출력
@@ -1448,7 +1463,11 @@ public class UserMainPage extends javax.swing.JFrame {
     //콜라 버튼
     private void colaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colaBActionPerformed
         // TODO add your handling code here:
-        sidemenu = new cola(sidemenu, BurgerStore.getFactory());
+        SetColaCommand colaCommand = new SetColaCommand(sidemenuReceiver, BurgerStore);
+        menuButton.setCommand(colaCommand);
+        menuButton.addButtonWasPressed();
+        sidemenu = sidemenuReceiver.getSideMenu();
+        //sidemenu = new cola(sidemenu, BurgerStore.getFactory());
         //메뉴 리스트에 추가
         arrayMenu.add(sidemenu);
         //테이블 출력
@@ -1457,7 +1476,11 @@ public class UserMainPage extends javax.swing.JFrame {
     //물 버튼
     private void waterBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterBActionPerformed
         // TODO add your handling code here:
-        sidemenu = new Water(sidemenu);
+        SetWaterCommand waterCommand = new SetWaterCommand(sidemenuReceiver, BurgerStore);
+        menuButton.setCommand(waterCommand);
+        menuButton.addButtonWasPressed();
+        sidemenu = sidemenuReceiver.getSideMenu();
+        //sidemenu = new Water(sidemenu);
         //메뉴 리스트에 추가
         arrayMenu.add(sidemenu);
         //테이블 출력
@@ -1494,6 +1517,13 @@ public class UserMainPage extends javax.swing.JFrame {
         this.setVisible(true);
         orderFrame.dispose();
     }//GEN-LAST:event_completeOrderButtActionPerformed
+
+    //toppingFrame 선택 취소 버튼
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(true);
+        toppingFrame.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1545,6 +1575,7 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

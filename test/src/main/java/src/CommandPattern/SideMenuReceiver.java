@@ -5,6 +5,10 @@
  */
 package src.CommandPattern;
 
+import src.DecoratorPattern.SideMenu;
+import src.FactoryPattern.BurgerStore;
+
+
 /**
  *
  * @author JaeHyuk
@@ -13,7 +17,13 @@ public class SideMenuReceiver {
     public SideMenuReceiver() {
     }
     
-    public void addSide() {
-        
+    public SideMenu sideMenu;
+    
+    public void addSide(SideMenu sideMenu) {
+        this.sideMenu = sideMenu;
+    }
+    
+    public SideMenu getSideMenu() {
+        return sideMenu;
     }
 }

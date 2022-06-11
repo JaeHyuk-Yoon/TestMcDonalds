@@ -24,8 +24,7 @@ public class PotatoDish extends SideMenudecorator{
     protected Potato indPotato;
     private BurgerStoreIngredientFactory ingregientFactory;
     
-    public PotatoDish(SideMenu sidemenu, BurgerStoreIngredientFactory ingregientFactory) {
-        this.sidemenu = sidemenu;
+    public PotatoDish(BurgerStoreIngredientFactory ingregientFactory) {
         this.ingregientFactory = ingregientFactory;
         this.indPotato = ingregientFactory.createPotato();
     }

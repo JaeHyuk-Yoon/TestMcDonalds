@@ -36,7 +36,7 @@ public class BurgerReceiver {
         this.cn = cn;
         this.vn = vn;
         this.setc = setc;
-        
+        //토핑 선택된 갯수만큼 데코레이터로 감싸기
         if(cn>0){
             for(int i=0 ; i < cn ; i++){
                 burger = new ToppingCheese(burger, burgerStore.getFactory());
