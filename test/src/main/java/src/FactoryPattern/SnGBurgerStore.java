@@ -54,31 +54,18 @@ public class SnGBurgerStore extends BurgerStore {
         ind.add(indBeefPatty.getIndBeefPatty());
         
         // (커맨드 창 확인용) 인터페이스 사용하여 get 하나로 묶고 타입도 묶어서 for문으로 출력하도록 바꾸기
-        System.out.println("//팩토리 패턴 구현 부분");
-        System.out.println("'"+indBun.getBun()+"' '"+indCheese.getCheese()+"' '"+indVegetable.getVegetable()
-          +"' '"+ indPotato.getPotato() +"' '"+ indCola.getIndCola()+"' '"+ indBeefPatty.getIndBeefPatty()+"'");
-        System.out.println("");
+//        System.out.println("//팩토리 패턴 구현 부분");
+//        System.out.println("'"+indBun.getBun()+"' '"+indCheese.getCheese()+"' '"+indVegetable.getVegetable()
+//          +"' '"+ indPotato.getPotato() +"' '"+ indCola.getIndCola()+"' '"+ indBeefPatty.getIndBeefPatty()+"'");
+//        System.out.println("");
     }
-    
-    @Override
-    public Burger createBurger(String item) {
-        
-        if(item.equals("치즈 버거")) {
-            burger = new CheeseBurger(factory);
-            //burger.setDescription("(SnG 매장) : 치즈 버거");
-        } else if(item.equals("비프 버거")) {
-            burger = new BeefBurger(factory);
-            //burger.setDescription("(SnG 매장) : 비프 버거");
-        } else if(item.equals("치킨 버거")) {
-            burger = new ChickenBurger(factory);
-            //burger.setDescription("(SnG 매장) : 치킨 버거");
-        } else if(item.equals("매운 치킨 버거")) {
-            burger = new SpicyChickenBurger(factory);
-            //burger.setDescription("(SnG 매장) : 매운 치킨 버거");
-        }
-        
-        return burger;
-    }
+     
+//    @Override
+//    public Burger createBurger(Burger burger) {
+//        this.burger = burger;
+//        
+//        return burger;
+//    }
     
     public ArrayList<String> getTotalStoreInd() {
         return (ind);

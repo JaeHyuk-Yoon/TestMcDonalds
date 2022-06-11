@@ -18,8 +18,7 @@ import java.util.logging.Logger;
 public class Water extends SideMenudecorator{
     MenuDAO menuDAO = new MenuDAO();
     int cost = 0;
-    SideMenu sidemenu;
-    public Water(SideMenu sidemenu) { this.sidemenu = sidemenu;}
+    public Water() { }
     
     public String getDescription() {
         //return sidemenu.getDescription() + "+물";

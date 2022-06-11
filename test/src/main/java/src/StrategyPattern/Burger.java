@@ -7,6 +7,7 @@ package src.StrategyPattern;
 
 import java.util.ArrayList;
 import src.DecoratorPattern.Menu;
+import src.FactoryPattern.BurgerStoreIngredientFactory;
 import src.StrategyPattern.SelectVegetable;
 import src.StrategyPattern.SelectSauce;
 import src.StrategyPattern.SelectPatty;
@@ -36,6 +37,8 @@ public abstract class Burger extends Menu{
     protected String patty;
     protected String vegetable;
     
+    private BurgerStoreIngredientFactory ingregientFactory;
+    
     public Burger() {
         
     }
@@ -60,5 +63,6 @@ public abstract class Burger extends Menu{
     public void setVegetable(SelectVegetable sv) {
         selectVegetable = sv;
     }
+    
     
 }

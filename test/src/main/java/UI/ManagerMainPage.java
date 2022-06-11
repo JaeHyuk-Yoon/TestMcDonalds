@@ -95,8 +95,6 @@ public class ManagerMainPage extends javax.swing.JFrame {
 
         jTabbedPane2.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
 
-        jScrollPane1.setFont(new java.awt.Font("맑은 고딕", 0, 12)); // NOI18N
-
         listTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -138,7 +136,6 @@ public class ManagerMainPage extends javax.swing.JFrame {
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        detailTable.setFont(new java.awt.Font("맑은 고딕", 0, 12)); // NOI18N
         detailTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -267,9 +264,6 @@ public class ManagerMainPage extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("재고 현황", StockPage);
 
-        jTabbedPane1.setFont(new java.awt.Font("맑은 고딕", 0, 12)); // NOI18N
-
-        daySalesTable.setFont(new java.awt.Font("맑은 고딕", 0, 12)); // NOI18N
         daySalesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -308,7 +302,6 @@ public class ManagerMainPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("일 매출", dayPanel);
 
-        monthSalesTable.setFont(new java.awt.Font("맑은 고딕", 0, 12)); // NOI18N
         monthSalesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

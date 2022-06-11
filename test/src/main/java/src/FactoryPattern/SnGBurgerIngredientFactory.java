@@ -59,4 +59,8 @@ public class SnGBurgerIngredientFactory implements BurgerStoreIngredientFactory{
         return new Medium();
     }
     
+    public String getFactoryName() {
+        return "SnG";
+    }
+    
 }

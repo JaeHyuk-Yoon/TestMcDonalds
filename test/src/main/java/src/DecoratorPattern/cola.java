@@ -20,12 +20,10 @@ import src.FactoryPattern.IndCola;
 public class cola extends SideMenudecorator{
     MenuDAO menuDAO = new MenuDAO();
     int cost = 0;
-    SideMenu sidemenu;
     protected IndCola indCola;
     private BurgerStoreIngredientFactory ingregientFactory;
     
-    public cola(SideMenu sidemenu, BurgerStoreIngredientFactory ingregientFactory) { 
-        this.sidemenu = sidemenu;
+    public cola(BurgerStoreIngredientFactory ingregientFactory) { 
         this.ingregientFactory = ingregientFactory;
         this.indCola = ingregientFactory.createCola();
     }

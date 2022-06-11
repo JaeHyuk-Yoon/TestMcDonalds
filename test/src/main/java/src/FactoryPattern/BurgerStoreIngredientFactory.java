@@ -20,4 +20,6 @@ public interface BurgerStoreIngredientFactory {
     Vegetable createVegetable();
     IndCola createCola();
     IndBeefPatty createBeefPatty();
+    
+    public abstract String getFactoryName();
 }

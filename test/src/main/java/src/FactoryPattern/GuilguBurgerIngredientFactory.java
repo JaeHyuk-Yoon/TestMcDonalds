@@ -53,4 +53,7 @@ public class GuilguBurgerIngredientFactory implements BurgerStoreIngredientFacto
         return new MediumRare();
     }
     
+    public String getFactoryName() {
+        return "919";
+    }
 }

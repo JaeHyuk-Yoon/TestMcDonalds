@@ -18,8 +18,7 @@ import java.util.logging.Logger;
 public class Milk extends SideMenudecorator{
      MenuDAO menuDAO = new MenuDAO();
     int cost = 0;
-    SideMenu sidemenu;
-    public Milk(SideMenu sidemenu) { this.sidemenu = sidemenu;}
+    public Milk() { }
     
     public String getDescription() {
         //return sidemenu.getDescription() + "+우유";
