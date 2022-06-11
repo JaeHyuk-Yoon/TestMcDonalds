@@ -479,7 +479,8 @@ public class ManagerMainPage extends javax.swing.JFrame {
     
     //재고 Stock
     public void showStockTable(String branch){
-   try {
+   
+        try {
             // TODO add your handling code here:
             DefaultTableModel sTable = (DefaultTableModel)stockTable.getModel();
             sTable.setNumRows(0);
@@ -492,13 +493,15 @@ public class ManagerMainPage extends javax.swing.JFrame {
                 });
             }
         } catch (NamingException ex) {
-            Logger.getLogger(StockPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManagerMainPage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(StockPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManagerMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
 }
     //매출 Sales
     public void showDayTable(){
+        
         try {
             // TODO add your handling code here:
             DefaultTableModel saTable = (DefaultTableModel)daySalesTable.getModel();
@@ -510,13 +513,15 @@ public class ManagerMainPage extends javax.swing.JFrame {
                     salesList.get(i).getDate(),
                     salesList.get(i).getTotal()
                 });
+                
             }
+            
         } catch (SQLException ex) {
-            Logger.getLogger(SalesPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManagerMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
     public void showMonthTable(){
+        
         try {
             // TODO add your handling code here:
             DefaultTableModel msTable = (DefaultTableModel)monthSalesTable.getModel();
@@ -530,8 +535,9 @@ public class ManagerMainPage extends javax.swing.JFrame {
                 });
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SalesPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManagerMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
@@ -569,6 +575,7 @@ public class ManagerMainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void stockTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_stockTableAncestorAdded
+        
         try {
             // TODO add your handling code here:
             DefaultTableModel sTable = (DefaultTableModel)stockTable.getModel();
@@ -582,10 +589,11 @@ public class ManagerMainPage extends javax.swing.JFrame {
                 });
             }
         } catch (NamingException ex) {
-            Logger.getLogger(StockPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManagerMainPage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(StockPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManagerMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_stockTableAncestorAdded
 
     private void daySalesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_daySalesTableAncestorAdded
@@ -597,7 +605,7 @@ public class ManagerMainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         showMonthTable();
     }//GEN-LAST:event_monthSalesTableAncestorAdded
-public SalesPage sap= null;public OrderListPage olp= null;public StockPage stp = null;
+
     
     /**
      * @param args the command line arguments

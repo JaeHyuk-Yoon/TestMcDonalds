@@ -8,7 +8,7 @@ import UI.ManagerMainPage;
 public class StockDisplay implements Observer, DisplayElement {
   private String branch;
   private OrderData orderData;
-  ManagerMainPage mmp;
+  private ManagerMainPage mmp;
   
   public StockDisplay(OrderData orderData) {
       this.orderData = orderData;

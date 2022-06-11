@@ -12,7 +12,7 @@ import src.ObserverPattern.OrderData;
 public class OrderListDisplay implements Observer, DisplayElement {
   private int orderNum;
   private String branch;
-  ManagerMainPage mmp;
+  private ManagerMainPage mmp;
   private OrderData orderData;
   public Orderlist order = new Orderlist();
   //private int numReadings = 0;
