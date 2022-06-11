@@ -1,6 +1,8 @@
 
 package src.ObserverPattern;
 import UI.ManagerMainPage;
+import db.Orderlist;
+import db.OrderlistDAO;
 import src.ObserverPattern.DisplayElement;
 import src.ObserverPattern.OrderData;
 /**
@@ -12,7 +14,7 @@ public class OrderListDisplay implements Observer, DisplayElement {
   private String branch;
   ManagerMainPage mmp;
   private OrderData orderData;
-  
+  public Orderlist order = new Orderlist();
   //private int numReadings = 0;
   
   public OrderListDisplay(OrderData orderData) {
@@ -21,12 +23,20 @@ public class OrderListDisplay implements Observer, DisplayElement {
   }
 
   public void update(int orderNum, String branch, ManagerMainPage mmp) {
-      
+      this.orderNum = orderNum;
+      this.branch = branch;
+      this.mmp = mmp;
       //변수값 이용해서 DAO에서 값가져옴
+      order=(new OrderlistDAO()).orderOn(orderNum,branch);
           display();
   }
   public void display() {
       //orderlistdisplay 테이블 화면 다시 실행하도록
+      if(mmp.olp!=null){
+          mmp.olp.showListTable();
+          //오더넘이랑 주문내역 넘겨주기
+          mmp.olp.showNowDetailTable(orderNum, order.getMenu());
+      }
       System.out.println("OrderListDisplay DISPLAY");
   }
 }

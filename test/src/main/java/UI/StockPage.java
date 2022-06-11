@@ -140,7 +140,25 @@ public class StockPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public void showStockTable(String branch){
+   try {
+            // TODO add your handling code here:
+            DefaultTableModel sTable = (DefaultTableModel)stockTable.getModel();
+            sTable.setNumRows(0);
+            this.branch = branch;
+            stockList = (new StockDAO()).getList(branch);
+            for(int i=0; i<stockList.size();i++){
+                sTable.insertRow(sTable.getRowCount(), new Object[]{
+                    stockList.get(i).getName(),
+                    stockList.get(i).getQty()
+                });
+            }
+        } catch (NamingException ex) {
+            Logger.getLogger(StockPage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(StockPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
     private void stockTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_stockTableAncestorAdded
         try {
             // TODO add your handling code here:
@@ -219,6 +237,6 @@ public class StockPage extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable stockTable;
+    public javax.swing.JTable stockTable;
     // End of variables declaration//GEN-END:variables
 }

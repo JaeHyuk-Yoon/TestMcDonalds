@@ -39,6 +39,32 @@ public class OrderlistDAO {
         }
     }
 
+    public ArrayList<Orderlist> getList(String branch){        
+         String SQL = "SELECT * FROM orderlist WHERE branch = ? AND complete = ?";
+         ArrayList<Orderlist> list = new ArrayList<>();
+         try {
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, branch);
+            pstmt.setString(2, "X");
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Orderlist orderlist = new Orderlist();
+                orderlist.setOrdernum(rs.getInt(1));
+                orderlist.setDate(rs.getDate(2));
+                orderlist.setMenu(rs.getString(3));
+                orderlist.setBranch(branch);
+                orderlist.setPrice(rs.getInt(5));
+                orderlist.setComplete(rs.getString(6));
+                list.add(orderlist);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderlistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+    
+    
     //주문들어왔을때 주문번호랑 브랜치로 주문내역 객체 가져갈수있음
     public Orderlist orderOn(int ordernum, String branch){
             Orderlist order = new Orderlist();
@@ -110,23 +136,18 @@ public class OrderlistDAO {
             
             
         } catch (SQLException ex) {
-             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);}
-//         } finally{
-//         if(rs!=null) try {
-//             rs.close();
-//         } catch (SQLException ex) {
-//             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
-//         }
-//         if(pstmt!=null) try {
-//             pstmt.close();
-//         } catch (SQLException ex) {
-//             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
-//         }
-//         if(conn!=null) try {
-//             conn.close();
-//         } catch (SQLException ex) {
-//             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
-//         }
-//        }
+             Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void completeOrder(String orderNum){
+        try {
+            String a = orderNum;
+            String SQL = "UPDATE orderlist SET complete = 'O' WHERE ordernum = ?";
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, a);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderlistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }            
     }
 }

@@ -49,7 +49,7 @@ public class ManagerMainPage extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel3.setFont(new java.awt.Font("맑은 고딕", 1, 48)); // NOI18N
@@ -142,7 +142,7 @@ public class ManagerMainPage extends javax.swing.JFrame {
         new LoginPage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-public SalesPage sap;
+public SalesPage sap= null;
     private void salesBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salesBActionPerformed
         // TODO add your handling code here:
         //public SalesPage sap = new SalesPage(branch);
@@ -150,17 +150,17 @@ public SalesPage sap;
         sap.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_salesBActionPerformed
-
+public OrderListPage olp= null;
     private void orderlistBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderlistBActionPerformed
         // TODO add your handling code here:
-        OrderListPage olp = new OrderListPage(branch);
+        olp = new OrderListPage(branch);
         olp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_orderlistBActionPerformed
-
+public StockPage stp = null;
     private void stockBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockBActionPerformed
         // TODO add your handling code here:
-        StockPage stp = new StockPage(branch);
+        stp = new StockPage(branch);
         stp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_stockBActionPerformed

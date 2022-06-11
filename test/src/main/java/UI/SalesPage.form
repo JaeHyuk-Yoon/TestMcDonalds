@@ -164,7 +164,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="daySalesTableAncestorAdded"/>
-                    <EventHandler event="mouseWheelMoved" listener="java.awt.event.MouseWheelListener" parameters="java.awt.event.MouseWheelEvent" handler="daySalesTableMouseWheelMoved"/>
                   </Events>
                 </Component>
               </SubComponents>

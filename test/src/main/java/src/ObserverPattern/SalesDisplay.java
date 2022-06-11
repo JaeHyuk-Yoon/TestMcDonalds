@@ -43,29 +43,19 @@ public class SalesDisplay implements Observer, DisplayElement {
       
       String cost = Integer.toString(order.getPrice());
       String orderDate = order.getDate().toString();
-     
-//     Date date = new Date();
-//     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//     String orderDate = sdf.format(date);
+
 //매출 더해주기-> 매출 값 업데이트
      new SalesDAO().isFirst(orderDate, cost, branch);
-     
-     //월 값 더해주기(이건 걍 일값이용해서 추출)
-     //이건 안해도 될듯? 이미 쿼리문에서 처리험
-     
      
       display();
   }
 
   public void display() {
           //매출테이블보여주기
-          mmp.sap.showDayTable();
-//          SalesPage sg = new SalesPage(branch);
-//          sg.dayPanel.setVisible(false);
-//          sg.showDayTable();
-//          sg.showMonthTable();
-//          sg.setVisible(true);
+          if(mmp.sap!=null){
+            mmp.sap.showDayTable();
+            mmp.sap.showMonthTable();
+          }
+          System.out.println("SalesDisplay");
   }
-
-
 }

@@ -84,11 +84,6 @@ public class SalesPage extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        daySalesTable.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
-            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
-                daySalesTableMouseWheelMoved(evt);
-            }
-        });
         jScrollPane1.setViewportView(daySalesTable);
 
         javax.swing.GroupLayout dayPanelLayout = new javax.swing.GroupLayout(dayPanel);
@@ -227,13 +222,6 @@ public class SalesPage extends javax.swing.JFrame {
                     salesList.get(i).getTotal()
                 });
             }
-            
-            //daySalesTable.setModel(saTable);
-    /**
-    * additional code.
-    **/
-    saTable.fireTableDataChanged();
-       dayPanel.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(SalesPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -272,11 +260,6 @@ public class SalesPage extends javax.swing.JFrame {
         mmg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void daySalesTableMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_daySalesTableMouseWheelMoved
-        // TODO add your handling code here:
-        showDayTable();
-    }//GEN-LAST:event_daySalesTableMouseWheelMoved
 
     /**
      * @param args the command line arguments
