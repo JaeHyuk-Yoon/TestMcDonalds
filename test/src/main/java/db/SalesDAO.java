@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * SalesDAO.java
+ * - 매출관련 디비 값관련 클래스
  */
 package db;
 
@@ -32,6 +31,7 @@ public class SalesDAO {
         }
     }
     
+    //해당 브랜치의 날짜별 매출리스트를 가져오는 메소드
     public ArrayList<Sales> getList(String branch) throws SQLException{
         String SQL = "SELECT * FROM sales WHERE branch = ?";
         ArrayList<Sales> list = new ArrayList<>();
@@ -48,6 +48,7 @@ public class SalesDAO {
         return list;
     }
     
+    //해당브랜치의 월별 매출리스트를 가져오는 메소드
     public ArrayList<MonthSales> getMonthList(String branch) throws SQLException{
         String SQL = "SELECT DATE_FORMAT(date,'%Y-%m') m, sum(total) s  FROM sales WHERE branch = ? GROUP BY m";
         ArrayList<MonthSales> list = new ArrayList<>();
@@ -65,10 +66,10 @@ public class SalesDAO {
         
     }
     
+    //해당날의 첫번째 판매라면 삽입하는 메소드
     public void insertSales(java.sql.Date date, int cost, String branch){
         try {
             System.out.println("di");
-            //java.sql.Date sqlDate = java.sql.Date.valueOf(date);
             String SQL = "INSERT INTO sales VALUES(?,?,?)";
             pstmt = conn.prepareStatement(SQL);
             pstmt.setDate(1, date);
@@ -76,7 +77,6 @@ public class SalesDAO {
             pstmt.setInt(2, cost);
             pstmt.setString(3,branch);
             pstmt.executeUpdate();
-            //어
          if(pstmt!=null) pstmt.close();
          if(conn!=null) conn.close();
         } catch (SQLException ex) {
@@ -85,6 +85,7 @@ public class SalesDAO {
         
     }
     
+    //해당날의 첫번째 판매가 아니라면 매출액을 업데이트하는 메소드
     public void updateSales(java.sql.Date date, int cost, String branch){
         try {
             String SQL = "UPDATE sales SET total = ? WHERE date = ? AND branch = ?";
@@ -103,6 +104,7 @@ public class SalesDAO {
         }
     }
     
+    //해당 판매가 처음인지아닌지 구분하는 메소드
     public void isFirst(String date, String cost, String branch){
         sdate = date;
         sbranch = branch;

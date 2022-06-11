@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * OrderlistDAO.java
+ * - 주문내역관련 디비 값 관련 클래스
  */
 package db;
 
@@ -39,6 +38,7 @@ public class OrderlistDAO {
         }
     }
 
+    //전체 주문 내역리스트 값을 읽는 메소드
     public ArrayList<Orderlist> getList(String branch){        
          String SQL = "SELECT * FROM orderlist WHERE branch = ? AND complete = ?";
          ArrayList<Orderlist> list = new ArrayList<>();
@@ -65,7 +65,7 @@ public class OrderlistDAO {
     
     
     
-    //주문들어왔을때 주문번호랑 브랜치로 주문내역 객체 가져갈수있음
+    //주문들어왔을때 주문번호랑 브랜치로 주문내역 객체 가져가는 메소드
     public Orderlist orderOn(int ordernum, String branch){
             Orderlist order = new Orderlist();
         try {
@@ -87,6 +87,8 @@ public class OrderlistDAO {
         }
             return order;
     }
+    
+    //다음 주문번호를 받아오는 메소드
     public int getOrderNum() {
         int num=0;
         String SQL = "SELECT MAX(ordernum) FROM orderlist";
@@ -106,15 +108,15 @@ public class OrderlistDAO {
         return num;
     }
     
+    //java.util.Date 타입의 현재 날짜를 sql.Date타입으로 변경하는 메소드
     public java.sql.Date getDate() {
-        //String sdate;
-        
         Date today = new Date();
         java.sql.Date sqlDate = new java.sql.Date(today.getTime());
         
         return sqlDate;
     }
     
+    //주문 내역 추가하는 메소드
     public void AddOrderList(String desc, int totalcost, String branch) {
         this.menu = desc;
         this.price  = totalcost;
@@ -139,6 +141,8 @@ public class OrderlistDAO {
              Logger.getLogger(StockDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    //주문 제작완료상태로 변경하는 메소드
     public void completeOrder(String orderNum){
         try {
             String a = orderNum;

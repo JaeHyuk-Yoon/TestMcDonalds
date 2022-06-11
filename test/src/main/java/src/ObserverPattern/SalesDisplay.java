@@ -1,4 +1,7 @@
-
+/*
+SalesDisplay.java
+- 주문알림을 받으면 주문정보 가져와 매출 값 더해주고 화면 업데이트
+*/
 package src.ObserverPattern;
 import UI.ManagerMainPage;
 import UI.SalesPage;
@@ -22,11 +25,9 @@ import javax.swing.table.DefaultTableModel;
 public class SalesDisplay implements Observer, DisplayElement {
   private int orderNum;
   private String branch;
-  ManagerMainPage mmp;
+  private ManagerMainPage mmp;
   private OrderData orderData;
   
- // public Orderlist order = new Orderlist();
-//  private ArrayList<Sales> salesList = new ArrayList<>();
   
   public SalesDisplay(OrderData orderData) {
       this.orderData = orderData;
@@ -52,10 +53,6 @@ public class SalesDisplay implements Observer, DisplayElement {
 
   public void display() {
           //매출테이블보여주기
-//          if(mmp.sap != null){
-//            mmp.sap.showDayTable();
-//            mmp.sap.showMonthTable();
-//          }
         mmp.showDayTable();
         mmp.showMonthTable();
           System.out.println("SalesDisplay");

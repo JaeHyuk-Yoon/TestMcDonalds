@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * OrderlistDAO.java
+ * - 메뉴관련 디비 값 관련 클래스
  */
 package db;
 
@@ -28,6 +27,7 @@ public class MenuDAO {
         }
     }
     
+    //메뉴 가격을 가져오는 메소드
     public int menuCost(String name) throws SQLException{
         String SQL = "SELECT price FROM menu WHERE name = ?";
          try{
