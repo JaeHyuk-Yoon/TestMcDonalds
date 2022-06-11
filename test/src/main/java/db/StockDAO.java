@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * StockDAO.java
+ * - 재고관련 디비 값관련 클래스
  */
 package db;
 
@@ -31,6 +30,8 @@ public class StockDAO {
             e.printStackTrace();
         }
     }
+    
+    //재고리스트를 가져오는 메소드
     public ArrayList<Stock> getList(String branch) throws NamingException, SQLException{
         String SQL = "SELECT * FROM stock WHERE branch = ?";
         ArrayList<Stock> list = new ArrayList<Stock>();
@@ -52,7 +53,7 @@ public class StockDAO {
          if(conn!=null) conn.close();
         }	
     }
-    
+    //재고가 0인 재료들을 가져오는 메소드
     public ArrayList<Stock> getZeroList(String branch) throws NamingException, SQLException{
         String SQL = "SELECT name FROM stock WHERE branch = ? AND qty = 0";
         ArrayList<Stock> zeroList = new ArrayList<Stock>();
@@ -74,7 +75,7 @@ public class StockDAO {
          if(conn!=null) conn.close();
         }	
     }
-    
+    //주문완료시 원재료의 수량을 줄이는 메소드
     public void completeOrderQtySet(String ind, String branch) {
         this.branch = branch;
         String SQL = "UPDATE stock SET qty = qty-1 WHERE name = ? AND branch = ?";

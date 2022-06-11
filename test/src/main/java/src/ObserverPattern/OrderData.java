@@ -1,4 +1,7 @@
-
+/*
+OrderData.java
+- 옵저버 객체 등록및 제거, 주문정보 받고 알림
+*/
 package src.ObserverPattern;
 
 import UI.ManagerMainPage;

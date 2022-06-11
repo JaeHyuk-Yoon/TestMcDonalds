@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * UserDAO.java
+ * - 사용자관련 디비 값 관련 클래스
  */
 package db;
 
@@ -31,7 +30,7 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
-    
+    //로그인 메소드
     public int login(String id,String pw) throws SQLException{
         String SQL = "SELECT pw,branch,type FROM user WHERE id = ?";
          try{

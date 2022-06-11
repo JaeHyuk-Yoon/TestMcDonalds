@@ -1,4 +1,7 @@
-
+/*
+StockDisplay.java
+- 주문알림을 받으면 해당 브랜치의 재고 화면 업데이트
+*/
 package src.ObserverPattern;
 import UI.ManagerMainPage;
 /**
@@ -8,7 +11,7 @@ import UI.ManagerMainPage;
 public class StockDisplay implements Observer, DisplayElement {
   private String branch;
   private OrderData orderData;
-  ManagerMainPage mmp;
+  private ManagerMainPage mmp;
   
   public StockDisplay(OrderData orderData) {
       this.orderData = orderData;

@@ -413,7 +413,8 @@ public class ManagerMainPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //주문내역 OrderList
+    /*주문내역 OrderList*/
+    //주문내역중 제작완료가 안된 리스트만 보여주는 메소드
     public void showListTable(){
         DefaultTableModel lTable = (DefaultTableModel)listTable.getModel();
             lTable.setNumRows(0);
@@ -427,7 +428,7 @@ public class ManagerMainPage extends javax.swing.JFrame {
                 });
             }
     }
-    
+    //주문리스트에서 선택한 주문을 자세히 보여주는 메소드
     public void showDetailTable(){
         DefaultTableModel DTable = (DefaultTableModel)detailTable.getModel();
         DTable.setNumRows(0);
@@ -454,6 +455,7 @@ public class ManagerMainPage extends javax.swing.JFrame {
         }
          
     }
+    //바로 들어온 주문을 보여주는 메소드
     public void showNowDetailTable(int num, String menu){
         DefaultTableModel DTable = (DefaultTableModel)detailTable.getModel();
         DTable.setNumRows(0);
@@ -470,7 +472,8 @@ public class ManagerMainPage extends javax.swing.JFrame {
              detailPanel.setVisible(true);
         }
     
-    //재고 Stock
+    /*재고 Stock*/
+    //해당브랜치의 재고를 보여주는 메소드
     public void showStockTable(String branch){
    try {
             // TODO add your handling code here:
@@ -490,7 +493,8 @@ public class ManagerMainPage extends javax.swing.JFrame {
             Logger.getLogger(StockPage.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
-    //매출 Sales
+    /*매출 Sales*/
+    //일매출을 보여주는 메소드
     public void showDayTable(){
         try {
             // TODO add your handling code here:
@@ -508,7 +512,7 @@ public class ManagerMainPage extends javax.swing.JFrame {
             Logger.getLogger(SalesPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    //월매출을 보여주는 메소드
     public void showMonthTable(){
         try {
             // TODO add your handling code here:
@@ -527,18 +531,18 @@ public class ManagerMainPage extends javax.swing.JFrame {
         }
     }
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        // 메뉴바의 종료버튼
         System.exit(0);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        // 메뉴바의 로그아웃버튼
         new LoginPage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void listTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_listTableAncestorAdded
-        // TODO add your handling code here:
+        // 주문내역테이블
         showListTable();
     }//GEN-LAST:event_listTableAncestorAdded
 
@@ -563,7 +567,7 @@ public class ManagerMainPage extends javax.swing.JFrame {
 
     private void stockTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_stockTableAncestorAdded
         try {
-            // TODO add your handling code here:
+            // 재고 테이블
             DefaultTableModel sTable = (DefaultTableModel)stockTable.getModel();
             sTable.setNumRows(0);
 
@@ -582,15 +586,15 @@ public class ManagerMainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_stockTableAncestorAdded
 
     private void daySalesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_daySalesTableAncestorAdded
-        // TODO add your handling code here:
+        // 일매출 테이블
         showDayTable();
     }//GEN-LAST:event_daySalesTableAncestorAdded
 
     private void monthSalesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_monthSalesTableAncestorAdded
-        // TODO add your handling code here:
+        // 월매출 테이블
         showMonthTable();
     }//GEN-LAST:event_monthSalesTableAncestorAdded
-public SalesPage sap= null;public OrderListPage olp= null;public StockPage stp = null;
+
     
     /**
      * @param args the command line arguments

@@ -1,4 +1,7 @@
-
+/*
+OrderListDisplay.java
+- 주문알림을 받으면 주문정보 가져와 화면 업데이트
+*/
 package src.ObserverPattern;
 import UI.ManagerMainPage;
 import db.Orderlist;
@@ -12,10 +15,9 @@ import src.ObserverPattern.OrderData;
 public class OrderListDisplay implements Observer, DisplayElement {
   private int orderNum;
   private String branch;
-  ManagerMainPage mmp;
+  private ManagerMainPage mmp;
   private OrderData orderData;
-  public Orderlist order = new Orderlist();
-  //private int numReadings = 0;
+  private Orderlist order = new Orderlist();
   
   public OrderListDisplay(OrderData orderData) {
       this.orderData = orderData;
@@ -28,7 +30,7 @@ public class OrderListDisplay implements Observer, DisplayElement {
       this.mmp = mmp;
       //변수값 이용해서 DAO에서 값가져옴
       order=(new OrderlistDAO()).orderOn(orderNum,branch);
-          display();
+      display();
   }
   public void display() {
       //orderlistdisplay 테이블 화면 다시 실행하도록
