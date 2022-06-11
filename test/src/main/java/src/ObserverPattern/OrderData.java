@@ -11,8 +11,8 @@ public class OrderData implements Subject {
     
   private int orderNum;
   private String branch;
-  private ArrayList observers;
-  ManagerMainPage mmp;
+  private  ArrayList observers;
+  private  ManagerMainPage mmp;
   
     public OrderData() {
         observers = new ArrayList();           
@@ -50,7 +50,7 @@ public class OrderData implements Subject {
       return orderNum;
   }
   
-  public String getbranch() {
+  public String getBranch() {
       return branch;
   }
   

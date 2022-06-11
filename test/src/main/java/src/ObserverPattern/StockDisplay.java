@@ -23,9 +23,7 @@ public class StockDisplay implements Observer, DisplayElement {
 
   public void display() {
       //StockDisplay 테이블 화면 다시 실행하도록
-      if(mmp.stp!=null){          
-        mmp.stp.showStockTable(branch);
-      }
+      mmp.showStockTable(branch);
       System.out.println("StockDisplay DISPLAY");
   } 
 

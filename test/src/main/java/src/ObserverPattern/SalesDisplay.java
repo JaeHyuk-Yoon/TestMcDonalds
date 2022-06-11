@@ -25,8 +25,8 @@ public class SalesDisplay implements Observer, DisplayElement {
   ManagerMainPage mmp;
   private OrderData orderData;
   
-  public Orderlist order = new Orderlist();
-  private ArrayList<Sales> salesList = new ArrayList<>();
+ // public Orderlist order = new Orderlist();
+//  private ArrayList<Sales> salesList = new ArrayList<>();
   
   public SalesDisplay(OrderData orderData) {
       this.orderData = orderData;
@@ -35,16 +35,16 @@ public class SalesDisplay implements Observer, DisplayElement {
 
   public void update(int orderNum, String branch,ManagerMainPage mmp) {
       //orderNum과 branch이용해서 해당 주문의 가격조회
-      //String sc = "500";
       this.orderNum = orderNum;
       this.branch = branch;
       this.mmp = mmp;
-      order=(new OrderlistDAO()).orderOn(orderNum,branch);
+      
+      Orderlist order = order=(new OrderlistDAO()).orderOn(orderNum,branch);
       
       String cost = Integer.toString(order.getPrice());
       String orderDate = order.getDate().toString();
 
-//매출 더해주기-> 매출 값 업데이트
+    //매출 더해주기-> 매출 값 업데이트
      new SalesDAO().isFirst(orderDate, cost, branch);
      
       display();
@@ -52,10 +52,12 @@ public class SalesDisplay implements Observer, DisplayElement {
 
   public void display() {
           //매출테이블보여주기
-          if(mmp.sap!=null){
-            mmp.sap.showDayTable();
-            mmp.sap.showMonthTable();
-          }
+//          if(mmp.sap != null){
+//            mmp.sap.showDayTable();
+//            mmp.sap.showMonthTable();
+//          }
+        mmp.showDayTable();
+        mmp.showMonthTable();
           System.out.println("SalesDisplay");
   }
 }

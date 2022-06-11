@@ -32,11 +32,9 @@ public class OrderListDisplay implements Observer, DisplayElement {
   }
   public void display() {
       //orderlistdisplay 테이블 화면 다시 실행하도록
-      if(mmp.olp!=null){
-          mmp.olp.showListTable();
-          //오더넘이랑 주문내역 넘겨주기
-          mmp.olp.showNowDetailTable(orderNum, order.getMenu());
-      }
+    mmp.showListTable();
+    //주문번호랑 주문내역 넘겨주기
+    mmp.showNowDetailTable(orderNum, order.getMenu());
       System.out.println("OrderListDisplay DISPLAY");
   }
 }
