@@ -18,7 +18,6 @@ import src.DecoratorPattern.Menu;
 import src.FactoryPattern.Bun;
 import src.FactoryPattern.BurgerStoreIngredientFactory;
 import src.FactoryPattern.Cheese;
-import src.FactoryPattern.IndBeefPatty;
 import src.FactoryPattern.IndCola;
 import src.FactoryPattern.Potato;
 import src.FactoryPattern.Vegetable;
@@ -33,13 +32,6 @@ public class BeefBurger extends Burger {
     
     int cost = 0;
     
-    protected Bun indBun;
-    protected Cheese indCheese;
-    protected Vegetable indVegetable;
-    protected Potato indPotato;
-    protected IndCola indCola;
-    protected IndBeefPatty indBeefPatty;
-    
     String branch;
     
     //해당 버거에 사용된 기본 원재료들을 담기위한 ArrayList
@@ -49,7 +41,6 @@ public class BeefBurger extends Burger {
         description = "비프 버거";
     }
     
-    private BurgerStoreIngredientFactory ingregientFactory;
 
     public BeefBurger(BurgerStoreIngredientFactory ingregientFactory) {
         this.ingregientFactory = ingregientFactory;

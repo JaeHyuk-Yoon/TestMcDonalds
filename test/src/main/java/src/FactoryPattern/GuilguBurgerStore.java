@@ -26,9 +26,7 @@ public class GuilguBurgerStore extends BurgerStore{
     protected Vegetable indVegetable;
     protected Potato indPotato;
     protected IndCola indCola;
-    protected IndBeefPatty indBeefPatty;
     
-    Burger burger;
     public BurgerStoreIngredientFactory factory;
     
     //919매장에서 사용되는 총 원재료객체를 생성하여 가지고옴
@@ -43,8 +41,6 @@ public class GuilguBurgerStore extends BurgerStore{
         this.indPotato = factory.createPotato();
         
         this.indCola = factory.createCola();
-        
-        this.indBeefPatty = factory.createBeefPatty();
       
     }
     

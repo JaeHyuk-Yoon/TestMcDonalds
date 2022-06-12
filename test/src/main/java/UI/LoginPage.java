@@ -50,7 +50,7 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel2.setText("PassWord : ");
 
         jLabel3.setFont(new java.awt.Font("맑은 고딕", 1, 48)); // NOI18N
-        jLabel3.setText("McDonalds ");
+        jLabel3.setText("BurgerStore Kiosk");
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -91,16 +91,16 @@ public class LoginPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
+                        .addGap(91, 91, 91)
                         .addComponent(jLabel3)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addGap(81, 81, 81)
                 .addComponent(jLabel3)
-                .addGap(83, 83, 83)
+                .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

@@ -18,7 +18,6 @@ import src.StrategyPattern.CheeseBurger;
  */
 public abstract class SideMenu extends Menu{
     int cost = 0;
-    SideMenu sidemenu;
     public String description = "";
     
      public String getDescription() {

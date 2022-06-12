@@ -20,7 +20,7 @@ public class BurgerReceiver {
     public BurgerReceiver() {
     }
     
-    public Burger burger;
+    private Burger burger;
     private BurgerStore burgerStore;
     int cn =0;//치즈토핑
     int vn =0;//야채토핑

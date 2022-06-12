@@ -19,7 +19,6 @@ import src.DecoratorPattern.Menu;
 import src.FactoryPattern.Bun;
 import src.FactoryPattern.BurgerStoreIngredientFactory;
 import src.FactoryPattern.Cheese;
-import src.FactoryPattern.IndBeefPatty;
 import src.FactoryPattern.IndCola;
 import src.FactoryPattern.Potato;
 import src.FactoryPattern.Vegetable;
@@ -32,14 +31,6 @@ public class CheeseBurger extends Burger {
     MenuDAO menuDAO = new MenuDAO();
     
     int cost = 0;
-    
-    protected Bun indBun;
-    protected Cheese indCheese;
-    protected Vegetable indVegetable;
-    protected Potato indPotato;
-    protected IndCola indCola;
-    protected IndBeefPatty indBeefPatty;
-    
     
     String branch;
     //해당 버거에 사용된 기본 원재료들을 담기위한 ArrayList
@@ -56,8 +47,6 @@ public class CheeseBurger extends Burger {
         sauce = selectSauce.getSauce();
         vegetable = selectVegetable.getVegetable();        
     }
-    
-    private BurgerStoreIngredientFactory ingregientFactory;
 
     public CheeseBurger(BurgerStoreIngredientFactory ingregientFactory) {
         this.ingregientFactory = ingregientFactory;
@@ -90,6 +79,12 @@ public class CheeseBurger extends Burger {
             Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cost;
+    }
+    
+    //버거 주문 내역 생성하기위한 메서드
+    @Override
+    public String getDescription() {
+        return description;
     }
 
     public void completeOrder(String branch) {

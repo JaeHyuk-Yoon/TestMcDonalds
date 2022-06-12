@@ -7,10 +7,8 @@ package src.FactoryPattern;
 
 import src.FactoryPattern.Potato;
 import src.FactoryPattern.MozzarellaCheese;
-import src.FactoryPattern.Medium;
 import src.FactoryPattern.IndCola;
 import src.FactoryPattern.IndCocaCola;
-import src.FactoryPattern.IndBeefPatty;
 import src.FactoryPattern.HashBrown;
 import src.FactoryPattern.Cheese;
 import src.FactoryPattern.BurgerStoreIngredientFactory;
@@ -50,11 +48,6 @@ public class SnGBurgerIngredientFactory implements BurgerStoreIngredientFactory{
     @Override
     public IndCola createCola() {
         return new IndCocaCola();
-    }
-    
-    @Override
-    public IndBeefPatty createBeefPatty() {
-        return new Medium();
     }
     
     public String getFactoryName() {

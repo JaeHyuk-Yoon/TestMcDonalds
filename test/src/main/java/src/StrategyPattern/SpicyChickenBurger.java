@@ -20,7 +20,6 @@ import src.DecoratorPattern.Menu;
 import src.FactoryPattern.Bun;
 import src.FactoryPattern.BurgerStoreIngredientFactory;
 import src.FactoryPattern.Cheese;
-import src.FactoryPattern.IndBeefPatty;
 import src.FactoryPattern.IndCola;
 import src.FactoryPattern.Potato;
 import src.FactoryPattern.Vegetable;
@@ -34,13 +33,6 @@ public class SpicyChickenBurger extends Burger {
     
     int cost = 0;
     
-    protected Bun indBun;
-    protected Cheese indCheese;
-    protected Vegetable indVegetable;
-    protected Potato indPotato;
-    protected IndCola indCola;
-    protected IndBeefPatty indBeefPatty;
-    
     String branch;
     //해당 버거에 사용된 기본 원재료들을 담기위한 ArrayList
     public ArrayList<String> SpicyChickenBurgerind = new ArrayList<String>();
@@ -48,8 +40,6 @@ public class SpicyChickenBurger extends Burger {
     public SpicyChickenBurger() {
         description = "매운 치킨 버거";
     }
-    
-    private BurgerStoreIngredientFactory ingregientFactory;
 
     public SpicyChickenBurger(BurgerStoreIngredientFactory ingregientFactory) {
         this.ingregientFactory = ingregientFactory;
@@ -83,6 +73,12 @@ public class SpicyChickenBurger extends Burger {
             Logger.getLogger(CheeseBurger.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cost;
+    }
+    
+    //버거 주문 내역 생성하기위한 메서드
+    @Override
+    public String getDescription() {
+        return description;
     }
    
     public void completeOrder(String branch) {

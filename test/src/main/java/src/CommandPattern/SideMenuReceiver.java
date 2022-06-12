@@ -6,7 +6,6 @@
 package src.CommandPattern;
 
 import src.DecoratorPattern.SideMenu;
-import src.FactoryPattern.BurgerStore;
 
 
 /**
@@ -18,7 +17,7 @@ public class SideMenuReceiver {
     public SideMenuReceiver() {
     }
     
-    public SideMenu sideMenu;
+    private SideMenu sideMenu;
     
     // 고른 사이드메뉴를 사이드메뉴시버에 담는 메서드
     public void addSide(SideMenu sideMenu) {

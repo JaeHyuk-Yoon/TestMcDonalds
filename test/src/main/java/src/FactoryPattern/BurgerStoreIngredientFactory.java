@@ -19,7 +19,6 @@ public interface BurgerStoreIngredientFactory {
     Potato createPotato();
     Vegetable createVegetable();
     IndCola createCola();
-    IndBeefPatty createBeefPatty();
     
     public abstract String getFactoryName();
 }

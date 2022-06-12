@@ -17,12 +17,10 @@ import src.FactoryPattern.BurgerStore;
 public class SetCheeseStickCommand implements Command {
     private SideMenuReceiver sideMenuReceiver;
     SideMenu sidemenu;
-    //BurgerStore burgerStore;
     
     //해당 객체의 생성자로써 리시버를 설정하는 메서드
     public SetCheeseStickCommand(SideMenuReceiver sideMenuReceiver, BurgerStore BurgerStore) {
         this.sideMenuReceiver = sideMenuReceiver;
-        //this.burgerStore = BurgerStore;
     }
     
     //치즈스틱 객체 생성하여 리시버로 전달

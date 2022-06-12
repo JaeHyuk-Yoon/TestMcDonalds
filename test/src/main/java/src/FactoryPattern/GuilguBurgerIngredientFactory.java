@@ -46,11 +46,6 @@ public class GuilguBurgerIngredientFactory implements BurgerStoreIngredientFacto
         return new IndPepsiCola();
     }
     
-    @Override
-    public IndBeefPatty createBeefPatty() {
-        return new MediumRare();
-    }
-    
     public String getFactoryName() {
         return "919";
     }

@@ -7,7 +7,12 @@ package src.StrategyPattern;
 
 import java.util.ArrayList;
 import src.DecoratorPattern.Menu;
+import src.FactoryPattern.Bun;
 import src.FactoryPattern.BurgerStoreIngredientFactory;
+import src.FactoryPattern.Cheese;
+import src.FactoryPattern.IndCola;
+import src.FactoryPattern.Potato;
+import src.FactoryPattern.Vegetable;
 import src.StrategyPattern.SelectVegetable;
 import src.StrategyPattern.SelectSauce;
 import src.StrategyPattern.SelectPatty;
@@ -19,25 +24,25 @@ import src.StrategyPattern.CheeseWheather;
  */
 public abstract class Burger extends Menu{
     
-    // 팩토리 원재료군
-    //protected Bun indBun;
-    //protected Cheese indCheese;
-    //protected Vegetable indVegetable;
-    //protected Potato indPotato;
-    //protected IndCola indCola;
-    //protected IndBeefPatty indBeefPatty;
-    
     // 스트레티지
     protected CheeseWheather cheeseWheather;
     protected SelectSauce selectSauce;
     protected SelectPatty selectPatty;
     protected SelectVegetable selectVegetable;
+    
     protected boolean cheese;
     protected String sauce;
     protected String patty;
     protected String vegetable;
     
-    private BurgerStoreIngredientFactory ingregientFactory;
+    // 팩토리 원재료군
+    protected Bun indBun;
+    protected Cheese indCheese;
+    protected Vegetable indVegetable;
+    protected Potato indPotato;
+    protected IndCola indCola;
+    
+    protected BurgerStoreIngredientFactory ingregientFactory;
     
     public Burger() {
         
@@ -45,11 +50,7 @@ public abstract class Burger extends Menu{
     
     public abstract int cost();
     
-    //public abstract String getDescription();
-    
-    //public abstract String testDisplay();
-    
-    //public abstract ArrayList<String> getBeefBurgerInd();
+    public abstract String getDescription();
     
     public void setCheeseWheather(CheeseWheather scw) {
         cheeseWheather = scw;
