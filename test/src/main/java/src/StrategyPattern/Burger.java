@@ -5,7 +5,6 @@
  */
 package src.StrategyPattern;
 
-import java.util.ArrayList;
 import src.DecoratorPattern.Menu;
 import src.FactoryPattern.Bun;
 import src.FactoryPattern.BurgerStoreIngredientFactory;
